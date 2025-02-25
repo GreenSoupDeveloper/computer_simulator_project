@@ -1,0 +1,154 @@
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class objDetecter : MonoBehaviour
+{
+    public computerCase curcase;
+    public ObjDetecterType thisObjType;
+    public enum ObjDetecterType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan };
+    [Header("HDD")]
+    //if 0, hdd1, if 1, hdd2, if 2, hdd3
+    public int hddIndex = 0;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<objectScript>().type == objectScript.CompType.Motherboard && thisObjType == ObjDetecterType.Motherboard)
+        {
+            if (!curcase.hasMOBO)
+            {
+                other.gameObject.transform.parent = this.gameObject.transform;
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                curcase.hasMOBO = true;
+                other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                pickupController.heldObj = null;
+                pickupController.pickedObject = false;
+                pickupController.heldObjRB = null;
+                curcase.mobo = other.gameObject;
+            }
+            else
+            {
+                Debug.Log("already has a mobo!");
+            }
+        }
+        if (other.gameObject.GetComponent<objectScript>().type == objectScript.CompType.Power_Supply && thisObjType == ObjDetecterType.Power_Supply)
+        {
+            if (!curcase.hasPowerSupply)
+            {
+                other.gameObject.transform.parent = this.gameObject.transform;
+                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                curcase.hasPowerSupply = true;
+                other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                pickupController.heldObj = null;
+                pickupController.pickedObject = false;
+                pickupController.heldObjRB = null;
+                curcase.powerSupply = other.gameObject;
+            }
+            else
+            {
+                Debug.Log("already has a power supply!");
+            }
+        }
+        if (other.gameObject.GetComponent<objectScript>().type == objectScript.CompType.Hard_Drive && thisObjType == ObjDetecterType.Hard_Drive)
+        {
+            if (hddIndex == 0)
+            {
+                if (!curcase.hasHDD1)
+                {
+                    other.gameObject.transform.parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                    other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                    curcase.hasHDD1 = true;
+                    other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                    other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                    pickupController.heldObj = null;
+                    pickupController.pickedObject = false;
+                    pickupController.heldObjRB = null;
+                    curcase.hdd1 = other.gameObject;
+                    curcase.hddList.Add(other.gameObject);
+
+                }
+                else
+                {
+                    Debug.Log("already has a hdd!");
+                }
+            }
+            else if (hddIndex == 1)
+            {
+                if (!curcase.hasHDD2)
+                {
+                    other.gameObject.transform.parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                    other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                    curcase.hasHDD2 = true;
+                    other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                    other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                    pickupController.heldObj = null;
+                    pickupController.pickedObject = false;
+                    pickupController.heldObjRB = null;
+                    curcase.hdd2 = other.gameObject;
+                    curcase.hddList.Add(other.gameObject);
+                }
+                else
+                {
+                    Debug.Log("already has a hdd!");
+                }
+            }
+            else if (hddIndex == 2)
+            {
+                if (!curcase.hasHDD3)
+                {
+                    other.gameObject.transform.parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                    other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                    curcase.hasHDD3 = true;
+                    other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                    other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                    pickupController.heldObj = null;
+                    pickupController.pickedObject = false;
+                    pickupController.heldObjRB = null;
+                    curcase.hdd3 = other.gameObject;
+                    curcase.hddList.Add(other.gameObject);
+                }
+                else
+                {
+                    Debug.Log("already has a hdd!");
+                }
+            }
+            
+        }
+    }
+}
