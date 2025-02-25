@@ -22,6 +22,7 @@ public class pcOS : MonoBehaviour
 
     public bool startSequence = true;
     public TextMeshProUGUI texter;
+    public shop currShop;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -119,6 +120,7 @@ public class pcOS : MonoBehaviour
             BSOD.SetActive(false);
             startSequence = true;
             black.SetActive(true);
+            currShop.shopOpened = false;
             if (!isANoOsScreen)
             {
                 taskBar.SetActive(false);
@@ -165,5 +167,8 @@ public class pcOS : MonoBehaviour
         pickupController.isOnPCOS = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+    public void openShop(){
+        currShop.shopOpened = true;
     }
 }

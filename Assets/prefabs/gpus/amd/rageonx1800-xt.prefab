@@ -54,6 +54,8 @@ MonoBehaviour:
   other: 512MB VRAM
   value: 512
   life: 100
+  cpuBrand: 0
+  gpuBrand: 2
 --- !u!65 &1624028823222161506
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -140,6 +140,8 @@ MonoBehaviour:
   other: 128MB VRAM
   value: 128
   life: 100
+  cpuBrand: 0
+  gpuBrand: 2
 --- !u!65 &4300435325268061739
 BoxCollider:
   m_ObjectHideFlags: 0

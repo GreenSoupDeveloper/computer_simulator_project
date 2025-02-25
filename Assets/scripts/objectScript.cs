@@ -10,6 +10,16 @@ public class objectScript : MonoBehaviour
     public string other = "";
     public int value = 100;
     public int life = 100;
+    
+    [Header("CPU Stuff")]
+    public CPUBrand cpuBrand;
+
+    public enum CPUBrand {Intel, AMD};
+
+    [Header("GPU Stuff")]
+    public GPUBrand gpuBrand;
+
+    public enum GPUBrand {Nvidia, AMD, ATI};
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
