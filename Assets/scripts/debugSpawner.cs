@@ -11,6 +11,7 @@ public class debugSpawner : MonoBehaviour
     public GameObject hddPrefab;
     public GameObject ramPrefab;
     public GameObject cpuFanPrefab;
+    public GameObject monitorPrefab;
     public Transform target;
 
     void Update(){
@@ -38,6 +39,10 @@ public class debugSpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F8)){
             Instantiate(cpuFanPrefab, target.transform.position, Quaternion.identity);
         }
+         if(Input.GetKeyDown(KeyCode.F9)){
+            Instantiate(monitorPrefab, target.transform.position, Quaternion.identity);
+        }
+
 
     }
 }

@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57055ad3620938a4a90e3605788b737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curMobo: {fileID: 0}
-  moboreal: {fileID: 3820645999315393926}
+  curMobo: {fileID: 3820645999315393926}
   thisObjType: 2
   isRam1: 1
 --- !u!65 &961672607791708427
@@ -97,7 +96,7 @@ Transform:
   m_GameObject: {fileID: 919132149155446097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.062, y: 0.136, z: 0.016}
+  m_LocalPosition: {x: 0.0629, y: 0.1465, z: 0.0097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -115,8 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57055ad3620938a4a90e3605788b737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curMobo: {fileID: 0}
-  moboreal: {fileID: 3820645999315393926}
+  curMobo: {fileID: 3820645999315393926}
   thisObjType: 0
   isRam1: 0
 --- !u!65 &8402789357703948858
@@ -196,6 +194,16 @@ MonoBehaviour:
   moboLayer:
     serializedVersion: 2
     m_Bits: 520
+  hasRAM1: 0
+  hasRAM2: 0
+  hasCPU: 0
+  hasGPU: 0
+  hasCPUFan: 0
+  cpu: {fileID: 0}
+  ram1: {fileID: 0}
+  ram2: {fileID: 0}
+  gpu: {fileID: 0}
+  cpuFan: {fileID: 0}
 --- !u!114 &8286814608363713699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,8 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57055ad3620938a4a90e3605788b737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curMobo: {fileID: 0}
-  moboreal: {fileID: 3820645999315393926}
+  curMobo: {fileID: 3820645999315393926}
   thisObjType: 1
   isRam1: 0
 --- !u!65 &4577493320803636932
@@ -378,8 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57055ad3620938a4a90e3605788b737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curMobo: {fileID: 0}
-  moboreal: {fileID: 3820645999315393926}
+  curMobo: {fileID: 3820645999315393926}
   thisObjType: 2
   isRam1: 0
 --- !u!65 &5312830611023522350
@@ -443,7 +449,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4400130366705538438}
-  m_Mesh: {fileID: -462981019419857548, guid: e92fcd447bc6dc44bbcd46cb3512eb81, type: 3}
+  m_Mesh: {fileID: -462981019419857548, guid: 760e079dbc102c74aa46df0589ed4e49, type: 3}
 --- !u!23 &2742862809003668563
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -468,15 +474,16 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8edd23ce09c0c504f94730c9d6084a7d, type: 2}
-  - {fileID: 2100000, guid: a36ef13be51b6394fb225ef0437eaf96, type: 2}
+  - {fileID: 2100000, guid: ae955748485d36f41824cbfbc086794d, type: 2}
   - {fileID: 2100000, guid: 74b049d42d977e6498805b2c515c4086, type: 2}
   - {fileID: 2100000, guid: 0adca164f325fe046a7e98628b4eb938, type: 2}
-  - {fileID: 2100000, guid: c190def1793739e43bd30ec152686b86, type: 2}
-  - {fileID: 2100000, guid: f97f48dee9d24414a8d4c9932ae98a69, type: 2}
-  - {fileID: 2100000, guid: 43aa419a9931fac4d8f40633a33b63c6, type: 2}
-  - {fileID: 2100000, guid: 05d3f9674b468d847bf752544682eadb, type: 2}
-  - {fileID: 2100000, guid: 1756c9ff79b3cf74f93c7cfd28f4a6d9, type: 2}
-  - {fileID: 2100000, guid: f45f31b06ead20f4b9ddf28fc18111ae, type: 2}
+  - {fileID: 2100000, guid: d3bfe1b5f8623eb40b5123c69c326795, type: 2}
+  - {fileID: 2100000, guid: bafa4229807b04e40a3d6a9089ab4a12, type: 2}
+  - {fileID: 2100000, guid: 7ad4f4972bd229b43bfe8c8846eb08af, type: 2}
+  - {fileID: 2100000, guid: e48a0293d1471b7409cb9112e4762385, type: 2}
+  - {fileID: 2100000, guid: f8242271ced3b1d4887e77e4eb6a2951, type: 2}
+  - {fileID: 2100000, guid: cab5e957d1095274481296a21c07e6b6, type: 2}
+  - {fileID: 2100000, guid: bafa4229807b04e40a3d6a9089ab4a12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -525,7 +532,7 @@ Transform:
   m_GameObject: {fileID: 5872802525196805681}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.062, y: 0.136, z: 0.0396}
+  m_LocalPosition: {x: 0.062, y: 0.149, z: 0.053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -543,8 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57055ad3620938a4a90e3605788b737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curMobo: {fileID: 0}
-  moboreal: {fileID: 3820645999315393926}
+  curMobo: {fileID: 3820645999315393926}
   thisObjType: 3
   isRam1: 0
 --- !u!65 &9099649074537094596
@@ -566,5 +572,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.17173576, y: 0.18008988, z: 0.055503238}
-  m_Center: {x: 0.003307581, y: -0.0034451634, z: 0.0066743772}
+  m_Size: {x: 0.17173576, y: 0.18008988, z: 0.038823504}
+  m_Center: {x: 0.003307581, y: -0.0034451634, z: -0.008427335}

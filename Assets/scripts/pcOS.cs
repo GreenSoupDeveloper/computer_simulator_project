@@ -27,8 +27,13 @@ public class pcOS : MonoBehaviour
     void Start()
     {
         off.SetActive(true);
-        taskBar.SetActive(false);
+       
+        if (!isANoOsScreen)
+        {
+            taskBar.SetActive(false);
+        }
         exitBtn.SetActive(true);
+         Debug.Log("start thing done");
     }
 
     // Update is called once per frame
@@ -119,7 +124,9 @@ public class pcOS : MonoBehaviour
                 taskBar.SetActive(false);
             }
             off.SetActive(true);
-        }else{
+        }
+        else
+        {
             off.SetActive(false);
         }
         if (onBSOD)
@@ -149,6 +156,7 @@ public class pcOS : MonoBehaviour
 
             taskBar.SetActive(true);
         }
+         Debug.Log("os loaded actived thinger");
     }
     public void CloseOS()
     {

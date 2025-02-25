@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "computrer_simumum.sln"
+    "dotnet.defaultSolution": "computer_simulator_project.sln"
 }

@@ -317,6 +317,7 @@ public class pickupController : MonoBehaviour
 
                             currPCOS.OScam = monitor.gameObject.GetComponentInChildren<Camera>();
                             currPCOS.pcOSCanvas.worldCamera = monitor.gameObject.GetComponentInChildren<Camera>();
+                            currPCOS.computer = currPCOS.GetComponentInParent<computerCase>();
 
 
 
