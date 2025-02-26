@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class pickupController : MonoBehaviour
 {
-
+    public GameObject uiObj;
+    public Image disarmModeImg;
+    public Image linkModeImg;
     public Transform followPoint;
     public Transform parent;
     public static GameObject heldObj;
@@ -37,6 +40,7 @@ public class pickupController : MonoBehaviour
     public Material replacePcOSMat;
     public static bool linkScreenMode = false;
     public int linkStep = 0;
+    public Color clear;
     void Start()
     {
         infotxt.text = "";
@@ -48,6 +52,7 @@ public class pickupController : MonoBehaviour
         //if (GameControls.inPrimary)
         if (!isOnPCOS)
         {
+            uiObj.SetActive(true);
             if (Input.GetMouseButtonDown(0))
             {
 
@@ -165,6 +170,8 @@ public class pickupController : MonoBehaviour
                 }
 
             }
+        }else{
+            uiObj.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -185,15 +192,7 @@ public class pickupController : MonoBehaviour
                             {
                                 if (hitted.transform.gameObject.GetComponentInParent<computerCase>().hasPowerSupply)
                                 {
-                                    if (hitted.transform.gameObject.GetComponentInParent<computerCase>().hasRAM1 || hitted.transform.gameObject.GetComponentInParent<computerCase>().hasRAM2)
-                                    {
-                                        hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON = true;
-                                    }
-                                    else
-                                    {
-                                        StartCoroutine(main.setErrorMessage("Can't turn on the PC without RAM!"));
-                                        Debug.Log("Can't turn on the PC without RAM!");
-                                    }
+                                    hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON = true;
                                 }
                                 else
                                 {
@@ -326,6 +325,8 @@ public class pickupController : MonoBehaviour
                             currPCOS.gameObject.GetComponent<pcOS>().OScam = monitor.monitorCam;
                             currPCOS.OScam.targetTexture = monitor.monitorTex;
 
+                            StartCoroutine(main.setInfoMessage("Monitor Connected!"));
+
 
                             linkStep++;
                         }
@@ -357,6 +358,7 @@ public class pickupController : MonoBehaviour
                 {
                     if (hitted.transform.gameObject.GetComponent<computerMonitor>().onLeComputahr == true)
                     {
+                        if(hitted.transform.gameObject.GetComponent<computerMonitor>().allowEnter == true){
 
 
                         /*if (hitted.transform.GetComponent<computerMonitor>().monitorScreen.material != replacePcOSMat)
@@ -373,6 +375,7 @@ public class pickupController : MonoBehaviour
                         hitted.transform.GetComponent<computerMonitor>().monitorCam.targetDisplay = 0;
 
                         Debug.Log("entered to os!");
+                        }
                     }
 
 
@@ -385,18 +388,24 @@ public class pickupController : MonoBehaviour
             pickedObject = false;
 
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)){
+            
             canRotate = true;
+        }
         if (Input.GetKeyUp(KeyCode.F))
             canRotate = false;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (linkScreenMode)
+            if (linkScreenMode){
                 linkScreenMode = false;
-            else
+                StartCoroutine(main.setInfoMessage("Link Screen Mode deactivated."));
+            }
+            else{
                 linkScreenMode = true;
+                StartCoroutine(main.setInfoMessage("Link Screen Mode activated."));
+            }
 
-            infotxt.text = "Screen Link mode: " + linkScreenMode + "\nDisarm mode: " + disarmMode;
+
         }
 
 
@@ -405,13 +414,31 @@ public class pickupController : MonoBehaviour
             if (disarmMode)
             {
                 disarmMode = false;
-
+                StartCoroutine(main.setInfoMessage("Disarm Mode deactivated."));
             }
             else
             {
+                StartCoroutine(main.setInfoMessage("Disarm Mode activated."));
                 disarmMode = true;
             }
-            infotxt.text = "Screen Link mode: " + linkScreenMode + "\nDisarm mode: " + disarmMode;
+        }
+        if (disarmMode)
+        {
+            disarmModeImg.color = Color.white;
+        }
+        else
+        {
+            disarmModeImg.color = clear;
+        }
+        if (linkScreenMode)
+        {
+
+            linkModeImg.color = Color.white;
+
+        }
+        else
+        {
+            linkModeImg.color = clear;
         }
 
 
@@ -497,11 +524,11 @@ public class pickupController : MonoBehaviour
     }
     void DropObject()
     {
-
+        infotxt.text = "";
 
         if (heldObjRB != null && heldObj != null)
         {
-            infotxt.text = "";
+
 
 
             heldObjRB.useGravity = true;

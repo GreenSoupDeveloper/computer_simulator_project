@@ -16,8 +16,10 @@ public class computerMonitor : MonoBehaviour
     public computerMonitor[] monitores;
     public computerCase[] computers;
     public bool onLeComputahr = false;
+    public bool allowEnter = false;
     public bool skipDiddy = false;
     public bool clear = false;
+   
 
     void Start()
     {
@@ -60,6 +62,8 @@ public class computerMonitor : MonoBehaviour
                 currpcOS = cp.pcOS;
                 skipDiddy = true;
                 currpcOS.OScam = monitorCam;
+                allowEnter = true;
+                
 
                 foreach (computerMonitor mn in monitores)
                 {
@@ -109,6 +113,12 @@ public class computerMonitor : MonoBehaviour
         if(clear){
             currpcOS.pcOSCanvas.worldCamera = null;
             clear = false;
+        }
+        if(currpcOS.GetComponentInParent<computerCase>().hadRAM1 || currpcOS.GetComponentInParent<computerCase>().hadRAM2){
+             
+        }else{
+            currpcOS.pcOSCanvas.worldCamera = null;
+            allowEnter = false;
         }
        
 

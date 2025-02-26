@@ -56,6 +56,7 @@ MonoBehaviour:
   life: 100
   cpuBrand: 0
   gpuBrand: 2
+  fanObj: {fileID: 6085865597928726669}
 --- !u!65 &1624028823222161506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -173,6 +174,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d26909dccb791b4bb5a61250abe365c, type: 3}
+--- !u!1 &6085865597928726669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 5d26909dccb791b4bb5a61250abe365c, type: 3}
+  m_PrefabInstance: {fileID: 7407433051317530253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7009505788120631654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5d26909dccb791b4bb5a61250abe365c, type: 3}

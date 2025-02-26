@@ -39,6 +39,7 @@ public class computerCase : MonoBehaviour
   public GameObject ram2;
   public GameObject gpu;
   public GameObject cpuFan;
+  public GameObject onLight;
   public List<GameObject> hddList;
 
 
@@ -80,6 +81,7 @@ public class computerCase : MonoBehaviour
     }
     if (isPcON)
     {
+      onLight.SetActive(true);
       if (hasMOBO && hasPowerSupply && hasCPU)
       {
         if (hadRAM1)
@@ -180,6 +182,7 @@ public class computerCase : MonoBehaviour
     }
     else
     {
+      onLight.SetActive(false);
 
       hadGPU = hasGPU;
       hadHDD1 = hasHDD1;
@@ -206,6 +209,11 @@ public class computerCase : MonoBehaviour
 
 
         pcOS = noOS;
+      }
+      if(hasRAM1 || hasRAM2){
+        
+      }else{
+        pcOS.pcOSCanvas.worldCamera = null;
       }
 
 

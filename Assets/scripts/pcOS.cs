@@ -20,21 +20,22 @@ public class pcOS : MonoBehaviour
     public bool isANoOsScreen = false;
 
 
+
     public bool startSequence = true;
     public TextMeshProUGUI texter;
-    public shop currShop;
+    public webBrowser currBrowser;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         off.SetActive(true);
-       
+
         if (!isANoOsScreen)
         {
             taskBar.SetActive(false);
         }
         exitBtn.SetActive(true);
-         Debug.Log("start thing done");
+        Debug.Log("start thing done");
     }
 
     // Update is called once per frame
@@ -85,7 +86,7 @@ public class pcOS : MonoBehaviour
                     }
 
 
-                    texter.text = "CPU: " + cpuname + "\nGPU: " + gpuname + "\nRAM: " + ramamount + "MB\nVRAM: " + vramamount + "MB\nStorage: " + storage + "GB";
+                    //texter.text = "CPU: " + cpuname + "\nGPU: " + gpuname + "\nRAM: " + ramamount + "MB\nVRAM: " + vramamount + "MB\nStorage: " + storage + "GB";
 
 
                     startSequence = false;
@@ -120,7 +121,8 @@ public class pcOS : MonoBehaviour
             BSOD.SetActive(false);
             startSequence = true;
             black.SetActive(true);
-            currShop.shopOpened = false;
+            if (currBrowser != null)
+                currBrowser.browserOpened = false;
             if (!isANoOsScreen)
             {
                 taskBar.SetActive(false);
@@ -158,7 +160,7 @@ public class pcOS : MonoBehaviour
 
             taskBar.SetActive(true);
         }
-         Debug.Log("os loaded actived thinger");
+        Debug.Log("os loaded actived thinger");
     }
     public void CloseOS()
     {
@@ -168,7 +170,8 @@ public class pcOS : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    public void openShop(){
-        currShop.shopOpened = true;
+    public void openWebBrowser()
+    {
+        currBrowser.browserOpened = true;
     }
 }

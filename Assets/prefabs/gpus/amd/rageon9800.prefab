@@ -142,6 +142,7 @@ MonoBehaviour:
   life: 100
   cpuBrand: 0
   gpuBrand: 2
+  fanObj: {fileID: 6269676051819941621}
 --- !u!65 &4300435325268061739
 BoxCollider:
   m_ObjectHideFlags: 0
