@@ -6,6 +6,8 @@ public class objDetecter : MonoBehaviour
     public computerCase curcase;
     public ObjDetecterType thisObjType;
     public enum ObjDetecterType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan };
+    public AudioSource audioSrc;
+    public AudioClip pop;
     [Header("HDD")]
     //if 0, hdd1, if 1, hdd2, if 2, hdd3
     public int hddIndex = 0;
@@ -40,6 +42,7 @@ public class objDetecter : MonoBehaviour
                 pickupController.pickedObject = false;
                 pickupController.heldObjRB = null;
                 curcase.mobo = other.gameObject;
+                audioSrc.PlayOneShot(pop);
             }
             else
             {
@@ -64,6 +67,7 @@ public class objDetecter : MonoBehaviour
                 pickupController.pickedObject = false;
                 pickupController.heldObjRB = null;
                 curcase.powerSupply = other.gameObject;
+                audioSrc.PlayOneShot(pop);
             }
             else
             {
@@ -91,7 +95,7 @@ public class objDetecter : MonoBehaviour
                     pickupController.heldObjRB = null;
                     curcase.hdd1 = other.gameObject;
                     curcase.hddList.Add(other.gameObject);
-
+                    audioSrc.PlayOneShot(pop);
                 }
                 else
                 {
@@ -117,6 +121,7 @@ public class objDetecter : MonoBehaviour
                     pickupController.heldObjRB = null;
                     curcase.hdd2 = other.gameObject;
                     curcase.hddList.Add(other.gameObject);
+                    audioSrc.PlayOneShot(pop);
                 }
                 else
                 {
@@ -142,13 +147,14 @@ public class objDetecter : MonoBehaviour
                     pickupController.heldObjRB = null;
                     curcase.hdd3 = other.gameObject;
                     curcase.hddList.Add(other.gameObject);
+                    audioSrc.PlayOneShot(pop);
                 }
                 else
                 {
                     Debug.Log("already has a hdd!");
                 }
             }
-            
+
         }
     }
 }

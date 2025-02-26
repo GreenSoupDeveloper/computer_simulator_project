@@ -8,6 +8,7 @@ using TMPro;
 
 public class pickupController : MonoBehaviour
 {
+      public AudioSource audioSrc;
     public GameObject uiObj;
     public Image disarmModeImg;
     public Image linkModeImg;
@@ -222,14 +223,7 @@ public class pickupController : MonoBehaviour
         }
         if (linkScreenMode)
         {
-            if (linkStep == 0)
-            {
-                infotxt.text = "Choose a Case or Motherboard";
-            }
-            if (linkStep == 1)
-            {
-                infotxt.text = "Choose a Monitor";
-            }
+           
             if (Input.GetMouseButtonDown(0))
             {
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitted, pickupRange, objLayer))
@@ -242,6 +236,7 @@ public class pickupController : MonoBehaviour
                             {
                                 currPCOS = hitted.transform.gameObject.GetComponent<computerCase>().pcOS;
                                 linkStep++;
+                                StartCoroutine(main.setInfoMessage("Now, choose a monitor."));
                             }
                             else
                             {
@@ -258,6 +253,8 @@ public class pickupController : MonoBehaviour
                             if (hitted.transform.gameObject.GetComponentInParent<computerCase>() != null)
                             {
                                 currPCOS = hitted.transform.gameObject.GetComponentInParent<computerCase>().pcOS;
+                                linkStep++;
+                                StartCoroutine(main.setInfoMessage("Now, choose a monitor."));
                             }
                             else
                             {
@@ -277,6 +274,7 @@ public class pickupController : MonoBehaviour
                     }
                     else if (linkStep == 1)
                     {
+                         
 
                         if (hitted.transform.gameObject.GetComponent<computerMonitor>() != null)
                         {
@@ -402,7 +400,7 @@ public class pickupController : MonoBehaviour
             }
             else{
                 linkScreenMode = true;
-                StartCoroutine(main.setInfoMessage("Link Screen Mode activated."));
+                StartCoroutine(main.setInfoMessage("Link Screen Mode activated.\nChoose a Computer."));
             }
 
 

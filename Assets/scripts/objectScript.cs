@@ -54,7 +54,7 @@ public class objectScript : MonoBehaviour
         }
         else
         {
-            if (type == CompType.CPU_Fan || type == CompType.GPU)
+            if (type == CompType.CPU_Fan || type == CompType.GPU || type == CompType.Power_Supply)
             {
                 if (parent.GetComponentInParent<computerCase>().isPcON)
                 {

@@ -15,15 +15,20 @@ public class computerMonitor : MonoBehaviour
     public MeshRenderer monitorScreen;
     public computerMonitor[] monitores;
     public computerCase[] computers;
+    public Ratio monitorRatio;
+    public enum Ratio { Square, WideScreen };
     public bool onLeComputahr = false;
     public bool allowEnter = false;
     public bool skipDiddy = false;
     public bool clear = false;
-   
+
 
     void Start()
     {
-        monitorTex = new RenderTexture(1280, 720, 24);
+        if (monitorRatio == Ratio.Square)
+            monitorTex = new RenderTexture(960, 720, 24);
+        else
+            monitorTex = new RenderTexture(1280, 720, 24);
 
         // Step 2: Configure the Render Texture (optional)
         monitorTex.format = RenderTextureFormat.ARGB32; // Set the format
@@ -63,7 +68,7 @@ public class computerMonitor : MonoBehaviour
                 skipDiddy = true;
                 currpcOS.OScam = monitorCam;
                 allowEnter = true;
-                
+
 
                 foreach (computerMonitor mn in monitores)
                 {
@@ -89,7 +94,7 @@ public class computerMonitor : MonoBehaviour
                 if (!skipDiddy)
                 {
                     onLeComputahr = false;
-                    
+
 
                 }
             }
@@ -107,20 +112,24 @@ public class computerMonitor : MonoBehaviour
         {
             currpcOS.pcOSCanvas.worldCamera = monitorCam;
         }
-       
+
 
         skipDiddy = false;
-        if(clear){
+        if (clear)
+        {
             currpcOS.pcOSCanvas.worldCamera = null;
             clear = false;
         }
-        if(currpcOS.GetComponentInParent<computerCase>().hadRAM1 || currpcOS.GetComponentInParent<computerCase>().hadRAM2){
-             
-        }else{
+        if (currpcOS.GetComponentInParent<computerCase>().hadRAM1 || currpcOS.GetComponentInParent<computerCase>().hadRAM2)
+        {
+
+        }
+        else
+        {
             currpcOS.pcOSCanvas.worldCamera = null;
             allowEnter = false;
         }
-       
+
 
 
 

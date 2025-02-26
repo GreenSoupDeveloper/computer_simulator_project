@@ -6,6 +6,8 @@ public class moboObjDetecter : MonoBehaviour
     public moboScript curMobo;
     public MoboObjDetecterType thisObjType;
     public enum MoboObjDetecterType { CPU, GPU, RAM, CPU_Fan };
+     public AudioSource audioSrc;
+      public AudioClip pop;
     [Header("RAM")]
     //if false: ram2, if true: ram1
     public bool isRam1 = false;
@@ -41,6 +43,7 @@ public class moboObjDetecter : MonoBehaviour
                 pickupController.pickedObject = false;
                 pickupController.heldObjRB = null;
                 curMobo.cpu = other.gameObject;
+                audioSrc.PlayOneShot(pop);
 
             }
             else
@@ -72,6 +75,7 @@ public class moboObjDetecter : MonoBehaviour
                         pickupController.pickedObject = false;
                         pickupController.heldObjRB = null;
                         curMobo.ram1 = other.gameObject;
+                        audioSrc.PlayOneShot(pop);
                     }
                     else
                     {
@@ -103,6 +107,7 @@ public class moboObjDetecter : MonoBehaviour
                         pickupController.pickedObject = false;
                         pickupController.heldObjRB = null;
                         curMobo.ram2 = other.gameObject;
+                        audioSrc.PlayOneShot(pop);
                     }
                     else
                     {
@@ -135,6 +140,7 @@ public class moboObjDetecter : MonoBehaviour
                 pickupController.pickedObject = false;
                 pickupController.heldObjRB = null;
                 curMobo.cpuFan = other.gameObject;
+                audioSrc.PlayOneShot(pop);
             }
             else
             {
@@ -159,6 +165,7 @@ public class moboObjDetecter : MonoBehaviour
                 pickupController.pickedObject = false;
                 pickupController.heldObjRB = null;
                 curMobo.gpu = other.gameObject;
+                audioSrc.PlayOneShot(pop);
             }
             else
             {

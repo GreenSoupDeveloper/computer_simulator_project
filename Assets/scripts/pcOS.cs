@@ -11,11 +11,15 @@ public class pcOS : MonoBehaviour
     public GameObject off;
     public Image wallpaper;
     public GameObject black;
-    public Sprite wallpaperimg;
+    public GameObject wallpaperimg;
     public GameObject taskBar;
+    public GameObject taskBarStart;
     public GameObject exitBtn;
     public GameObject BSOD;
+    public GameObject blackBars;
     public GameObject operativeSystem;
+    public GameObject apps;
+
     public bool onBSOD = false;
     public bool isANoOsScreen = false;
 
@@ -24,11 +28,15 @@ public class pcOS : MonoBehaviour
     public bool startSequence = true;
     public TextMeshProUGUI texter;
     public webBrowser currBrowser;
+    [Header("No Bootable Device")]
+    public GameObject noBootDevice;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         off.SetActive(true);
+        blackBars.SetActive(false);
 
         if (!isANoOsScreen)
         {
@@ -90,7 +98,8 @@ public class pcOS : MonoBehaviour
 
 
                     startSequence = false;
-                    Invoke("setWallpaper", 1f);
+                    blackBars.SetActive(true);
+                    Invoke("setOS", 1f);
                 }
                 else
                 {
@@ -106,7 +115,9 @@ public class pcOS : MonoBehaviour
                 if (computer.isPcON)
                 {
                     startSequence = false;
-                    Invoke("setWallpaper", 1f);
+                    blackBars.SetActive(true);
+                    
+                    Invoke("setOS", 1f);
                 }
                 else
                 {
@@ -128,6 +139,7 @@ public class pcOS : MonoBehaviour
                 taskBar.SetActive(false);
             }
             off.SetActive(true);
+            blackBars.SetActive(false);
         }
         else
         {
@@ -144,17 +156,40 @@ public class pcOS : MonoBehaviour
         if (pickupController.isOnPCOS)
         {
             exitBtn.SetActive(true);
+            pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
         }
         else
         {
+            if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+                pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
+            else
+                pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
             exitBtn.SetActive(false);
         }
 
+        if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+        {
+            blackBars.SetActive(true);
+            wallpaper.GetComponent<RectTransform>().sizeDelta = new Vector2(960, 720);
+            taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, -1.500002f);
+            apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(161f, 0f);
+
+        }
+        else
+        {
+            blackBars.SetActive(false);
+            wallpaper.GetComponent<RectTransform>().sizeDelta = new Vector2(1280, 720);
+            taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, -1.500002f);
+            apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
+        }
+
     }
-    void setWallpaper()
+    void setOS()
     {
+        blackBars.SetActive(true);
 
         black.SetActive(false);
+        
         if (!isANoOsScreen)
         {
 
@@ -164,6 +199,8 @@ public class pcOS : MonoBehaviour
     }
     public void CloseOS()
     {
+        if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+            pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
         OScam.targetTexture = OScam.gameObject.GetComponentInParent<computerMonitor>().monitorTex;
         OScam.targetDisplay = 1;
         pickupController.isOnPCOS = false;

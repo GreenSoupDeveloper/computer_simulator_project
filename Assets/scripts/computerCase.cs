@@ -10,6 +10,7 @@ public class computerCase : MonoBehaviour
   public pcOS pcOS;
   public pcOS noOS;
   public computerMonitor currentMonitor;
+  public AudioSource pcSrc;
   public bool hasHDD1 = false;
   public bool hasHDD2 = false;
   public bool hasHDD3 = false;

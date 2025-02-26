@@ -30,7 +30,7 @@ public class main : MonoBehaviour
         main.infofade = true;
         main.errorfade = false;
         main.errortxt.alpha = 1f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.7f);
         main.errorfade = true;
         
     }
@@ -41,7 +41,7 @@ public class main : MonoBehaviour
         main.errorfade = true;
         main.infofade = false;
         main.infotxt.alpha = 1f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.7f);
         main.infofade = true;
         
     }
