@@ -41,6 +41,7 @@ public class webBrowser : MonoBehaviour
             if (!gameObject.GetComponentInParent<pcOS>().computer.isPcON)
             {
                 browserOpened = false;
+                homePageOpened = true;
             }
         }
         else

@@ -18,6 +18,13 @@ public class shop : MonoBehaviour
         }else{
             shopObj.SetActive(false);
         }
+        if (gameObject.GetComponentInParent<pcOS>().computer != null)
+        {
+            if (!gameObject.GetComponentInParent<pcOS>().computer.isPcON)
+            {
+               shopOpened = false;
+            }
+        }
     }
     public void close(){
         shopOpened = false;
