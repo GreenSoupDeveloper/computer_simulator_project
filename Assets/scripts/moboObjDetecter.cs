@@ -6,8 +6,8 @@ public class moboObjDetecter : MonoBehaviour
     public moboScript curMobo;
     public MoboObjDetecterType thisObjType;
     public enum MoboObjDetecterType { CPU, GPU, RAM, CPU_Fan };
-     public AudioSource audioSrc;
-      public AudioClip pop;
+    public AudioSource audioSrc;
+    public AudioClip pop;
     [Header("RAM")]
     //if false: ram2, if true: ram1
     public bool isRam1 = false;
@@ -29,21 +29,26 @@ public class moboObjDetecter : MonoBehaviour
         {
             if (!curMobo.hasCPU)
             {
-                other.gameObject.transform.parent = this.gameObject.transform;
-                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
-                other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
-                curMobo.hasCPU = true;
-                other.gameObject.GetComponent<objectScript>().isOnPC = true;
-                other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
-                pickupController.heldObj = null;
-                pickupController.pickedObject = false;
-                pickupController.heldObjRB = null;
-                curMobo.cpu = other.gameObject;
-                audioSrc.PlayOneShot(pop);
+                if (!curMobo.hasCPUFan)
+                {
+                    other.gameObject.transform.parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                    other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                    other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                    other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                    curMobo.hasCPU = true;
+                    other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                    other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                    other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                    pickupController.heldObj = null;
+                    pickupController.pickedObject = false;
+                    pickupController.heldObjRB = null;
+                    curMobo.cpu = other.gameObject;
+                    audioSrc.PlayOneShot(pop);
+                }else{
+                    Debug.Log("mobo has a cpu fan, remove it!!");
+                }
 
             }
             else

@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2613827679092601619}
   - component: {fileID: 2907359038987536055}
   m_Layer: 7
-  m_Name: penthium4_660
+  m_Name: penthium4_ht_660
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,12 +140,15 @@ MonoBehaviour:
   parent: {fileID: 0}
   isOnPC: 0
   type: 1
-  name: Penthium 4 2.40A
-  other: 2.4 GHz
+  name: Penthium 4 HT 660
+  other: 3.6 GHz
   value: 100
   life: 100
   cpuBrand: 0
+  cpuSocket: 3
   gpuBrand: 0
+  fanObj: {fileID: 0}
+  speed: 12
 --- !u!65 &2613827679092601619
 BoxCollider:
   m_ObjectHideFlags: 0

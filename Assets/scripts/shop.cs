@@ -22,4 +22,7 @@ public class shop : MonoBehaviour
     public void close(){
         shopOpened = false;
     }
+    public void open(){
+        shopOpened = true;
+    }
 }

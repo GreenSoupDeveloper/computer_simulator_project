@@ -145,7 +145,10 @@ MonoBehaviour:
   value: 100
   life: 100
   cpuBrand: 1
+  cpuSocket: 1
   gpuBrand: 0
+  fanObj: {fileID: 0}
+  speed: 12
 --- !u!65 &1657075867510598814
 BoxCollider:
   m_ObjectHideFlags: 0

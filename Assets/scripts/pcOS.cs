@@ -12,6 +12,7 @@ public class pcOS : MonoBehaviour
     public Image wallpaper;
     public GameObject black;
     public GameObject wallpaperimg;
+
     public GameObject taskBar;
     public GameObject taskBarStart;
     public GameObject exitBtn;
@@ -27,7 +28,6 @@ public class pcOS : MonoBehaviour
 
     public bool startSequence = true;
     public TextMeshProUGUI texter;
-    public webBrowser currBrowser;
     [Header("No Bootable Device")]
     public GameObject noBootDevice;
 
@@ -116,7 +116,7 @@ public class pcOS : MonoBehaviour
                 {
                     startSequence = false;
                     blackBars.SetActive(true);
-                    
+
                     Invoke("setOS", 1f);
                 }
                 else
@@ -126,24 +126,40 @@ public class pcOS : MonoBehaviour
                 exitBtn.SetActive(false);
             }
         }
-        if (!computer.isPcON)
+        if (computer != null)
+        {
+            if (!computer.isPcON)
+            {
+                onBSOD = false;
+                BSOD.SetActive(false);
+                startSequence = true;
+                black.SetActive(true);
+
+                if (!isANoOsScreen)
+                {
+                    taskBar.SetActive(false);
+                }
+                off.SetActive(true);
+                blackBars.SetActive(false);
+            }
+            else
+            {
+                off.SetActive(false);
+            }
+        }
+        else
         {
             onBSOD = false;
             BSOD.SetActive(false);
             startSequence = true;
             black.SetActive(true);
-            if (currBrowser != null)
-                currBrowser.browserOpened = false;
+
             if (!isANoOsScreen)
             {
                 taskBar.SetActive(false);
             }
             off.SetActive(true);
             blackBars.SetActive(false);
-        }
-        else
-        {
-            off.SetActive(false);
         }
         if (onBSOD)
         {
@@ -167,29 +183,48 @@ public class pcOS : MonoBehaviour
             exitBtn.SetActive(false);
         }
 
+
         if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
         {
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
+
+            foreach (GameObject thing in gameObjects)
+            {
+                thing.GetComponent<RectTransform>().sizeDelta = new Vector2(960, 720);
+            }
             blackBars.SetActive(true);
-            wallpaper.GetComponent<RectTransform>().sizeDelta = new Vector2(960, 720);
+
             taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, -1.500002f);
             apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(161f, 0f);
+
 
         }
         else
         {
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
+
+            foreach (GameObject thing in gameObjects)
+            {
+                thing.GetComponent<RectTransform>().sizeDelta = new Vector2(1280, 720);
+            }
             blackBars.SetActive(false);
-            wallpaper.GetComponent<RectTransform>().sizeDelta = new Vector2(1280, 720);
+
             taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, -1.500002f);
             apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
+
         }
 
     }
     void setOS()
     {
-        blackBars.SetActive(true);
+        if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+        {
+            blackBars.SetActive(true);
+        }
 
         black.SetActive(false);
-        
+        wallpaperimg.SetActive(true);
+
         if (!isANoOsScreen)
         {
 
@@ -207,8 +242,5 @@ public class pcOS : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    public void openWebBrowser()
-    {
-        currBrowser.browserOpened = true;
-    }
+
 }

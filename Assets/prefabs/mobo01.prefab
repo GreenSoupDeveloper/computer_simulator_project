@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curMobo: {fileID: 3820645999315393926}
   thisObjType: 2
+  audioSrc: {fileID: 0}
+  pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   isRam1: 1
 --- !u!65 &961672607791708427
 BoxCollider:
@@ -116,6 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curMobo: {fileID: 3820645999315393926}
   thisObjType: 0
+  audioSrc: {fileID: 0}
+  pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   isRam1: 0
 --- !u!65 &8402789357703948858
 BoxCollider:
@@ -153,7 +157,7 @@ GameObject:
   - component: {fileID: 3842056854964337697}
   m_Layer: 9
   m_Name: mobo01
-  m_TagString: Object_MOBO
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +227,10 @@ MonoBehaviour:
   other: 
   value: 100
   life: 100
+  cpuBrand: 0
+  gpuBrand: 0
+  fanObj: {fileID: 0}
+  speed: 12
 --- !u!65 &4190000817871318549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -318,6 +326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curMobo: {fileID: 3820645999315393926}
   thisObjType: 1
+  audioSrc: {fileID: 0}
+  pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   isRam1: 0
 --- !u!65 &4577493320803636932
 BoxCollider:
@@ -387,6 +397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curMobo: {fileID: 3820645999315393926}
   thisObjType: 2
+  audioSrc: {fileID: 0}
+  pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   isRam1: 0
 --- !u!65 &5312830611023522350
 BoxCollider:
@@ -552,6 +564,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curMobo: {fileID: 3820645999315393926}
   thisObjType: 3
+  audioSrc: {fileID: 0}
+  pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   isRam1: 0
 --- !u!65 &9099649074537094596
 BoxCollider:

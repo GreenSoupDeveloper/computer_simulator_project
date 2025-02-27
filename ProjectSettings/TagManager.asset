@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Object_MOBO
-  - Object_PowerSupply
   - ComputerOS
   - PowerButton
+  - Object_PowerSupply
+  - OSScalable
   layers:
   - Default
   - TransparentFX

@@ -13,8 +13,9 @@ public class objectScript : MonoBehaviour
 
     [Header("CPU Stuff")]
     public CPUBrand cpuBrand;
-
     public enum CPUBrand { Intel, AMD };
+    public CPUSocket cpuSocket;
+    public enum CPUSocket { Socket_A, S478, S939, S775 };
 
     [Header("GPU Stuff")]
     public GPUBrand gpuBrand;
@@ -56,13 +57,27 @@ public class objectScript : MonoBehaviour
         {
             if (type == CompType.CPU_Fan || type == CompType.GPU || type == CompType.Power_Supply)
             {
-                if (parent.GetComponentInParent<computerCase>().isPcON)
+                if (parent.GetComponentInParent<computerCase>() != null)
                 {
-                    if (speedtemp < speed)
+                    if (parent.GetComponentInParent<computerCase>().isPcON)
                     {
-                        speedtemp += 0.25f;
-                    }
+                        if (speedtemp < speed)
+                        {
+                            speedtemp += 0.25f;
+                        }
 
+                    }
+                    else
+                    {
+                        if (speedtemp > 0f)
+                        {
+                            speedtemp -= 0.1f;
+                        }
+                        else
+                        {
+                            speedtemp = 0f;
+                        }
+                    }
                 }
                 else
                 {
@@ -77,6 +92,7 @@ public class objectScript : MonoBehaviour
                 }
             }
         }
-        fanObj.transform.Rotate(0, 0, speedtemp);
+        if (fanObj != null)
+            fanObj.transform.Rotate(0, 0, speedtemp);
     }
 }

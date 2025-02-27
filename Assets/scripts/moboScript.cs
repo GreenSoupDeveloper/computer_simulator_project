@@ -16,4 +16,6 @@ public class moboScript : MonoBehaviour
       public GameObject ram2;
       public GameObject gpu;
       public GameObject cpuFan;
+      public enum MoboCpuSocket { Socket_A,S478,  S939, S775 };
+      public MoboCpuSocket moboCpuSocket;
 }

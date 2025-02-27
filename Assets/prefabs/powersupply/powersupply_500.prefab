@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 5489918221024178337}
   m_Layer: 7
   m_Name: powersupply_500
-  m_TagString: Object_PowerSupply
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
