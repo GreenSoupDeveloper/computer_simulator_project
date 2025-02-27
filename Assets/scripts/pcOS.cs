@@ -217,9 +217,12 @@ public class pcOS : MonoBehaviour
     }
     void setOS()
     {
-        if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+        if (computer != null)
         {
-            blackBars.SetActive(true);
+            if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+            {
+                blackBars.SetActive(true);
+            }
         }
 
         black.SetActive(false);

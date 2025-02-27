@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class shopItem : MonoBehaviour
+public class webay_MainItem : MonoBehaviour
 {
     public GameObject prefabSpawn;
 

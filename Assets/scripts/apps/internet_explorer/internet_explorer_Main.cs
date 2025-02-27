@@ -1,12 +1,20 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class webBrowser : MonoBehaviour
+public class internet_explorer_Main : MonoBehaviour
 {
     public GameObject browserObj;
     public GameObject homePageObj;
     public bool browserOpened = false;
 
     public bool homePageOpened = false;
+    public List<GameObject> historyBack = new List<GameObject>();
+    public List<GameObject> historyForward = new List<GameObject>();
+    public string currentURL = "https://www.coogle.com";
+    
+    public TMP_InputField urlInput;
     void Start()
     {
         browserObj.SetActive(false);
@@ -14,6 +22,7 @@ public class webBrowser : MonoBehaviour
     }
     void Update()
     {
+        currentURL = urlInput.text;
 
         if (browserOpened)
         {
@@ -27,7 +36,7 @@ public class webBrowser : MonoBehaviour
         }
         if (homePageOpened)
         {
-
+            urlInput.text = "https://www.coogle.com";
             homePageObj.SetActive(true);
 
         }
@@ -61,8 +70,9 @@ public class webBrowser : MonoBehaviour
     {
         homePageOpened = false;
     }
-    public void openWebBrowser()
+    public void openinternet_explorer_Main()
     {
         browserOpened = true;
     }
+    
 }

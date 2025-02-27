@@ -140,7 +140,7 @@ TextureImporter:
         width: 22
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,6 +149,72 @@ TextureImporter:
       bones: []
       spriteID: 0df32cb5cabbb2446940423ebea8e86f
       internalID: -720809159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uiElements_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 490
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5225ef58f2cbe4bb8a1bb73a703ee5
+      internalID: -2048530938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uiElements_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 490
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807edfd85ace04b4cb20ea651b043057
+      internalID: 2011257184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uiElements_4
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 489
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6326f43f20d0643bf955bda0a5d27f
+      internalID: -1395242327
       vertices: []
       indices: 
       edges: []
@@ -169,6 +235,9 @@ TextureImporter:
     nameFileIdTable:
       uiElements_0: -1709021286
       uiElements_1: -720809159
+      uiElements_2: -2048530938
+      uiElements_3: 2011257184
+      uiElements_4: -1395242327
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
