@@ -145,6 +145,11 @@ MonoBehaviour:
   value: 100
   life: 100
   cpuBrand: 1
+  cpuSocket: 0
+  cores: 1
+  threads: 1
+  cpuSpeed: 1.5
+  tdp: 62
   gpuBrand: 0
   fanObj: {fileID: 0}
   speed: 12

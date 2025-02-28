@@ -74,8 +74,11 @@ public class pickupController : MonoBehaviour
                             }
                             else
                             {
-                                objIsOnPC = true;
-                                pickedObject = true;
+                                if (!disarmMode)
+                                {
+                                    objIsOnPC = true;
+                                    pickedObject = true;
+                                }
                             }
                         }
                         else
@@ -146,7 +149,11 @@ public class pickupController : MonoBehaviour
                                     hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.gpu = null;
                                 }
                                 hitted.transform.gameObject.GetComponent<objectScript>().isOnPC = false;
-                                hitted.transform.gameObject.GetComponent<Collider>().excludeLayers = componentColliderExclude;
+                                
+                                for (int i = 0; i < hitted.transform.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    hitted.transform.gameObject.GetComponents<Collider>()[i].excludeLayers = componentColliderExclude;
+                                }
                                 objIsOnPC = false;
                                 pickedObject = true;
 
@@ -532,22 +539,34 @@ public class pickupController : MonoBehaviour
         }
         else
         {
-            if (pickObj.GetComponentInParent<computerCase>().gameObject.GetComponent<Rigidbody>())
+            if (!disarmMode)
             {
-                infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
-                heldObjRB = pickObj.GetComponentInParent<computerCase>().gameObject.GetComponent<Rigidbody>();
+                if (pickObj.GetComponentInParent<computerCase>().gameObject.GetComponent<Rigidbody>())
+                {
+                    infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
+                    heldObjRB = pickObj.GetComponentInParent<computerCase>().gameObject.GetComponent<Rigidbody>();
 
-                heldObjRB.linearDamping = 10;
-                if (canRotate)
-                {
-                    heldObjRB.constraints = RigidbodyConstraints.None;
+                    heldObjRB.linearDamping = 10;
+                    if (canRotate)
+                    {
+                        heldObjRB.constraints = RigidbodyConstraints.None;
+                    }
+                    else
+                    {
+                        heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+                    }
+                    heldObjRB.transform.parent = parent;
+                    heldObj = pickObj;
+
                 }
-                else
-                {
-                    heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+            }
+            else
+            {
+                 if (pickObj.GetComponent<Rigidbody>())
+            {
+                    heldObjRB = pickObj.GetComponent<Rigidbody>();
+                    heldObj = pickObj;
                 }
-                heldObjRB.transform.parent = parent;
-                heldObj = pickObj;
 
             }
 

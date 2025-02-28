@@ -176,42 +176,46 @@ public class pcOS : MonoBehaviour
         }
         else
         {
+            if (computer != null)
+            {
+                if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+                    pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
+                else
+                    pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
+                exitBtn.SetActive(false);
+            }
+        }
+        if (computer != null)
+        {
             if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
-                pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
+            {
+                GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
+
+                foreach (GameObject thing in gameObjects)
+                {
+                    thing.GetComponent<RectTransform>().sizeDelta = new Vector2(960, 720);
+                }
+                blackBars.SetActive(true);
+
+                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, -1.500002f);
+                apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(161f, 0f);
+
+
+            }
             else
-                pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
-            exitBtn.SetActive(false);
-        }
-
-
-        if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
-        {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
-
-            foreach (GameObject thing in gameObjects)
             {
-                thing.GetComponent<RectTransform>().sizeDelta = new Vector2(960, 720);
+                GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
+
+                foreach (GameObject thing in gameObjects)
+                {
+                    thing.GetComponent<RectTransform>().sizeDelta = new Vector2(1280, 720);
+                }
+                blackBars.SetActive(false);
+
+                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, -1.500002f);
+                apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
+
             }
-            blackBars.SetActive(true);
-
-            taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, -1.500002f);
-            apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(161f, 0f);
-
-
-        }
-        else
-        {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
-
-            foreach (GameObject thing in gameObjects)
-            {
-                thing.GetComponent<RectTransform>().sizeDelta = new Vector2(1280, 720);
-            }
-            blackBars.SetActive(false);
-
-            taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, -1.500002f);
-            apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
-
         }
 
     }

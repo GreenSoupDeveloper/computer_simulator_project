@@ -10,12 +10,18 @@ public class objectScript : MonoBehaviour
     public string other = "";
     public int value = 100;
     public int life = 100;
+    [Header("Webay stuff")]
+    public int price = 100;
 
     [Header("CPU Stuff")]
     public CPUBrand cpuBrand;
     public enum CPUBrand { Intel, AMD };
     public CPUSocket cpuSocket;
-    public enum CPUSocket { Socket_A, S478, S939, S775 };
+    public int cores = 1;
+    public int threads = 2;
+    public float cpuSpeed = 2.2f;
+    public int tdp = 84;
+    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775 };
 
     [Header("GPU Stuff")]
     public GPUBrand gpuBrand;
