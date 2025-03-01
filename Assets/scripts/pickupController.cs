@@ -520,7 +520,11 @@ public class pickupController : MonoBehaviour
         {
             if (pickObj.GetComponent<Rigidbody>())
             {
+                if(pickObj.GetComponent<objectScript>().isObjDamaged)
+                infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other + "\n<color=red>Damaged";
+                else
                 infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
+                
                 heldObjRB = pickObj.GetComponent<Rigidbody>();
 
                 heldObjRB.linearDamping = 10;

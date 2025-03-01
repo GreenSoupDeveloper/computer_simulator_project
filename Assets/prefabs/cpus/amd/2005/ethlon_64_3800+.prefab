@@ -145,11 +145,12 @@ MonoBehaviour:
   value: 100
   life: 100
   price: 310
+  launchYear: 2005
   cpuBrand: 1
   cpuSocket: 2
   cores: 1
   threads: 1
-  cpuSpeed: 2.4
+  objSpeed: 2.4
   tdp: 89
   gpuBrand: 0
   fanObj: {fileID: 0}

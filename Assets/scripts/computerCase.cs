@@ -45,9 +45,10 @@ public class computerCase : MonoBehaviour
 
 
   public LayerMask caseLayer;
-
+  bool cpuFanChecked = false;
   [Header("pcos thing")]
   public bool isPcON = false;
+
 
 
   void Update()
@@ -82,9 +83,19 @@ public class computerCase : MonoBehaviour
     }
     if (isPcON)
     {
-      onLight.SetActive(true);
+
       if (hasMOBO && hasPowerSupply && hasCPU)
       {
+        if (cpu.GetComponent<objectScript>().isObjDamaged == true)
+        {
+          //cpu is damaged
+          StartCoroutine(main.setInfoMessage("CPU burned!"));
+          isPcON = false;
+
+        }
+        else
+          onLight.SetActive(true);
+
         if (hadRAM1)
         {
           if (!hasRAM1)
@@ -174,6 +185,23 @@ public class computerCase : MonoBehaviour
             pcOS.onBSOD = true;
           }
         }
+        if (!hasCPUFan)
+        {
+          if (!cpuFanChecked)
+          {
+            if (cpu.GetComponent<objectScript>().isObjDamaged == false)
+            {
+
+              Invoke("burnCpu", UnityEngine.Random.Range(3, 10));
+              cpuFanChecked = true;
+            }
+          }
+
+        }
+        else
+        {
+          cpuFanChecked = false;
+        }
 
       }
       else
@@ -211,13 +239,20 @@ public class computerCase : MonoBehaviour
 
         pcOS = noOS;
       }
-      if(hasRAM1 || hasRAM2){
-        
-      }else{
+      if (hasRAM1 || hasRAM2)
+      {
+
+      }
+      else
+      {
         pcOS.pcOSCanvas.worldCamera = null;
       }
 
 
     }
+  }
+  public void burnCpu()
+  {
+    cpu.GetComponent<objectScript>().isObjDamaged = true;
   }
 }

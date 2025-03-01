@@ -140,9 +140,17 @@ MonoBehaviour:
   other: 128MB VRAM
   value: 128
   life: 100
+  price: 250
+  launchYear: 2003
+  objSpeed: 325
+  tdp: 37
   cpuBrand: 0
+  cpuSocket: 0
+  cores: 1
+  threads: 2
   gpuBrand: 2
   fanObj: {fileID: 6269676051819941621}
+  speed: 12
 --- !u!65 &4300435325268061739
 BoxCollider:
   m_ObjectHideFlags: 0

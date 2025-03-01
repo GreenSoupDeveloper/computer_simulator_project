@@ -4,14 +4,18 @@ public class objectScript : MonoBehaviour
 {
     public Transform parent;
     public bool isOnPC = false;
+    public bool isObjDamaged = false;
     public CompType type;
     public enum CompType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan, Nothing };
     public string name = "Thinger";
     public string other = "";
     public int value = 100;
     public int life = 100;
-    [Header("Webay stuff")]
+    [Header("Common stuff")]
     public int price = 100;
+    public int launchYear = 2000;
+    public float objSpeed = 2.2f;
+    public int tdp = 84;
 
     [Header("CPU Stuff")]
     public CPUBrand cpuBrand;
@@ -19,8 +23,7 @@ public class objectScript : MonoBehaviour
     public CPUSocket cpuSocket;
     public int cores = 1;
     public int threads = 2;
-    public float cpuSpeed = 2.2f;
-    public int tdp = 84;
+    
     public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775 };
 
     [Header("GPU Stuff")]
