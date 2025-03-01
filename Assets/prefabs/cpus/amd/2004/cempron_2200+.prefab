@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2739192458928437957}
-  m_Mesh: {fileID: 4579454407841743219, guid: e67f5fecbcd500a4fbf8922649983197, type: 3}
+  m_Mesh: {fileID: 4579454407841743219, guid: 480c005976298e54b87b120e6acc0fd5, type: 3}
 --- !u!23 &8475265321865894959
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,11 +64,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97955d0a58db38f4d9fe2dbb70051b24, type: 2}
-  - {fileID: 2100000, guid: e63dcb6a3443d3640ab2ee01c71334bf, type: 2}
-  - {fileID: 2100000, guid: 2417c6215e9563b4c822c3a3e2cc6148, type: 2}
-  - {fileID: 2100000, guid: e20c991b5753ff04f9fa7ea8ed612e0a, type: 2}
-  - {fileID: 2100000, guid: f2d52b5a1f1b8b94e8ec8e917d829cfb, type: 2}
+  - {fileID: 2100000, guid: 32cc2f3830b85fe4b8fd3af0f15152bd, type: 2}
+  - {fileID: 2100000, guid: 15800e374975bf14cac646819d4a3bfe, type: 2}
+  - {fileID: 2100000, guid: 9f5ba9d285faac94b8e5079ce1adddab, type: 2}
+  - {fileID: 2100000, guid: e60fb2484000eac4eace328ebb6bb868, type: 2}
+  - {fileID: 2100000, guid: a6501e67aaa90fd4f88fdb2a6bde3454, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   isOnPC: 0
+  isObjDamaged: 0
   type: 1
   name: Cempron 2200+
   other: 1.5 GHz
@@ -146,12 +147,12 @@ MonoBehaviour:
   life: 100
   price: 100
   launchYear: 2004
+  objSpeed: 1.5
+  tdp: 62
   cpuBrand: 1
   cpuSocket: 0
   cores: 1
   threads: 1
-  objSpeed: 1.5
-  tdp: 62
   gpuBrand: 0
   fanObj: {fileID: 0}
   speed: 12

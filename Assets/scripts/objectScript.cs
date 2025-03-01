@@ -24,7 +24,7 @@ public class objectScript : MonoBehaviour
     public int cores = 1;
     public int threads = 2;
     
-    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775 };
+    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754 };
 
     [Header("GPU Stuff")]
     public GPUBrand gpuBrand;
