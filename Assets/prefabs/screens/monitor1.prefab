@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2195220764361389682}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.101, y: 0.548, z: 5}
+  m_LocalPosition: {x: -1.101, y: 0.81799984, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59,7 +59,9 @@ MonoBehaviour:
   monitorScreen: {fileID: 6902896870673961248}
   monitores: []
   computers: []
+  monitorRatio: 1
   onLeComputahr: 0
+  allowEnter: 0
   skipDiddy: 0
   clear: 0
 --- !u!114 &7233747587210771885
@@ -76,11 +78,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   isOnPC: 0
+  isObjDamaged: 0
   type: 8
   name: Monitor
   other: 720p
   value: 100
   life: 100
+  price: 100
+  launchYear: 2000
+  objSpeed: 2.2
+  tdp: 84
+  gpuBrand: 0
+  vram: 256
+  gpuType: DDR1
+  tmus: 4
+  rops: 4
+  ramSize: 1024
+  ramType: DDR2
+  cpuBrand: 0
+  cpuSocket: 0
+  cores: 1
+  threads: 2
+  fanObj: {fileID: 0}
+  speed: 12
 --- !u!54 &6874496064497116660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -369,7 +389,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8954125354290735104}
   - component: {fileID: 7336199083854784230}
-  - component: {fileID: 5592843845346735363}
   - component: {fileID: 4656539531289822763}
   m_Layer: 7
   m_Name: screencam
@@ -403,7 +422,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 0}
+  m_BackGroundColor: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -444,14 +463,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5592843845346735363
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6121837588985673048}
-  m_Enabled: 1
 --- !u!114 &4656539531289822763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,7 +551,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.16
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

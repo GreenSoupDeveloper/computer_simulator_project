@@ -10,7 +10,6 @@ public class computerCase : MonoBehaviour
   public pcOS pcOS;
   public pcOS noOS;
   public computerMonitor currentMonitor;
-  public AudioSource pcSrc;
   public bool hasHDD1 = false;
   public bool hasHDD2 = false;
   public bool hasHDD3 = false;
@@ -48,6 +47,13 @@ public class computerCase : MonoBehaviour
   bool cpuFanChecked = false;
   [Header("pcos thing")]
   public bool isPcON = false;
+
+    [Header("audio thing")]
+    public AudioSource pcAudio;
+
+  //other
+
+  objectScript cpuBeforeBurning;
 
   void Start()
   {
@@ -195,7 +201,7 @@ public class computerCase : MonoBehaviour
           {
             if (cpu.GetComponent<objectScript>().isObjDamaged == false)
             {
-
+              cpuBeforeBurning = cpu.GetComponent<objectScript>();
               Invoke("burnCpu", UnityEngine.Random.Range(3, 10));
               cpuFanChecked = true;
             }
@@ -252,7 +258,7 @@ public class computerCase : MonoBehaviour
         pcOS.pcOSCanvas.worldCamera = null;
       }
 
-   
+
 
 
     }
@@ -261,7 +267,8 @@ public class computerCase : MonoBehaviour
   {
     if (isPcON)
     {
-      cpu.GetComponent<objectScript>().isObjDamaged = true;
+      if (cpuBeforeBurning == cpu.GetComponent<objectScript>())
+        cpu.GetComponent<objectScript>().isObjDamaged = true;
     }
   }
 }

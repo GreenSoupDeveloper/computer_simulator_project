@@ -8,8 +8,8 @@ using TMPro;
 
 public class pickupController : MonoBehaviour
 {
-    
-    
+
+
 
     [Header("everything else")]
     public AudioSource audioSrc;
@@ -44,10 +44,10 @@ public class pickupController : MonoBehaviour
     public pcOS lastPCOS;
     public Material orgPcOSMat;
     public Material replacePcOSMat;
-    public static bool linkScreenMode = false;
+    public static bool linkmode = false;
     public int linkStep = 0;
     public Color clear;
-    
+
     void Start()
     {
         infotxt.text = "";
@@ -156,7 +156,7 @@ public class pickupController : MonoBehaviour
                                     hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.gpu = null;
                                 }
                                 hitted.transform.gameObject.GetComponent<objectScript>().isOnPC = false;
-                                
+
                                 for (int i = 0; i < hitted.transform.gameObject.GetComponents<Collider>().Length; i++)
                                 {
                                     hitted.transform.gameObject.GetComponents<Collider>()[i].excludeLayers = componentColliderExclude;
@@ -276,15 +276,16 @@ public class pickupController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (linkScreenMode)
+                if (linkmode)
                 {
-                    linkScreenMode = false;
-                    StartCoroutine(main.setInfoMessage("Link Screen Mode deactivated."));
+                    linkmode = false;
+                    linkStep = 0;
+                    StartCoroutine(main.setInfoMessage("Link Mode deactivated."));
                 }
                 else
                 {
-                    linkScreenMode = true;
-                    StartCoroutine(main.setInfoMessage("Link Screen Mode activated.\nChoose a Computer."));
+                    linkmode = true;
+                    StartCoroutine(main.setInfoMessage("Link Mode activated.\nChoose a computer."));
                 }
 
 
@@ -305,7 +306,7 @@ public class pickupController : MonoBehaviour
                 }
             }
         }
-        if (linkScreenMode)
+        if (linkmode)
         {
 
             if (Input.GetMouseButtonDown(0))
@@ -320,7 +321,7 @@ public class pickupController : MonoBehaviour
                             {
                                 currPCOS = hitted.transform.gameObject.GetComponent<computerCase>().pcOS;
                                 linkStep++;
-                                StartCoroutine(main.setInfoMessage("Now, choose a monitor."));
+                                StartCoroutine(main.setInfoMessage("Now, choose a object to connect."));
                             }
                             else
                             {
@@ -338,7 +339,7 @@ public class pickupController : MonoBehaviour
                             {
                                 currPCOS = hitted.transform.gameObject.GetComponentInParent<computerCase>().pcOS;
                                 linkStep++;
-                                StartCoroutine(main.setInfoMessage("Now, choose a monitor."));
+                                StartCoroutine(main.setInfoMessage("Now, choose a object to connect."));
                             }
                             else
                             {
@@ -412,17 +413,35 @@ public class pickupController : MonoBehaviour
 
                             linkStep++;
                         }
+                        else if (hitted.transform.gameObject.GetComponent<AudioSource>() != null && hitted.transform.gameObject.GetComponent<objectScript>().name.Contains("Speaker"))
+                        {
+                             computerCase[] computers = FindObjectsOfType<computerCase>();
+                            foreach (computerCase cp in computers)
+                            {
+                                if (cp.pcAudio == hitted.transform.gameObject.GetComponent<AudioSource>())
+                                {
+                                    cp.pcAudio = null;
+                                  
+
+                                }
+                            }
+
+                            currPCOS.GetComponentInParent<computerCase>().pcAudio = hitted.transform.gameObject.GetComponent<AudioSource>();
+                            StartCoroutine(main.setInfoMessage("Speaker Connected!"));
+                            linkStep++;
+
+                        }
                         else
                         {
-                            Debug.Log("this is not a display!");
-                            StartCoroutine(main.setErrorMessage("This is not a display!"));
+                            Debug.Log("this is not a valid obj!");
+                            StartCoroutine(main.setErrorMessage("This is not a valid object!"));
                             linkStep = 0;
                         }
 
                     }
                     if (linkStep > 1)
                     {
-                        linkScreenMode = false;
+                        linkmode = false;
                         linkStep = 0;
                     }
 
@@ -450,7 +469,7 @@ public class pickupController : MonoBehaviour
         {
             disarmModeImg.color = clear;
         }
-        if (linkScreenMode)
+        if (linkmode)
         {
 
             linkModeImg.color = Color.white;
@@ -459,6 +478,7 @@ public class pickupController : MonoBehaviour
         else
         {
             linkModeImg.color = clear;
+            linkStep = 0;
         }
 
 
@@ -527,11 +547,11 @@ public class pickupController : MonoBehaviour
         {
             if (pickObj.GetComponent<Rigidbody>())
             {
-                if(pickObj.GetComponent<objectScript>().isObjDamaged)
-                infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other + "\n<color=red>Damaged";
+                if (pickObj.GetComponent<objectScript>().isObjDamaged)
+                    infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other + "\n<color=red>Damaged";
                 else
-                infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
-                
+                    infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
+
                 heldObjRB = pickObj.GetComponent<Rigidbody>();
 
                 heldObjRB.linearDamping = 10;
@@ -573,8 +593,8 @@ public class pickupController : MonoBehaviour
             }
             else
             {
-                 if (pickObj.GetComponent<Rigidbody>())
-            {
+                if (pickObj.GetComponent<Rigidbody>())
+                {
                     heldObjRB = pickObj.GetComponent<Rigidbody>();
                     heldObj = pickObj;
                 }

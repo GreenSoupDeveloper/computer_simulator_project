@@ -132,7 +132,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1336978683599175546}
   - component: {fileID: 7509236124348837589}
-  - component: {fileID: 6025677521141837217}
   - component: {fileID: 7749485931756506759}
   m_Layer: 7
   m_Name: screencam
@@ -166,7 +165,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.14117648, g: 0.14117648, b: 0.14117648, a: 0}
+  m_BackGroundColor: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -207,14 +206,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6025677521141837217
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4414718986945681109}
-  m_Enabled: 1
 --- !u!114 &7749485931756506759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 8405990783328287428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.101, y: 0.548, z: 7}
+  m_LocalPosition: {x: -1.101, y: 0.81799984, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -458,13 +449,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   isOnPC: 0
+  isObjDamaged: 0
   type: 8
   name: Monitor
   other: 600p
   value: 100
   life: 100
-  cpuBrand: 0
+  price: 100
+  launchYear: 2000
+  objSpeed: 2.2
+  tdp: 84
   gpuBrand: 0
+  vram: 256
+  gpuType: DDR1
+  tmus: 4
+  rops: 4
+  ramSize: 1024
+  ramType: DDR2
+  cpuBrand: 0
+  cpuSocket: 0
+  cores: 1
+  threads: 2
   fanObj: {fileID: 0}
   speed: 12
 --- !u!54 &4890892660973340992

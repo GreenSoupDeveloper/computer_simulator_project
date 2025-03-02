@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 public class pcOS : MonoBehaviour
 {
 
@@ -9,11 +10,10 @@ public class pcOS : MonoBehaviour
     public Canvas pcOSCanvas;
     public computerCase computer;
     public GameObject off;
-    public Image wallpaper;
+
     public GameObject black;
     public GameObject wallpaperimg;
 
-    public GameObject taskBar;
     public GameObject taskBarStart;
     public GameObject exitBtn;
     public GameObject BSOD;
@@ -22,16 +22,18 @@ public class pcOS : MonoBehaviour
     public GameObject apps;
 
     public GameObject loadingOS;
+    public GameObject loadingSession;
 
     public bool onBSOD = false;
-    public bool isANoOsScreen = false;
+    public bool noBootDevice = false;
 
 
 
     public bool startSequence = true;
     public TextMeshProUGUI texter;
-    [Header("No Bootable Device")]
-    public GameObject noBootDevice;
+    public AudioClip pcBootSound;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,20 +41,22 @@ public class pcOS : MonoBehaviour
     {
         off.SetActive(true);
         blackBars.SetActive(false);
+        loadingSession.SetActive(false);
 
-        if (!isANoOsScreen)
-        {
-            taskBar.SetActive(false);
-        }
         exitBtn.SetActive(true);
         Debug.Log("start thing done");
+    }
+    void PlaySound(AudioClip clip)
+    {
+        if (computer.pcAudio != null)
+            computer.pcAudio.PlayOneShot(clip);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (!isANoOsScreen)
+        if (!noBootDevice)
         {
             if (startSequence)
             {
@@ -103,7 +107,7 @@ public class pcOS : MonoBehaviour
                     startSequence = false;
                     blackBars.SetActive(true);
 
-                    loadingScreen();
+                    Invoke("loadingScreen", 1.5f);
                 }
                 else
                 {
@@ -121,7 +125,7 @@ public class pcOS : MonoBehaviour
                     startSequence = false;
                     blackBars.SetActive(true);
 
-                    loadingScreen();
+                    Invoke("loadingScreen", 1.5f);
                 }
                 else
                 {
@@ -140,11 +144,8 @@ public class pcOS : MonoBehaviour
                 black.SetActive(true);
                 loadingOS.SetActive(false);
                 operativeSystem.SetActive(false);
+                loadingSession.SetActive(false);
 
-                if (!isANoOsScreen)
-                {
-                    taskBar.SetActive(false);
-                }
                 off.SetActive(true);
                 blackBars.SetActive(false);
             }
@@ -160,10 +161,7 @@ public class pcOS : MonoBehaviour
             startSequence = true;
             black.SetActive(true);
 
-            if (!isANoOsScreen)
-            {
-                taskBar.SetActive(false);
-            }
+
             off.SetActive(true);
             blackBars.SetActive(false);
         }
@@ -227,40 +225,61 @@ public class pcOS : MonoBehaviour
     }
     void loadingScreen()
     {
-        
-        if (!isANoOsScreen)
+        if (computer.isPcON)
         {
-            black.SetActive(false);
-            float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 4;
-            loadingOS.SetActive(true);
-            Debug.Log("Time: " + timeme);
-            Invoke("setOS", timeme);
-        }
-        else
-        {
-            Invoke("setOS", 1f);
+           
+            if (!noBootDevice)
+            {
+                black.SetActive(false);
+                float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 4;
+                loadingOS.SetActive(true);
+                Debug.Log("Time: " + timeme);
+                Invoke("delayOs", timeme);
+            }
+            else
+            {
+                setOS();
+            }
         }
     }
-    void setOS()
+    void delayOs()
     {
-        loadingOS.SetActive(false);
+        if (computer.isPcON)
+        {
+            loadingOS.SetActive(false);
+            black.SetActive(true);
+            StartCoroutine(setOS());
+        }
+    }
+    public IEnumerator setOS()
+    {
+        yield return new WaitForSeconds(1f);
         if (computer != null)
         {
             if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
             {
                 blackBars.SetActive(true);
             }
+            else
+            {
+                blackBars.SetActive(false);
+            }
         }
-
         black.SetActive(false);
-        wallpaperimg.SetActive(true);
+        loadingSession.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        PlaySound(pcBootSound);
+        yield return new WaitForSeconds(3.4f);
+        loadingSession.SetActive(false);
+
+
+
+
+
+
         operativeSystem.SetActive(true);
 
-        if (!isANoOsScreen)
-        {
 
-            taskBar.SetActive(true);
-        }
         Debug.Log("os loaded actived thinger");
     }
     public void CloseOS()

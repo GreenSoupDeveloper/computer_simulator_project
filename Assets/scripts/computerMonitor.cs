@@ -120,6 +120,7 @@ public class computerMonitor : MonoBehaviour
             currpcOS.pcOSCanvas.worldCamera = null;
             clear = false;
         }
+        if(currpcOS !=null){
         if (currpcOS.GetComponentInParent<computerCase>().hadRAM1 || currpcOS.GetComponentInParent<computerCase>().hadRAM2)
         {
 
@@ -128,6 +129,7 @@ public class computerMonitor : MonoBehaviour
         {
             currpcOS.pcOSCanvas.worldCamera = null;
             allowEnter = false;
+        }
         }
 
 
