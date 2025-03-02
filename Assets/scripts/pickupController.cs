@@ -134,12 +134,12 @@ public class pickupController : MonoBehaviour
                                 }
                                 else if (hitted.transform.gameObject.GetComponent<objectScript>().type == objectScript.CompType.RAM)
                                 {
-                                    if (hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().isRam1)
+                                    if (hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().ramSlot == 1)
                                     {
                                         hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.hasRAM1 = false;
                                         hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.ram1 = null;
                                     }
-                                    else
+                                    else if (hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().ramSlot == 2)
                                     {
                                         hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.hasRAM2 = false;
                                         hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.ram2 = null;
@@ -152,8 +152,22 @@ public class pickupController : MonoBehaviour
                                 }
                                 else if (hitted.transform.gameObject.GetComponent<objectScript>().type == objectScript.CompType.GPU)
                                 {
-                                    hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.hasGPU = false;
-                                    hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.gpu = null;
+                                    if (hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().gpuSlot == 1)
+                                    {
+                                        hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.hasGPU1 = false;
+                                        hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.gpu1 = null;
+                                    }
+                                    else if (hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().gpuSlot == 2)
+                                    {
+                                        hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.hasGPU2 = false;
+                                        hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.gpu2 = null;
+                                    }
+                                    else if (hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().gpuSlot == 3)
+                                    {
+                                        hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.hasGPU3 = false;
+                                        hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<moboObjDetecter>().curMobo.gpu3 = null;
+                                    }
+
                                 }
                                 hitted.transform.gameObject.GetComponent<objectScript>().isOnPC = false;
 
@@ -198,7 +212,7 @@ public class pickupController : MonoBehaviour
                     {
                         if (hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON)
                         {
-                            hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON = false;
+                            hitted.transform.gameObject.GetComponentInParent<computerCase>().shutdownPc();
                         }
                         else
                         {
@@ -413,15 +427,15 @@ public class pickupController : MonoBehaviour
 
                             linkStep++;
                         }
-                        else if (hitted.transform.gameObject.GetComponent<AudioSource>() != null && hitted.transform.gameObject.GetComponent<objectScript>().name.Contains("Speaker"))
+                        else if (hitted.transform.gameObject.GetComponent<AudioSource>() != null && hitted.transform.gameObject.GetComponent<objectScript>().type == objectScript.CompType.Speaker)
                         {
-                             computerCase[] computers = FindObjectsOfType<computerCase>();
+                            computerCase[] computers = FindObjectsOfType<computerCase>();
                             foreach (computerCase cp in computers)
                             {
                                 if (cp.pcAudio == hitted.transform.gameObject.GetComponent<AudioSource>())
                                 {
                                     cp.pcAudio = null;
-                                  
+
 
                                 }
                             }

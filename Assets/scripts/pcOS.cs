@@ -23,15 +23,20 @@ public class pcOS : MonoBehaviour
 
     public GameObject loadingOS;
     public GameObject loadingSession;
+    public GameObject shuttingDown;
 
     public bool onBSOD = false;
     public bool noBootDevice = false;
 
+    public bool shuttingDownBool = false;
+
 
 
     public bool startSequence = true;
+    public bool booted = false;
     public TextMeshProUGUI texter;
     public AudioClip pcBootSound;
+    public AudioClip pcShutdownSound;
 
 
 
@@ -42,6 +47,7 @@ public class pcOS : MonoBehaviour
         off.SetActive(true);
         blackBars.SetActive(false);
         loadingSession.SetActive(false);
+        shuttingDown.SetActive(false);
 
         exitBtn.SetActive(true);
         Debug.Log("start thing done");
@@ -72,10 +78,20 @@ public class pcOS : MonoBehaviour
                     {
                         cpuname = computer.cpu.GetComponent<objectScript>().name + " " + computer.cpu.GetComponent<objectScript>().other;
                     }
-                    if (computer.gpu != null)
+                    if (computer.gpu1 != null)
                     {
-                        gpuname = computer.gpu.GetComponent<objectScript>().name;
-                        vramamount = computer.gpu.GetComponent<objectScript>().value;
+                        gpuname = computer.gpu1.GetComponent<objectScript>().name;
+                        vramamount += computer.gpu1.GetComponent<objectScript>().value;
+                    }
+                    if (computer.gpu2 != null)
+                    {
+                        gpuname = computer.gpu2.GetComponent<objectScript>().name;
+                        vramamount += computer.gpu2.GetComponent<objectScript>().value;
+                    }
+                    if (computer.gpu3 != null)
+                    {
+                        gpuname = computer.gpu3.GetComponent<objectScript>().name;
+                        vramamount += computer.gpu3.GetComponent<objectScript>().value;
                     }
 
                     if (computer.ram1 != null)
@@ -148,6 +164,9 @@ public class pcOS : MonoBehaviour
 
                 off.SetActive(true);
                 blackBars.SetActive(false);
+                shuttingDown.SetActive(false);
+                booted = false;
+                computer.pcAudio.Stop();
             }
             else
             {
@@ -222,12 +241,33 @@ public class pcOS : MonoBehaviour
             }
         }
 
+        if (shuttingDownBool)
+        {
+
+            operativeSystem.SetActive(false);
+            black.SetActive(true);
+            Invoke("tingle", 0.2f);
+
+            //startSequence = true;
+
+
+            shuttingDownBool = false;
+        }
+
+    }
+    void tingle()
+    {
+        black.SetActive(false);
+        shuttingDown.SetActive(true);
+
+
+        PlaySound(pcShutdownSound);
     }
     void loadingScreen()
     {
         if (computer.isPcON)
         {
-           
+
             if (!noBootDevice)
             {
                 black.SetActive(false);
@@ -246,9 +286,12 @@ public class pcOS : MonoBehaviour
     {
         if (computer.isPcON)
         {
-            loadingOS.SetActive(false);
-            black.SetActive(true);
-            StartCoroutine(setOS());
+            if (!booted)
+            {
+                loadingOS.SetActive(false);
+                black.SetActive(true);
+                StartCoroutine(setOS());
+            }
         }
     }
     public IEnumerator setOS()
@@ -269,7 +312,8 @@ public class pcOS : MonoBehaviour
         loadingSession.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         PlaySound(pcBootSound);
-        yield return new WaitForSeconds(3.4f);
+        float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 8;
+        yield return new WaitForSeconds(timeme);
         loadingSession.SetActive(false);
 
 
@@ -278,6 +322,7 @@ public class pcOS : MonoBehaviour
 
 
         operativeSystem.SetActive(true);
+        booted = true;
 
 
         Debug.Log("os loaded actived thinger");

@@ -18,17 +18,23 @@ public class computerCase : MonoBehaviour
   public bool hasCPU = false;
   public bool hasRAM1 = false;
   public bool hasRAM2 = false;
-  public bool hasGPU = false;
+
+  public bool hasGPU1 = false;
+  public bool hasGPU2 = false;
+  public bool hasGPU3 = false;
   public bool hasCPUFan = false;
 
   [Header("past pc parts")]
 
-  public bool hadGPU = false;
+
   public bool hadHDD1 = false;
   public bool hadHDD2 = false;
   public bool hadHDD3 = false;
   public bool hadRAM1 = false;
   public bool hadRAM2 = false;
+  public bool hadGPU1 = false;
+  public bool hadGPU2 = false;
+    public bool hadGPU3 = false;
   public GameObject hdd1;
   public GameObject hdd2;
   public GameObject hdd3;
@@ -37,7 +43,9 @@ public class computerCase : MonoBehaviour
   public GameObject cpu;
   public GameObject ram1;
   public GameObject ram2;
-  public GameObject gpu;
+  public GameObject gpu1;
+  public GameObject gpu2;
+  public GameObject gpu3;
   public GameObject cpuFan;
   public GameObject onLight;
   public List<GameObject> hddList;
@@ -48,8 +56,8 @@ public class computerCase : MonoBehaviour
   [Header("pcos thing")]
   public bool isPcON = false;
 
-    [Header("audio thing")]
-    public AudioSource pcAudio;
+  [Header("audio thing")]
+  public AudioSource pcAudio;
 
   //other
 
@@ -68,11 +76,16 @@ public class computerCase : MonoBehaviour
       ram1 = mobo.GetComponent<moboScript>().ram1;
       ram2 = mobo.GetComponent<moboScript>().ram2;
       cpu = mobo.GetComponent<moboScript>().cpu;
-      gpu = mobo.GetComponent<moboScript>().gpu;
+      gpu1 = mobo.GetComponent<moboScript>().gpu1;
+      gpu2 = mobo.GetComponent<moboScript>().gpu2;
+      gpu3 = mobo.GetComponent<moboScript>().gpu3;
       cpuFan = mobo.GetComponent<moboScript>().cpuFan;
 
       hasCPU = mobo.GetComponent<moboScript>().hasCPU;
-      hasGPU = mobo.GetComponent<moboScript>().hasGPU;
+      hasGPU1 = mobo.GetComponent<moboScript>().hasGPU3;
+      hasGPU2 = mobo.GetComponent<moboScript>().hasGPU2;
+      hasGPU3 = mobo.GetComponent<moboScript>().hasGPU3;
+      
       hasRAM1 = mobo.GetComponent<moboScript>().hasRAM1;
       hasRAM2 = mobo.GetComponent<moboScript>().hasRAM2;
       hasCPUFan = mobo.GetComponent<moboScript>().hasCPUFan;
@@ -82,11 +95,15 @@ public class computerCase : MonoBehaviour
       ram1 = null;
       ram2 = null;
       cpu = null;
-      gpu = null;
+      gpu1 = null;
+      gpu2 = null;
+      gpu3 = null;
       cpuFan = null;
 
       hasCPU = false;
-      hasGPU = false;
+      hasGPU1 = false;
+      hasGPU2 = false;
+      hasGPU3 = false;
       hasRAM1 = false;
       hasRAM2 = false;
       hasCPUFan = false;
@@ -136,16 +153,45 @@ public class computerCase : MonoBehaviour
           }
         }
 
-        if (hadGPU)
+        if (hadGPU1)
         {
-          if (!hasGPU)
+          if (!hasGPU1)
           {
             pcOS.onBSOD = true;
           }
         }
-        if (!hadGPU)
+        if (!hadGPU1)
         {
-          if (hasGPU)
+          if (hasGPU1)
+          {
+            pcOS.onBSOD = true;
+          }
+        }
+
+        if (hadGPU2)
+        {
+          if (!hasGPU2)
+          {
+            pcOS.onBSOD = true;
+          }
+        }
+        if (!hadGPU2)
+        {
+          if (hasGPU2)
+          {
+            pcOS.onBSOD = true;
+          }
+        }
+        if (hadGPU3)
+        {
+          if (!hasGPU3)
+          {
+            pcOS.onBSOD = true;
+          }
+        }
+        if (!hadGPU3)
+        {
+          if (hasGPU3)
           {
             pcOS.onBSOD = true;
           }
@@ -223,7 +269,9 @@ public class computerCase : MonoBehaviour
     {
       onLight.SetActive(false);
 
-      hadGPU = hasGPU;
+      hadGPU1 = hasGPU1;
+      hadGPU2 = hasGPU2;
+      hadGPU3 = hasGPU3;
       hadHDD1 = hasHDD1;
       hadHDD2 = hasHDD2;
       hadHDD3 = hasHDD3;
@@ -270,5 +318,25 @@ public class computerCase : MonoBehaviour
       if (cpuBeforeBurning == cpu.GetComponent<objectScript>())
         cpu.GetComponent<objectScript>().isObjDamaged = true;
     }
+  }
+  public void shutdownPc()
+  {
+    if (pcOS.booted && !pcOS.onBSOD)
+    {
+      pcOS.shuttingDownBool = true;
+      Invoke("thinger", 5f);
+    }
+    else
+    {
+      Invoke("thinger", 1f);
+    }
+
+
+  }
+  void thinger()
+  {
+    isPcON = false;
+
+    pcOS.shuttingDownBool = false;
   }
 }

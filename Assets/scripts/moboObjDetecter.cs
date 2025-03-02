@@ -8,9 +8,14 @@ public class moboObjDetecter : MonoBehaviour
     public enum MoboObjDetecterType { CPU, GPU, RAM, CPU_Fan };
     public AudioSource audioSrc;
     public AudioClip pop;
-    [Header("RAM")]
+    [Header("RAM stuff")]
     //if false: ram2, if true: ram1
-    public bool isRam1 = false;
+    public int ramSlot = 1;
+    [Header("GPU stuff")]
+    //if false: ram2, if true: ram1
+    public int gpuSlot = 1;
+    public enum GPUSocket { AGP, PCI, PCIe };
+    public GPUSocket gpuSocket;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,7 +51,9 @@ public class moboObjDetecter : MonoBehaviour
                     pickupController.heldObjRB = null;
                     curMobo.cpu = other.gameObject;
                     audioSrc.PlayOneShot(pop);
-                }else{
+                }
+                else
+                {
                     Debug.Log("mobo has a cpu fan, remove it!!");
                 }
 
@@ -58,7 +65,7 @@ public class moboObjDetecter : MonoBehaviour
         }
         if (other.gameObject.GetComponent<objectScript>().type == objectScript.CompType.RAM && thisObjType == MoboObjDetecterType.RAM)
         {
-            if (isRam1)
+            if (ramSlot == 1)
             {
                 if (!other.gameObject.GetComponent<objectScript>().isOnPC)
                 {
@@ -92,7 +99,7 @@ public class moboObjDetecter : MonoBehaviour
                     Debug.Log("mobo already has a ram 1 stick!");
                 }
             }
-            else
+            else if (ramSlot == 2)
             {
                 if (!other.gameObject.GetComponent<objectScript>().isOnPC)
                 {
@@ -154,28 +161,104 @@ public class moboObjDetecter : MonoBehaviour
         }
         if (other.gameObject.GetComponent<objectScript>().type == objectScript.CompType.GPU && thisObjType == MoboObjDetecterType.GPU)
         {
-            if (!curMobo.hasGPU)
+            if (gpuSlot == 1)
             {
-                other.gameObject.transform.parent = this.gameObject.transform;
-                other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
-                other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
-                curMobo.hasGPU = true;
-                other.gameObject.GetComponent<objectScript>().isOnPC = true;
-                other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
-                pickupController.heldObj = null;
-                pickupController.pickedObject = false;
-                pickupController.heldObjRB = null;
-                curMobo.gpu = other.gameObject;
-                audioSrc.PlayOneShot(pop);
+                if (!other.gameObject.GetComponent<objectScript>().isOnPC)
+                {
+                    if (!curMobo.hasGPU1)
+                    {
+                        other.gameObject.transform.parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                        other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                        other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                        curMobo.hasGPU1 = true;
+                        other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                        other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                        pickupController.heldObj = null;
+                        pickupController.pickedObject = false;
+                        pickupController.heldObjRB = null;
+                        curMobo.gpu1 = other.gameObject;
+                        audioSrc.PlayOneShot(pop);
+                    }
+                    else
+                    {
+                        Debug.Log("mobo already has a gpu!");
+                    }
+                }
+                else
+                {
+                    Debug.Log("mobo already has a gpu!");
+                }
             }
-            else
+            else if (gpuSlot == 2)
             {
-                Debug.Log("mobo already has a gpu!");
+                if (!other.gameObject.GetComponent<objectScript>().isOnPC)
+                {
+                    if (!curMobo.hasGPU2)
+                    {
+                        other.gameObject.transform.parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                        other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                        other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                        curMobo.hasGPU2 = true;
+                        other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                        other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                        pickupController.heldObj = null;
+                        pickupController.pickedObject = false;
+                        pickupController.heldObjRB = null;
+                        curMobo.gpu2 = other.gameObject;
+                        audioSrc.PlayOneShot(pop);
+                    }
+                    else
+                    {
+                        Debug.Log("mobo already has a gpu!");
+                    }
+                }
+                else
+                {
+                    Debug.Log("mobo already has a gpu!");
+                }
             }
+            else if (gpuSlot == 3)
+            {
+                if (!other.gameObject.GetComponent<objectScript>().isOnPC)
+                {
+                    if (!curMobo.hasGPU3)
+                    {
+                        other.gameObject.transform.parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                        other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                        other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                        curMobo.hasGPU3 = true;
+                        other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                        other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                        pickupController.heldObj = null;
+                        pickupController.pickedObject = false;
+                        pickupController.heldObjRB = null;
+                        curMobo.gpu3 = other.gameObject;
+                        audioSrc.PlayOneShot(pop);
+                    }
+                    else
+                    {
+                        Debug.Log("mobo already has a gpu!");
+                    }
+                }
+                else
+                {
+                    Debug.Log("mobo already has a gpu!");
+                }
+            }
+
+            
         }
     }
 }

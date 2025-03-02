@@ -83,11 +83,14 @@ MonoBehaviour:
   name: Monitor
   other: 720p
   value: 100
+  value2: 100
   life: 100
   price: 100
   launchYear: 2000
   objSpeed: 2.2
   tdp: 84
+  resolution: 800x600
+  ratio: 4:3
   gpuBrand: 0
   vram: 256
   gpuType: DDR1
@@ -551,7 +554,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

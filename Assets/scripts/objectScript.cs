@@ -6,16 +6,48 @@ public class objectScript : MonoBehaviour
     public bool isOnPC = false;
     public bool isObjDamaged = false;
     public CompType type;
-    public enum CompType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan, Nothing };
+    public enum CompType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan, Nothing, Monitor, Speaker };
     public string name = "Thinger";
     public string other = "";
     public int value = 100;
+    public int value2 = 100;
     public int life = 100;
     [Header("Common stuff")]
     public int price = 100;
     public int launchYear = 2000;
     public float objSpeed = 2.2f;
     public int tdp = 84;
+
+    [Header("Motherboard Stuff")]
+
+     public CPUSocket moboSocket;
+     public FormFactor moboFormFactor;
+     //public enum GPUSocket { AGP, PCI, PCIe };
+     public int ramSpaces = 2;
+     public int pciSlots;
+        public int agpSlots;
+[Header("Case Stuff")]
+
+     public FormFactor formFactor;
+     public enum FormFactor { ATX, Micro_ATX, Mini_ITX, E_ATX };
+     public int hddSpaces = 3;
+   
+
+    [Header("CPU Fan Stuff")]
+
+     public string compatibleSockets = "Socket A/Socket 423/Socket 478/LGA775";
+     public int fanSpeed =1700;
+     
+     [Header("Monitor Stuff")]
+
+     public string resolution = "800x600";
+     public string ratio = "4:3";
+
+     [Header("HDD Stuff")]
+
+     public string hddType = "HDD";
+     public int storage = 120;
+     public string hddInterface = "IDE";
 
 
  [Header("GPU Stuff")]

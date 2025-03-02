@@ -97,14 +97,38 @@ public class webay_Main : MonoBehaviour
         {
             checkOutInfo.text = "Socket: " + item.itemSocket + "\nSpeed: " + item.itemSpeed + "GHz\nCores: " + item.itemCores + "\nThreads: " + item.itemThreads + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
-        if (item.itemType == "GPU")
+        else if (item.itemType == "GPU")
         {
             checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nTMUs: " + item.itemTMUs +"\nROPs: "+ item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
-        if (item.itemType == "RAM")
+        else if (item.itemType == "RAM")
         {
             checkOutInfo.text = "Memory: " + item.itemSize +" MB\nSpeed: " + item.itemSpeed + "MHz\nType: " + item.itemVersion;
+        } else if (item.itemType == "Monitor")
+        {
+            checkOutInfo.text = "Resolution: " + item.itemTMUs +"p\nRatio: " + item.itemROPS;
         }
+         else if (item.itemType == "Hard_Drive")
+        {
+            checkOutInfo.text = "Capacity: " + item.itemSize +" GB\nType: " + item.itemVersion + "\nInterface: " + item.itemSocket + "\nSpeed: "+ item.itemSpeed + " MB/s\nTDP: " + item.itemTDP + " Watts";
+        }
+        else if (item.itemType == "CPU_Fan")
+        {
+            checkOutInfo.text = "Compatible Sockets: " + item.itemSocket +"\nSpeed: " + item.itemSpeed + " RPM\nTDP: " + item.itemTDP + " Watts";
+        }
+        else if (item.itemType == "Power_Supply")
+        {
+            checkOutInfo.text = "Output: " + item.itemTDP + " Watts";
+        }
+        else if (item.itemType == "Case")
+        {
+            checkOutInfo.text = "Form-Factor: " + item.itemSocket + "\nHDD/SSD Slots: " + item.itemSize;
+        }
+        else if (item.itemType == "Motherboard")
+        {
+            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nAGP Slots: " + item.itemTMUs;
+        }
+
         checkOutName.text = item.itemName;
         checkOutPrice.text = item.itemPrice + "$";
         checkOutImage.sprite = item.itemImage;
@@ -348,6 +372,7 @@ public class webay_Main : MonoBehaviour
 
             psuPage.GetComponent<webay_Category>().filter1();
         }
+        unCheckOut();
 
     }
 

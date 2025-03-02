@@ -32,6 +32,7 @@ public class webay_Item : MonoBehaviour
     {
         itemType = itemPrefab.GetComponent<objectScript>().type.ToString();
         itemName = itemPrefab.GetComponent<objectScript>().name;
+        itemSpeed = itemPrefab.GetComponent<objectScript>().objSpeed;
         if (itemType == "CPU")
         {
 
@@ -55,7 +56,40 @@ public class webay_Item : MonoBehaviour
             
             itemVersion = itemPrefab.GetComponent<objectScript>().ramType;
         }
-        itemSpeed = itemPrefab.GetComponent<objectScript>().objSpeed;
+         if (itemType == "Monitor")
+        {
+            itemTMUs = itemPrefab.GetComponent<objectScript>().resolution;
+            itemROPS = itemPrefab.GetComponent<objectScript>().ratio;
+           
+        }
+        if (itemType == "Hard_Drive")
+        {
+            itemSize = itemPrefab.GetComponent<objectScript>().storage;
+            itemVersion = itemPrefab.GetComponent<objectScript>().hddType;
+            itemSocket = itemPrefab.GetComponent<objectScript>().hddInterface;
+           
+        }
+        if (itemType == "CPU_Fan")
+        {
+            itemSocket = itemPrefab.GetComponent<objectScript>().compatibleSockets;
+            itemSpeed = itemPrefab.GetComponent<objectScript>().fanSpeed;
+           
+        }
+         if (itemType == "Case")
+        {
+            itemSocket = itemPrefab.GetComponent<objectScript>().moboFormFactor.ToString().Replace("_", " ");
+            itemSize = itemPrefab.GetComponent<objectScript>().hddSpaces;
+        }
+        if (itemType == "Motherboard")
+        {
+            itemSocket = itemPrefab.GetComponent<objectScript>().moboSocket.ToString().Replace("_", " ");
+            itemROPS = itemPrefab.GetComponent<objectScript>().moboFormFactor.ToString().Replace("_", " ");
+            itemSize = itemPrefab.GetComponent<objectScript>().ramSpaces;
+            itemVersion = itemPrefab.GetComponent<objectScript>().pciSlots.ToString();
+            itemTMUs = itemPrefab.GetComponent<objectScript>().agpSlots.ToString();
+        }
+
+        
 
         itemTDP = itemPrefab.GetComponent<objectScript>().tdp;
         itemPrice = itemPrefab.GetComponent<objectScript>().price;

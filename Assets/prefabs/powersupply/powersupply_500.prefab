@@ -281,13 +281,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   isOnPC: 0
+  isObjDamaged: 0
   type: 4
-  name: Power Supply
+  name: Kodegen 500WX
   other: 500W
   value: 500
+  value2: 100
   life: 100
-  cpuBrand: 0
+  price: 79
+  launchYear: 2000
+  objSpeed: 2.2
+  tdp: 500
+  compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
+  fanSpeed: 1700
+  resolution: 800x600
+  ratio: 4:3
+  hddType: HDD
+  storage: 120
+  hddInterface: IDE
   gpuBrand: 0
+  vram: 256
+  gpuType: DDR1
+  tmus: 4
+  rops: 4
+  ramSize: 1024
+  ramType: DDR2
+  cpuBrand: 0
+  cpuSocket: 0
+  cores: 1
+  threads: 2
   fanObj: {fileID: 9102410718092855182}
   speed: 10
 --- !u!65 &3787523321641664608
