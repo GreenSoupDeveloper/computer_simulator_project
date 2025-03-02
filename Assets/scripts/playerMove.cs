@@ -3,6 +3,8 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     CharacterController characterController;
+    [Header("player stuff")]
+    public static int playerMoney = 1500;
 
     [Header("Opciones de personaje")]
     public float walkSpeed = 6.0f;

@@ -17,6 +17,20 @@ public class objectScript : MonoBehaviour
     public float objSpeed = 2.2f;
     public int tdp = 84;
 
+
+ [Header("GPU Stuff")]
+    public GPUBrand gpuBrand;
+    public int vram = 256;
+    public string gpuType = "DDR1";
+    public int tmus = 4;
+    public int rops = 4;
+
+    public enum GPUBrand { Nvidia, AMD, ATI };
+    [Header("RAM Stuff")]
+
+    public int ramSize = 1024;
+    public string ramType = "DDR2";
+
     [Header("CPU Stuff")]
     public CPUBrand cpuBrand;
     public enum CPUBrand { Intel, AMD };
@@ -24,12 +38,9 @@ public class objectScript : MonoBehaviour
     public int cores = 1;
     public int threads = 2;
     
-    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754 };
+    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754,Socket_423 };
 
-    [Header("GPU Stuff")]
-    public GPUBrand gpuBrand;
-
-    public enum GPUBrand { Nvidia, AMD, ATI };
+   
 
     [Header("Fan stuff")]
 

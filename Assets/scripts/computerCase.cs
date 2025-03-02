@@ -49,6 +49,10 @@ public class computerCase : MonoBehaviour
   [Header("pcos thing")]
   public bool isPcON = false;
 
+  void Start()
+  {
+    noOS.gameObject.SetActive(true);
+  }
 
 
   void Update()
@@ -89,7 +93,7 @@ public class computerCase : MonoBehaviour
         if (cpu.GetComponent<objectScript>().isObjDamaged == true)
         {
           //cpu is damaged
-          StartCoroutine(main.setInfoMessage("CPU burned!"));
+          StartCoroutine(main.setErrorMessage("CPU is burned!"));
           isPcON = false;
 
         }
@@ -248,11 +252,16 @@ public class computerCase : MonoBehaviour
         pcOS.pcOSCanvas.worldCamera = null;
       }
 
+   
+
 
     }
   }
   public void burnCpu()
   {
-    cpu.GetComponent<objectScript>().isObjDamaged = true;
+    if (isPcON)
+    {
+      cpu.GetComponent<objectScript>().isObjDamaged = true;
+    }
   }
 }

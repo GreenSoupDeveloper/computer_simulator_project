@@ -145,7 +145,7 @@ MonoBehaviour:
   other: 1.5 GHz
   value: 100
   life: 100
-  price: 100
+  price: 110
   launchYear: 2004
   objSpeed: 1.5
   tdp: 62

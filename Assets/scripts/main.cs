@@ -7,6 +7,7 @@ public class main : MonoBehaviour
 {
     public TextMeshProUGUI texter;
     public static TextMeshProUGUI errortxt;
+    
 
 
     public static TextMeshProUGUI infotxt;
@@ -63,7 +64,7 @@ public class main : MonoBehaviour
         fps = (int)(1f / Time.unscaledDeltaTime);
         
        
-            texter.text = "FPS: " + fps;
+            //texter.text = "FPS: " + fps;
         
         Invoke("fpsUpd", 0.25f);
     }

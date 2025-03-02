@@ -21,6 +21,8 @@ public class pcOS : MonoBehaviour
     public GameObject operativeSystem;
     public GameObject apps;
 
+    public GameObject loadingOS;
+
     public bool onBSOD = false;
     public bool isANoOsScreen = false;
 
@@ -49,6 +51,7 @@ public class pcOS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!isANoOsScreen)
         {
             if (startSequence)
@@ -99,7 +102,8 @@ public class pcOS : MonoBehaviour
 
                     startSequence = false;
                     blackBars.SetActive(true);
-                    Invoke("setOS", 1f);
+
+                    loadingScreen();
                 }
                 else
                 {
@@ -117,7 +121,7 @@ public class pcOS : MonoBehaviour
                     startSequence = false;
                     blackBars.SetActive(true);
 
-                    Invoke("setOS", 1f);
+                    loadingScreen();
                 }
                 else
                 {
@@ -134,6 +138,8 @@ public class pcOS : MonoBehaviour
                 BSOD.SetActive(false);
                 startSequence = true;
                 black.SetActive(true);
+                loadingOS.SetActive(false);
+                operativeSystem.SetActive(false);
 
                 if (!isANoOsScreen)
                 {
@@ -219,8 +225,25 @@ public class pcOS : MonoBehaviour
         }
 
     }
+    void loadingScreen()
+    {
+        
+        if (!isANoOsScreen)
+        {
+            black.SetActive(false);
+            float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 4;
+            loadingOS.SetActive(true);
+            Debug.Log("Time: " + timeme);
+            Invoke("setOS", timeme);
+        }
+        else
+        {
+            Invoke("setOS", 1f);
+        }
+    }
     void setOS()
     {
+        loadingOS.SetActive(false);
         if (computer != null)
         {
             if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
@@ -231,6 +254,7 @@ public class pcOS : MonoBehaviour
 
         black.SetActive(false);
         wallpaperimg.SetActive(true);
+        operativeSystem.SetActive(true);
 
         if (!isANoOsScreen)
         {

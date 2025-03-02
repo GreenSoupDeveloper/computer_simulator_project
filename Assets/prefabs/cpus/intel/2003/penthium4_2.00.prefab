@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5344879401191531039}
-  m_Mesh: {fileID: 4579454407841743219, guid: f8eb498b3a1a8644e81dbd00fdffabe8, type: 3}
+  m_Mesh: {fileID: 4579454407841743219, guid: 30f5e8d5ab0d1934b99a83bf43f6f10a, type: 3}
 --- !u!23 &5849101757753148362
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,11 +64,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97955d0a58db38f4d9fe2dbb70051b24, type: 2}
-  - {fileID: 2100000, guid: e63dcb6a3443d3640ab2ee01c71334bf, type: 2}
-  - {fileID: 2100000, guid: 2417c6215e9563b4c822c3a3e2cc6148, type: 2}
-  - {fileID: 2100000, guid: e20c991b5753ff04f9fa7ea8ed612e0a, type: 2}
-  - {fileID: 2100000, guid: f2d52b5a1f1b8b94e8ec8e917d829cfb, type: 2}
+  - {fileID: 2100000, guid: a9dc6e96b42aff94dabcd22929f886a0, type: 2}
+  - {fileID: 2100000, guid: c059c557b2e4e9e48ace66eac3064a82, type: 2}
+  - {fileID: 2100000, guid: 03973af74cd2b3848968e0dcc5679334, type: 2}
+  - {fileID: 2100000, guid: 65197210dc09cb743b123e8362483a10, type: 2}
+  - {fileID: 2100000, guid: 57ead0e3ba4c6b24980d5a1f48e29dd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   isOnPC: 0
+  isObjDamaged: 0
   type: 1
   name: Penthium 4 2.00
   other: 2.0 GHz
@@ -146,12 +147,12 @@ MonoBehaviour:
   life: 100
   price: 130
   launchYear: 2003
+  objSpeed: 2
+  tdp: 72
   cpuBrand: 0
   cpuSocket: 1
   cores: 1
   threads: 1
-  objSpeed: 2
-  tdp: 72
   gpuBrand: 0
   fanObj: {fileID: 0}
   speed: 12

@@ -8,6 +8,10 @@ using TMPro;
 
 public class pickupController : MonoBehaviour
 {
+    
+    
+
+    [Header("everything else")]
     public AudioSource audioSrc;
     public GameObject uiObj;
     public Image disarmModeImg;
@@ -17,6 +21,7 @@ public class pickupController : MonoBehaviour
     public static GameObject heldObj;
     public static Rigidbody heldObjRB;
     public TextMeshProUGUI infotxt;
+    public TextMeshProUGUI moneytxt;
     public LayerMask componentColliderExclude;
 
     public float pickupRange = 5.0f;
@@ -42,6 +47,7 @@ public class pickupController : MonoBehaviour
     public static bool linkScreenMode = false;
     public int linkStep = 0;
     public Color clear;
+    
     void Start()
     {
         infotxt.text = "";
@@ -50,6 +56,7 @@ public class pickupController : MonoBehaviour
 
     void Update()
     {
+        moneytxt.text = playerMove.playerMoney + "$";
         //if (GameControls.inPrimary)
         if (!isOnPCOS)
         {

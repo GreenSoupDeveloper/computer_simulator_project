@@ -12,6 +12,7 @@ public class webay_Main : MonoBehaviour
     public TMP_Text checkOutInfo;
     public TMP_Text checkOutName;
     public TMP_Text checkOutPrice;
+    public TMP_Text nomoney;
     public internet_explorer_Main browser;
     public bool webay_MainOpened = false;
     public GameObject spawnPoint;
@@ -91,13 +92,18 @@ public class webay_Main : MonoBehaviour
     }
     public void checkOut(webay_Item item)
     {
+        nomoney.text = "";
         if (item.itemType == "CPU")
         {
             checkOutInfo.text = "Socket: " + item.itemSocket + "\nSpeed: " + item.itemSpeed + "GHz\nCores: " + item.itemCores + "\nThreads: " + item.itemThreads + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
-        else if (item.itemType == "GPU")
+        if (item.itemType == "GPU")
         {
-            checkOutInfo.text = "Speed: " + item.itemSpeed + "MHz\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
+            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nTMUs: " + item.itemTMUs +"\nROPs: "+ item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
+        }
+        if (item.itemType == "RAM")
+        {
+            checkOutInfo.text = "Memory: " + item.itemSize +" MB\nSpeed: " + item.itemSpeed + "MHz\nType: " + item.itemVersion;
         }
         checkOutName.text = item.itemName;
         checkOutPrice.text = item.itemPrice + "$";
@@ -107,10 +113,19 @@ public class webay_Main : MonoBehaviour
     }
     public void buyitem()
     {
-        Instantiate(checkOutBuyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        if(playerMove.playerMoney >= checkOutBuyPrefab.GetComponent<objectScript>().price)
+        {
+            playerMove.playerMoney -= checkOutBuyPrefab.GetComponent<objectScript>().price;
+            
+            Instantiate(checkOutBuyPrefab, new Vector3(spawnPoint.transform.position.x + UnityEngine.Random.Range(-0.5f, 0.5f), spawnPoint.transform.position.y, spawnPoint.transform.position.z + UnityEngine.Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+        }else{
+            nomoney.text = "You don't have enough money!";
+            
+        }
+        
 
     }
-    public void unCheckOut()
+     public void unCheckOut()
     {
         checkOutBuyPrefab = null;
         checkOutObj.SetActive(false);

@@ -139,19 +139,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   isOnPC: 0
+  isObjDamaged: 0
   type: 1
   name: Ethlon 64 3000+
   other: 1.8 GHz
   value: 100
   life: 100
-  price: 100
+  price: 180
   launchYear: 2004
+  objSpeed: 1.8
+  tdp: 67
   cpuBrand: 1
   cpuSocket: 2
   cores: 1
   threads: 1
-  objSpeed: 1.8
-  tdp: 67
   gpuBrand: 0
   fanObj: {fileID: 0}
   speed: 12

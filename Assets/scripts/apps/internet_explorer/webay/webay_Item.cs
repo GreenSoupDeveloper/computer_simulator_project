@@ -9,12 +9,18 @@ public class webay_Item : MonoBehaviour
     [Header("CPU/MOBO stuff")]
     public string itemSocket;
     public float itemSpeed;
+
+    public float itemSize;
+   
     public int itemCores;
     public int itemThreads;
     public int itemTDP;
     public int itemPrice;
     public int launchYear;
     public string itemType;
+    public string itemVersion;
+    public string itemTMUs;
+    public string itemROPS;
     public Sprite itemImage;
 
     public GameObject itemPrefab;
@@ -37,6 +43,17 @@ public class webay_Item : MonoBehaviour
         }
         if (itemType == "GPU")
         {
+            itemSize = itemPrefab.GetComponent<objectScript>().vram;
+             itemVersion = itemPrefab.GetComponent<objectScript>().gpuType;
+             itemTMUs = itemPrefab.GetComponent<objectScript>().tmus.ToString();
+             itemROPS = itemPrefab.GetComponent<objectScript>().rops.ToString();
+
+        }
+     if (itemType == "RAM")
+        {
+            itemSize = itemPrefab.GetComponent<objectScript>().ramSize;
+            
+            itemVersion = itemPrefab.GetComponent<objectScript>().ramType;
         }
         itemSpeed = itemPrefab.GetComponent<objectScript>().objSpeed;
 

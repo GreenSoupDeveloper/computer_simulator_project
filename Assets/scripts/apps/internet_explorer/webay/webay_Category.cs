@@ -27,15 +27,15 @@ public class webay_Category : MonoBehaviour
 
         obj1.SetActive(true);
         scrollRect.content = obj1.GetComponent<RectTransform>();
-
-        obj2.SetActive(false);
+        if (obj2 != null)
+            obj2.SetActive(false);
     }
     public void filter2()
     {
 
         obj1.SetActive(false);
         scrollRect.content = obj2.GetComponent<RectTransform>();
-
-        obj2.SetActive(true);
+        if (obj2 != null)
+            obj2.SetActive(true);
     }
 }
