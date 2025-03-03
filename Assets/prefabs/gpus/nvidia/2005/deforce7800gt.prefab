@@ -141,16 +141,32 @@ MonoBehaviour:
   name: DeForce 7800 GT
   other: 256MB VRAM
   value: 256
+  value2: 100
   life: 100
   price: 425
   launchYear: 2005
   objSpeed: 400
   tdp: 65
+  moboSocket: 0
+  moboFormFactor: 0
+  ramSpaces: 2
+  pciSlots: 0
+  agpSlots: 0
   gpuBrand: 0
+  gpuSocket: 2
   vram: 256
   gpuType: GDDR3
   tmus: 20
   rops: 16
+  formFactor: 0
+  hddSpaces: 3
+  compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
+  fanSpeed: 1700
+  resolution: 800x600
+  ratio: 4:3
+  hddType: HDD
+  storage: 120
+  hddInterface: IDE
   ramSize: 256
   ramType: GDDR3
   cpuBrand: 0

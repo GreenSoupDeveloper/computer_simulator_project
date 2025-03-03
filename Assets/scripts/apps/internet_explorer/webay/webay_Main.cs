@@ -99,7 +99,7 @@ public class webay_Main : MonoBehaviour
         }
         else if (item.itemType == "GPU")
         {
-            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nTMUs: " + item.itemTMUs +"\nROPs: "+ item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
+            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nSocket: "+ item.itemSocket+"\nTMUs: " + item.itemTMUs +"\nROPs: "+ item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
         else if (item.itemType == "RAM")
         {

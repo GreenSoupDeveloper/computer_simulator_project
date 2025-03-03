@@ -48,6 +48,7 @@ public class webay_Item : MonoBehaviour
              itemVersion = itemPrefab.GetComponent<objectScript>().gpuType;
              itemTMUs = itemPrefab.GetComponent<objectScript>().tmus.ToString();
              itemROPS = itemPrefab.GetComponent<objectScript>().rops.ToString();
+             itemSocket = itemPrefab.GetComponent<objectScript>().gpuSocket.ToString();
 
         }
      if (itemType == "RAM")

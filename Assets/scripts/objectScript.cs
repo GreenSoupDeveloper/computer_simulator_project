@@ -19,45 +19,51 @@ public class objectScript : MonoBehaviour
     public int tdp = 84;
 
     [Header("Motherboard Stuff")]
-
-     public CPUSocket moboSocket;
-     public FormFactor moboFormFactor;
-     //public enum GPUSocket { AGP, PCI, PCIe };
-     public int ramSpaces = 2;
-     public int pciSlots;
-        public int agpSlots;
-[Header("Case Stuff")]
-
-     public FormFactor formFactor;
-     public enum FormFactor { ATX, Micro_ATX, Mini_ITX, E_ATX };
-     public int hddSpaces = 3;
-   
-
-    [Header("CPU Fan Stuff")]
-
-     public string compatibleSockets = "Socket A/Socket 423/Socket 478/LGA775";
-     public int fanSpeed =1700;
-     
-     [Header("Monitor Stuff")]
-
-     public string resolution = "800x600";
-     public string ratio = "4:3";
-
-     [Header("HDD Stuff")]
-
-     public string hddType = "HDD";
-     public int storage = 120;
-     public string hddInterface = "IDE";
-
-
- [Header("GPU Stuff")]
+    
+    
+    public MoboBrand moboBrand;
+    public enum MoboBrand { Viostar, Megabyte, ASSRock, AZUZ, MZI, Entel };
+    public CPUSocket moboSocket;
+    public FormFactor moboFormFactor;
+    //public enum GPUSocket { AGP, PCI, PCIe };
+    public int ramSpaces = 2;
+    public int pciSlots;
+    public int agpSlots;
+    [Header("GPU Stuff")]
     public GPUBrand gpuBrand;
+    public enum GPUSocket { AGP, PCI, PCIe };
+    public GPUSocket gpuSocket;
     public int vram = 256;
     public string gpuType = "DDR1";
     public int tmus = 4;
     public int rops = 4;
 
-    public enum GPUBrand { Nvidia, AMD, ATI };
+    public enum GPUBrand { Mvidia, AND, ATY };
+    [Header("Case Stuff")]
+
+    public FormFactor formFactor;
+    public enum FormFactor { ATX, Micro_ATX, Mini_ITX, E_ATX };
+    public int hddSpaces = 3;
+
+
+    [Header("CPU Fan Stuff")]
+
+    public string compatibleSockets = "Socket A/Socket 423/Socket 478/LGA775";
+    public int fanSpeed = 1700;
+
+    [Header("Monitor Stuff")]
+
+    public string resolution = "800x600";
+    public string ratio = "4:3";
+
+    [Header("HDD Stuff")]
+
+    public string hddType = "HDD";
+    public int storage = 120;
+    public string hddInterface = "IDE";
+
+
+
     [Header("RAM Stuff")]
 
     public int ramSize = 1024;
@@ -65,14 +71,14 @@ public class objectScript : MonoBehaviour
 
     [Header("CPU Stuff")]
     public CPUBrand cpuBrand;
-    public enum CPUBrand { Intel, AMD };
+    public enum CPUBrand { Entel, AND };
     public CPUSocket cpuSocket;
     public int cores = 1;
     public int threads = 2;
-    
-    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754,Socket_423 };
 
-   
+    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754, Socket_423 };
+
+
 
     [Header("Fan stuff")]
 

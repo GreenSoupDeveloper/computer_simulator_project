@@ -34,7 +34,7 @@ public class computerCase : MonoBehaviour
   public bool hadRAM2 = false;
   public bool hadGPU1 = false;
   public bool hadGPU2 = false;
-    public bool hadGPU3 = false;
+  public bool hadGPU3 = false;
   public GameObject hdd1;
   public GameObject hdd2;
   public GameObject hdd3;
@@ -82,10 +82,10 @@ public class computerCase : MonoBehaviour
       cpuFan = mobo.GetComponent<moboScript>().cpuFan;
 
       hasCPU = mobo.GetComponent<moboScript>().hasCPU;
-      hasGPU1 = mobo.GetComponent<moboScript>().hasGPU3;
+      hasGPU1 = mobo.GetComponent<moboScript>().hasGPU1;
       hasGPU2 = mobo.GetComponent<moboScript>().hasGPU2;
       hasGPU3 = mobo.GetComponent<moboScript>().hasGPU3;
-      
+
       hasRAM1 = mobo.GetComponent<moboScript>().hasRAM1;
       hasRAM2 = mobo.GetComponent<moboScript>().hasRAM2;
       hasCPUFan = mobo.GetComponent<moboScript>().hasCPUFan;

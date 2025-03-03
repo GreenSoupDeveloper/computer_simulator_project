@@ -68,56 +68,7 @@ public class pcOS : MonoBehaviour
             {
                 if (computer.isPcON)
                 {
-                    string cpuname = "None";
-                    string gpuname = "None";
-                    int ramamount = 0;
-                    int vramamount = 0;
-
-                    int storage = 0;
-                    if (computer.cpu != null)
-                    {
-                        cpuname = computer.cpu.GetComponent<objectScript>().name + " " + computer.cpu.GetComponent<objectScript>().other;
-                    }
-                    if (computer.gpu1 != null)
-                    {
-                        gpuname = computer.gpu1.GetComponent<objectScript>().name;
-                        vramamount += computer.gpu1.GetComponent<objectScript>().value;
-                    }
-                    if (computer.gpu2 != null)
-                    {
-                        gpuname = computer.gpu2.GetComponent<objectScript>().name;
-                        vramamount += computer.gpu2.GetComponent<objectScript>().value;
-                    }
-                    if (computer.gpu3 != null)
-                    {
-                        gpuname = computer.gpu3.GetComponent<objectScript>().name;
-                        vramamount += computer.gpu3.GetComponent<objectScript>().value;
-                    }
-
-                    if (computer.ram1 != null)
-                    {
-                        ramamount += computer.ram1.GetComponent<objectScript>().value;
-                    }
-                    if (computer.ram2 != null)
-                    {
-                        ramamount += computer.ram2.GetComponent<objectScript>().value;
-                    }
-
-                    if (computer.hdd1 != null)
-                    {
-                        storage += computer.hdd1.GetComponent<objectScript>().value;
-                    }
-                    if (computer.hdd2 != null)
-                    {
-                        storage += computer.hdd2.GetComponent<objectScript>().value;
-                    }
-                    if (computer.hdd3 != null)
-                    {
-                        storage += computer.hdd3.GetComponent<objectScript>().value;
-                    }
-
-
-                    //texter.text = "CPU: " + cpuname + "\nGPU: " + gpuname + "\nRAM: " + ramamount + "MB\nVRAM: " + vramamount + "MB\nStorage: " + storage + "GB";
+                    
 
 
                     startSequence = false;

@@ -54,16 +54,32 @@ MonoBehaviour:
   name: Rageon X1800 XT
   other: 512MB VRAM
   value: 512
+  value2: 100
   life: 100
   price: 550
   launchYear: 2005
   objSpeed: 600
   tdp: 113
+  moboSocket: 0
+  moboFormFactor: 0
+  ramSpaces: 2
+  pciSlots: 0
+  agpSlots: 0
   gpuBrand: 2
+  gpuSocket: 2
   vram: 512
   gpuType: GDDR3
   tmus: 16
   rops: 16
+  formFactor: 0
+  hddSpaces: 3
+  compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
+  fanSpeed: 1700
+  resolution: 800x600
+  ratio: 4:3
+  hddType: HDD
+  storage: 120
+  hddInterface: IDE
   ramSize: 1024
   ramType: DDR2
   cpuBrand: 0
