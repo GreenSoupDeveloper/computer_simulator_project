@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1150338420096874211}
   - component: {fileID: 4375351925478087375}
   m_Layer: 7
-  m_Name: samsung_ddr2-256
+  m_Name: kingstone_ddr-333_256
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,23 +51,43 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 6
-  name: Samzung DDR2-256
-  other: 256MB DDR2
+  name: Kingstone DDR1-333_256
+  other: 256MB DDR
   value: 256
+  value2: 100
   life: 100
-  price: 50
+  price: 53
   launchYear: 0
-  objSpeed: 533
+  objSpeed: 333
   tdp: 0
   ramSize: 256
-  ramType: DDR2
+  ramType: 1
+  moboBrand: 0
+  moboSocket: 0
+  moboFormFactor: 0
+  ramSpaces: 2
+  pciSlots: 0
+  pcieSlots: 0
+  agpSlots: 0
+  gpuBrand: 0
+  gpuSocket: 0
+  vram: 256
+  gpuType: DDR1
+  tmus: 4
+  rops: 4
+  formFactor: 0
+  hddSpaces: 3
+  compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
+  fanSpeed: 1700
+  resolution: 800x600
+  ratio: 4:3
+  hddType: HDD
+  storage: 120
+  hddInterface: IDE
   cpuBrand: 0
   cpuSocket: 0
   cores: 1
   threads: 2
-  gpuBrand: 0
-  vram: 256
-  gpuType: DDR1
   fanObj: {fileID: 0}
   speed: 12
 --- !u!65 &1150338420096874211

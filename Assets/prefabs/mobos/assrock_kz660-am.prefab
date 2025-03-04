@@ -50,8 +50,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
-  ramSocket: 1
-  ramSocketSec: 0
+  ramSocket: 2
+  ramSocketSec: 1
   gpuSlot: 1
   gpuSocket: 0
   cpuSocket: 0
@@ -116,7 +116,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149155446097}
-  m_Mesh: {fileID: -462981019419857548, guid: 0d9c4e88c55a2c24285257cce0d4cf8f, type: 3}
+  m_Mesh: {fileID: -462981019419857548, guid: 760e079dbc102c74aa46df0589ed4e49, type: 3}
 --- !u!23 &-7511558181221131132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -140,21 +140,20 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05df2a119172f9045aa0660fa14b1d8d, type: 2}
-  - {fileID: 2100000, guid: 2bbdf2648301b6b4383af8b802acb69d, type: 2}
-  - {fileID: 2100000, guid: 4fc8c1333bbbc6c45b2e324a3f871b28, type: 2}
-  - {fileID: 2100000, guid: 967b9d334b377e046803baed2bb3bdac, type: 2}
-  - {fileID: 2100000, guid: f30327a4498c95c4eb17de0f8e4830ce, type: 2}
-  - {fileID: 2100000, guid: 387e1f6dce07c9146842c7573842ccec, type: 2}
-  - {fileID: 2100000, guid: d6e644de3ec90a743b7f4d05eef32a0a, type: 2}
-  - {fileID: 2100000, guid: b1ca9ce5cfdd3cc4cbd4e429df743a1d, type: 2}
-  - {fileID: 2100000, guid: 936180a5905de9d4ca487b201f8d4aae, type: 2}
-  - {fileID: 2100000, guid: 398d94c7527cea9459a94e7267287670, type: 2}
-  - {fileID: 2100000, guid: 2fe554faf1977ae4c8f26c3cbf1ff40e, type: 2}
-  - {fileID: 2100000, guid: ccbb0f3b84ed402439352c96a1d69af1, type: 2}
-  - {fileID: 2100000, guid: 949c1b5e84d44ba4e86f9162c4303c8f, type: 2}
-  - {fileID: 2100000, guid: 1108d5ca9e31d42438f758a24ebed4b3, type: 2}
-  - {fileID: 2100000, guid: 393019e133bcff94a924fb72fdaf402e, type: 2}
+  - {fileID: 2100000, guid: 929c9e73d123f2f4ca9cb6b4d5cafd42, type: 2}
+  - {fileID: 2100000, guid: 019b24cfc9c7fc7439a901a3ff0a135d, type: 2}
+  - {fileID: 2100000, guid: 5ca708596ce21ca4b9d9c80671f285fc, type: 2}
+  - {fileID: 2100000, guid: e4de2d13840ccd746966c16ca406259e, type: 2}
+  - {fileID: 2100000, guid: c190def1793739e43bd30ec152686b86, type: 2}
+  - {fileID: 2100000, guid: 35ec50da58631c5479fc4d2a0e78b052, type: 2}
+  - {fileID: 2100000, guid: 05d3f9674b468d847bf752544682eadb, type: 2}
+  - {fileID: 2100000, guid: 1756c9ff79b3cf74f93c7cfd28f4a6d9, type: 2}
+  - {fileID: 2100000, guid: 43aa419a9931fac4d8f40633a33b63c6, type: 2}
+  - {fileID: 2100000, guid: f97f48dee9d24414a8d4c9932ae98a69, type: 2}
+  - {fileID: 2100000, guid: 74b049d42d977e6498805b2c515c4086, type: 2}
+  - {fileID: 2100000, guid: f45f31b06ead20f4b9ddf28fc18111ae, type: 2}
+  - {fileID: 2100000, guid: 0adca164f325fe046a7e98628b4eb938, type: 2}
+  - {fileID: 2100000, guid: dab5c9f016bc1d64e8c4da171950980f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 1078263613765160567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0629, y: 0.1658, z: 0.022}
+  m_LocalPosition: {x: 0.0629, y: 0.147, z: 0.022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -230,7 +229,7 @@ MonoBehaviour:
   ramSocketSec: 0
   gpuSlot: 1
   gpuSocket: 0
-  cpuSocket: 0
+  cpuSocket: 4
 --- !u!65 &8402789357703948858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -267,7 +266,7 @@ GameObject:
   - component: {fileID: 3842056854964337697}
   - component: {fileID: 5581693559295798039}
   m_Layer: 9
-  m_Name: assrock_k730-sa
+  m_Name: assrock_kz660-am
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 1543529852382809318}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5604224, y: -0.0000020861626, z: 3.8272328}
+  m_LocalPosition: {x: -2.1135988, y: -0.0000020861626, z: 3.8042822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -312,25 +311,25 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 3
-  name: ASSRock K730-SA
-  other: Socket A
+  name: ASSRock KZ660-AM
+  other: Socket 754
   value: 100
   value2: 100
   life: 100
-  price: 70
+  price: 130
   launchYear: 2000
   objSpeed: 2.2
   tdp: 84
   ramSize: 1024
   ramType: 0
   moboBrand: 2
-  moboSocket: 0
+  moboSocket: 4
   moboFormFactor: 1
-  moboRamType: 1
-  moboRamTypeSec: 0
+  moboRamType: 2
+  moboRamTypeSec: 1
   ramSpaces: 2
-  pciSlots: 2
-  pcieSlots: 0
+  pciSlots: 1
+  pcieSlots: 1
   agpSlots: 1
   gpuBrand: 0
   gpuSocket: 0
@@ -449,8 +448,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.073707104, y: 0.29605928, z: 0.08949232}
-  m_Center: {x: 0.28355908, y: 0.12078984, z: 0.051404815}
+  m_Size: {x: 0.073707104, y: 0.3282162, z: 0.08949232}
+  m_Center: {x: 0.28355908, y: 0.10471137, z: 0.051404815}
 --- !u!1 &2422493476320980770
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,8 +576,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 2
-  ramSocket: 1
-  ramSocketSec: 0
+  ramSocket: 2
+  ramSocketSec: 1
   gpuSlot: 0
   gpuSocket: 0
   cpuSocket: 0
@@ -732,7 +731,7 @@ MonoBehaviour:
   ramSocket: 0
   ramSocketSec: 0
   gpuSlot: 2
-  gpuSocket: 1
+  gpuSocket: 2
   cpuSocket: 0
 --- !u!65 &6587115007323849889
 BoxCollider:

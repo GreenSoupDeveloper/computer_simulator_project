@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1150338420096874211}
   - component: {fileID: 4375351925478087375}
   m_Layer: 7
-  m_Name: samsung_ddr2-128
+  m_Name: kingstone_ddr-333_1024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,20 +51,23 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 6
-  name: Samzung DDR2-128
-  other: 128MB DDR2
-  value: 128
+  name: Kingstone DDR-333_1024
+  other: 1024MB DDR
+  value: 1024
   value2: 100
   life: 100
-  price: 30
+  price: 90
   launchYear: 0
-  objSpeed: 533
+  objSpeed: 333
   tdp: 0
+  ramSize: 1024
+  ramType: 1
   moboBrand: 0
   moboSocket: 0
   moboFormFactor: 0
   ramSpaces: 2
   pciSlots: 0
+  pcieSlots: 0
   agpSlots: 0
   gpuBrand: 0
   gpuSocket: 0
@@ -81,8 +84,6 @@ MonoBehaviour:
   hddType: HDD
   storage: 120
   hddInterface: IDE
-  ramSize: 128
-  ramType: DDR2
   cpuBrand: 0
   cpuSocket: 0
   cores: 1

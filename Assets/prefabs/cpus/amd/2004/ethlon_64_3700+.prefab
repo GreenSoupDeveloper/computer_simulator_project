@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1657075867510598814}
   - component: {fileID: 4765416348866004861}
   m_Layer: 7
-  m_Name: ethlon_64_3800+
+  m_Name: ethlon_64_3700+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,13 +141,13 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 1
-  name: Ethlon 64 3800+
+  name: Ethlon 64 3700+
   other: 2.4 GHz
   value: 100
   value2: 100
   life: 100
-  price: 210
-  launchYear: 2005
+  price: 205
+  launchYear: 2004
   objSpeed: 2.4
   tdp: 89
   moboBrand: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
   ramSize: 1024
   ramType: DDR2
   cpuBrand: 1
-  cpuSocket: 2
+  cpuSocket: 4
   cores: 1
   threads: 1
   fanObj: {fileID: 0}

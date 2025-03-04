@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1657075867510598814}
   - component: {fileID: 4765416348866004861}
   m_Layer: 7
-  m_Name: ethlon_64_3800+
+  m_Name: ethlon_64_x2_4800+
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,15 +141,15 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 1
-  name: Ethlon 64 3800+
+  name: Ethlon 64 X2 4800+
   other: 2.4 GHz
   value: 100
   value2: 100
   life: 100
-  price: 210
+  price: 551
   launchYear: 2005
   objSpeed: 2.4
-  tdp: 89
+  tdp: 110
   moboBrand: 0
   moboSocket: 0
   moboFormFactor: 0
@@ -176,8 +176,8 @@ MonoBehaviour:
   ramType: DDR2
   cpuBrand: 1
   cpuSocket: 2
-  cores: 1
-  threads: 1
+  cores: 2
+  threads: 2
   fanObj: {fileID: 0}
   speed: 12
 --- !u!65 &1657075867510598814

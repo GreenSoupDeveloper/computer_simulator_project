@@ -99,22 +99,23 @@ public class webay_Main : MonoBehaviour
         }
         else if (item.itemType == "GPU")
         {
-            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nSocket: "+ item.itemSocket+"\nTMUs: " + item.itemTMUs +"\nROPs: "+ item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
+            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nSocket: " + item.itemSocket + "\nTMUs: " + item.itemTMUs + "\nROPs: " + item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
         else if (item.itemType == "RAM")
         {
-            checkOutInfo.text = "Memory: " + item.itemSize +" MB\nSpeed: " + item.itemSpeed + "MHz\nType: " + item.itemVersion;
-        } else if (item.itemType == "Monitor")
-        {
-            checkOutInfo.text = "Resolution: " + item.itemTMUs +"p\nRatio: " + item.itemROPS;
+            checkOutInfo.text = "Memory: " + item.itemSize + " MB\nSpeed: " + item.itemSpeed + "MHz\nType: " + item.itemVersion;
         }
-         else if (item.itemType == "Hard_Drive")
+        else if (item.itemType == "Monitor")
         {
-            checkOutInfo.text = "Capacity: " + item.itemSize +" GB\nType: " + item.itemVersion + "\nInterface: " + item.itemSocket + "\nSpeed: "+ item.itemSpeed + " MB/s\nTDP: " + item.itemTDP + " Watts";
+            checkOutInfo.text = "Resolution: " + item.itemTMUs + "p\nRatio: " + item.itemROPS;
+        }
+        else if (item.itemType == "Hard_Drive")
+        {
+            checkOutInfo.text = "Capacity: " + item.itemSize + " GB\nType: " + item.itemVersion + "\nInterface: " + item.itemSocket + "\nSpeed: " + item.itemSpeed + " MB/s\nTDP: " + item.itemTDP + " Watts";
         }
         else if (item.itemType == "CPU_Fan")
         {
-            checkOutInfo.text = "Compatible Sockets: " + item.itemSocket +"\nSpeed: " + item.itemSpeed + " RPM\nTDP: " + item.itemTDP + " Watts";
+            checkOutInfo.text = "Compatible Sockets: " + item.itemSocket + "\nSpeed: " + item.itemSpeed + " RPM\nTDP: " + item.itemTDP + " Watts";
         }
         else if (item.itemType == "Power_Supply")
         {
@@ -126,7 +127,7 @@ public class webay_Main : MonoBehaviour
         }
         else if (item.itemType == "Motherboard")
         {
-            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nAGP Slots: " + item.itemTMUs;
+            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nRAM Type: " + item.itemThird + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nPCIe Slots: " + item.itemSecond + "\nAGP Slots: " + item.itemTMUs;
         }
 
         checkOutName.text = item.itemName;
@@ -137,19 +138,21 @@ public class webay_Main : MonoBehaviour
     }
     public void buyitem()
     {
-        if(playerMove.playerMoney >= checkOutBuyPrefab.GetComponent<objectScript>().price)
+        if (playerMove.playerMoney >= checkOutBuyPrefab.GetComponent<objectScript>().price)
         {
             playerMove.playerMoney -= checkOutBuyPrefab.GetComponent<objectScript>().price;
-            
+
             Instantiate(checkOutBuyPrefab, new Vector3(spawnPoint.transform.position.x + UnityEngine.Random.Range(-0.5f, 0.5f), spawnPoint.transform.position.y, spawnPoint.transform.position.z + UnityEngine.Random.Range(-0.5f, 0.5f)), Quaternion.identity);
-        }else{
-            nomoney.text = "You don't have enough money!";
-            
         }
-        
+        else
+        {
+            nomoney.text = "You don't have enough money!";
+
+        }
+
 
     }
-     public void unCheckOut()
+    public void unCheckOut()
     {
         checkOutBuyPrefab = null;
         checkOutObj.SetActive(false);

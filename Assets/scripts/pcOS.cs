@@ -48,6 +48,7 @@ public class pcOS : MonoBehaviour
         blackBars.SetActive(false);
         loadingSession.SetActive(false);
         shuttingDown.SetActive(false);
+        operativeSystem.SetActive(false);
 
         exitBtn.SetActive(true);
         Debug.Log("start thing done");

@@ -50,8 +50,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
-  ramSocket: 1
-  ramSocketSec: 0
+  ramSocket: 0
+  ramSocketSec: 4
   gpuSlot: 1
   gpuSocket: 0
   cpuSocket: 0
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 3842056854964337697}
   - component: {fileID: 5581693559295798039}
   m_Layer: 9
-  m_Name: assrock_k730-sa
+  m_Name: azuz_lm-403-aSA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,22 +312,22 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 3
-  name: ASSRock K730-SA
+  name: AZUZ LM-403-aSA
   other: Socket A
   value: 100
   value2: 100
   life: 100
-  price: 70
+  price: 30
   launchYear: 2000
   objSpeed: 2.2
   tdp: 84
   ramSize: 1024
   ramType: 0
-  moboBrand: 2
+  moboBrand: 3
   moboSocket: 0
   moboFormFactor: 1
-  moboRamType: 1
-  moboRamTypeSec: 0
+  moboRamType: 0
+  moboRamTypeSec: 4
   ramSpaces: 2
   pciSlots: 2
   pcieSlots: 0
@@ -577,8 +577,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 2
-  ramSocket: 1
-  ramSocketSec: 0
+  ramSocket: 0
+  ramSocketSec: 4
   gpuSlot: 0
   gpuSocket: 0
   cpuSocket: 0

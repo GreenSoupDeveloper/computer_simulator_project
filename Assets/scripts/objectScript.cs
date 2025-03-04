@@ -18,6 +18,12 @@ public class objectScript : MonoBehaviour
     public float objSpeed = 2.2f;
     public int tdp = 84;
 
+        [Header("RAM Stuff")]
+
+    public int ramSize = 1024;
+    public RamType ramType;
+    public enum RamType { SDR, DDR, DDR2, DDR3, None};
+
     [Header("Motherboard Stuff")]
     
     
@@ -25,9 +31,12 @@ public class objectScript : MonoBehaviour
     public enum MoboBrand { Viostar, Megabyte, ASSRock, AZUZ, MZI, Entel };
     public CPUSocket moboSocket;
     public FormFactor moboFormFactor;
+    public RamType moboRamType;
+    public RamType moboRamTypeSec;
     //public enum GPUSocket { AGP, PCI, PCIe };
     public int ramSpaces = 2;
     public int pciSlots;
+    public int pcieSlots = 0;
     public int agpSlots;
     [Header("GPU Stuff")]
     public GPUBrand gpuBrand;
@@ -64,10 +73,7 @@ public class objectScript : MonoBehaviour
 
 
 
-    [Header("RAM Stuff")]
 
-    public int ramSize = 1024;
-    public string ramType = "DDR2";
 
     [Header("CPU Stuff")]
     public CPUBrand cpuBrand;

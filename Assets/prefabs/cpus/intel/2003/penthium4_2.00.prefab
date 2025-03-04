@@ -144,16 +144,40 @@ MonoBehaviour:
   name: Penthium 4 2.00
   other: 2.0 GHz
   value: 100
+  value2: 100
   life: 100
-  price: 130
+  price: 150
   launchYear: 2003
   objSpeed: 2
   tdp: 72
+  moboBrand: 0
+  moboSocket: 0
+  moboFormFactor: 0
+  ramSpaces: 2
+  pciSlots: 0
+  pcieSlots: 0
+  agpSlots: 0
+  gpuBrand: 0
+  gpuSocket: 0
+  vram: 256
+  gpuType: DDR1
+  tmus: 4
+  rops: 4
+  formFactor: 0
+  hddSpaces: 3
+  compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
+  fanSpeed: 1700
+  resolution: 800x600
+  ratio: 4:3
+  hddType: HDD
+  storage: 120
+  hddInterface: IDE
+  ramSize: 1024
+  ramType: DDR2
   cpuBrand: 0
   cpuSocket: 1
   cores: 1
   threads: 1
-  gpuBrand: 0
   fanObj: {fileID: 0}
   speed: 12
 --- !u!65 &2613827679092601619

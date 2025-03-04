@@ -50,6 +50,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
+  ramSocket: 2
+  ramSocketSec: 1
   gpuSlot: 1
   gpuSocket: 0
   cpuSocket: 0
@@ -223,6 +225,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
+  ramSocket: 0
+  ramSocketSec: 0
   gpuSlot: 1
   gpuSocket: 0
   cpuSocket: 1
@@ -316,10 +320,16 @@ MonoBehaviour:
   launchYear: 2000
   objSpeed: 2.2
   tdp: 84
+  ramSize: 1024
+  ramType: 0
+  moboBrand: 0
   moboSocket: 1
   moboFormFactor: 1
+  moboRamType: 2
+  moboRamTypeSec: 1
   ramSpaces: 2
   pciSlots: 2
+  pcieSlots: 0
   agpSlots: 1
   gpuBrand: 0
   gpuSocket: 0
@@ -336,8 +346,6 @@ MonoBehaviour:
   hddType: HDD
   storage: 120
   hddInterface: IDE
-  ramSize: 1024
-  ramType: DDR2
   cpuBrand: 0
   cpuSocket: 0
   cores: 1
@@ -492,6 +500,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
+  ramSocket: 0
+  ramSocketSec: 0
   gpuSlot: 1
   gpuSocket: 0
   cpuSocket: 0
@@ -566,6 +576,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 2
+  ramSocket: 2
+  ramSocketSec: 1
   gpuSlot: 0
   gpuSocket: 0
   cpuSocket: 0
@@ -640,6 +652,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
+  ramSocket: 0
+  ramSocketSec: 0
   gpuSlot: 1
   gpuSocket: 0
   cpuSocket: 0
@@ -714,6 +728,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
+  ramSocket: 0
+  ramSocketSec: 0
   gpuSlot: 2
   gpuSocket: 1
   cpuSocket: 0
@@ -788,6 +804,8 @@ MonoBehaviour:
   audioSrc: {fileID: 0}
   pop: {fileID: 8300000, guid: d2f157650ac8b3444b2d47547d5d7011, type: 3}
   ramSlot: 1
+  ramSocket: 0
+  ramSocketSec: 0
   gpuSlot: 3
   gpuSocket: 1
   cpuSocket: 0

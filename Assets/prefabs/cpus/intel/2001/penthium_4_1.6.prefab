@@ -144,16 +144,34 @@ MonoBehaviour:
   name: Penthium 4 1.6
   other: 1.6 GHz
   value: 100
+  value2: 100
   life: 100
   price: 115
   launchYear: 2000
   objSpeed: 1.6
   tdp: 61
+  moboBrand: 0
+  moboSocket: 0
+  moboFormFactor: 0
+  ramSpaces: 2
+  pciSlots: 0
+  pcieSlots: 0
+  agpSlots: 0
   gpuBrand: 0
+  gpuSocket: 0
   vram: 256
   gpuType: DDR1
   tmus: 4
   rops: 4
+  formFactor: 0
+  hddSpaces: 3
+  compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
+  fanSpeed: 1700
+  resolution: 800x600
+  ratio: 4:3
+  hddType: HDD
+  storage: 120
+  hddInterface: IDE
   ramSize: 1024
   ramType: DDR2
   cpuBrand: 0

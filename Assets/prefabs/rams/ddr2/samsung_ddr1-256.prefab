@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1150338420096874211}
   - component: {fileID: 4375351925478087375}
   m_Layer: 7
-  m_Name: samsung_ddr2-64
+  m_Name: samsung_ddr1-256
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,20 +51,23 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 6
-  name: Samzung DDR2-64
-  other: 64MB DDR2
-  value: 64
+  name: Samzung DDR2-667_256
+  other: 256MB DDR2
+  value: 256
   value2: 100
   life: 100
-  price: 18
+  price: 80
   launchYear: 0
-  objSpeed: 533
+  objSpeed: 667
   tdp: 0
+  ramSize: 256
+  ramType: 2
   moboBrand: 0
   moboSocket: 0
   moboFormFactor: 0
   ramSpaces: 2
   pciSlots: 0
+  pcieSlots: 0
   agpSlots: 0
   gpuBrand: 0
   gpuSocket: 0
@@ -81,8 +84,6 @@ MonoBehaviour:
   hddType: HDD
   storage: 120
   hddInterface: IDE
-  ramSize: 64
-  ramType: DDR2
   cpuBrand: 0
   cpuSocket: 0
   cores: 1

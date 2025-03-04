@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1150338420096874211}
   - component: {fileID: 4375351925478087375}
   m_Layer: 7
-  m_Name: samsung_ddr2-32
+  m_Name: crusial_sdr-pc100_64
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,20 +51,21 @@ MonoBehaviour:
   isOnPC: 0
   isObjDamaged: 0
   type: 6
-  name: Samzung DDR2-32
-  other: 32MB DDR2
-  value: 32
+  name: Crusial SDR-PC100_64
+  other: 64MB SDR
+  value: 64
   value2: 100
   life: 100
-  price: 10
+  price: 18
   launchYear: 0
-  objSpeed: 533
+  objSpeed: 100
   tdp: 0
   moboBrand: 0
   moboSocket: 0
   moboFormFactor: 0
   ramSpaces: 2
   pciSlots: 0
+  pcieSlots: 0
   agpSlots: 0
   gpuBrand: 0
   gpuSocket: 0
@@ -81,8 +82,8 @@ MonoBehaviour:
   hddType: HDD
   storage: 120
   hddInterface: IDE
-  ramSize: 32
-  ramType: DDR2
+  ramSize: 64
+  ramType: SDR
   cpuBrand: 0
   cpuSocket: 0
   cores: 1

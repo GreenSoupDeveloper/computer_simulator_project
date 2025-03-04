@@ -33,7 +33,7 @@ public class aboutPC_Main : MonoBehaviour
 
         if (computer.cpu != null)
         {
-            cpuname = computer.gpu1.GetComponent<objectScript>().cpuBrand.ToString() + "(R) " + computer.cpu.GetComponent<objectScript>().name + " " + computer.cpu.GetComponent<objectScript>().other;
+            cpuname = computer.cpu.GetComponent<objectScript>().cpuBrand.ToString() + "(R) " + computer.cpu.GetComponent<objectScript>().name + " " + computer.cpu.GetComponent<objectScript>().other;
         }
         if (computer.gpu1 != null)
         {

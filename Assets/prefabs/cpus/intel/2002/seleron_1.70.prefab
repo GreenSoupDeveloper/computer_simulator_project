@@ -146,14 +146,16 @@ MonoBehaviour:
   value: 100
   value2: 100
   life: 100
-  price: 121
+  price: 118
   launchYear: 2002
   objSpeed: 1.7
   tdp: 63
+  moboBrand: 0
   moboSocket: 0
   moboFormFactor: 0
   ramSpaces: 2
   pciSlots: 0
+  pcieSlots: 0
   agpSlots: 0
   gpuBrand: 0
   gpuSocket: 0
