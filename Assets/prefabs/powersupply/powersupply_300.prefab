@@ -60,6 +60,27 @@ MonoBehaviour:
   launchYear: 2000
   objSpeed: 2.2
   tdp: 300
+  ramSize: 1024
+  ramType: 0
+  moboBrand: 0
+  moboSocket: 0
+  moboFormFactor: 0
+  moboRamType: 0
+  moboRamTypeSec: 0
+  hasiGPU: 0
+  moboChipset: 
+  ramSpaces: 2
+  pciSlots: 0
+  pcieSlots: 0
+  agpSlots: 0
+  gpuBrand: 0
+  gpuSocket: 0
+  vram: 256
+  gpuType: DDR1
+  tmus: 4
+  rops: 4
+  formFactor: 0
+  hddSpaces: 3
   compatibleSockets: Socket A/Socket 423/Socket 478/LGA775
   fanSpeed: 1700
   resolution: 800x600
@@ -67,19 +88,12 @@ MonoBehaviour:
   hddType: HDD
   storage: 120
   hddInterface: IDE
-  gpuBrand: 0
-  vram: 256
-  gpuType: DDR1
-  tmus: 4
-  rops: 4
-  ramSize: 1024
-  ramType: DDR2
   cpuBrand: 0
   cpuSocket: 0
   cores: 1
   threads: 2
   fanObj: {fileID: 3011225861975841275}
-  speed: 10
+  speed: 14
 --- !u!65 &3574311086645487889
 BoxCollider:
   m_ObjectHideFlags: 0

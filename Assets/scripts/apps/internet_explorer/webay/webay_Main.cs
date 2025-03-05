@@ -127,7 +127,7 @@ public class webay_Main : MonoBehaviour
         }
         else if (item.itemType == "Motherboard")
         {
-            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nRAM Type: " + item.itemThird + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nPCIe Slots: " + item.itemSecond + "\nAGP Slots: " + item.itemTMUs;
+            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nChipset: " + item.itemFourth + "\nRAM Type: " + item.itemThird + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nPCIe Slots: " + item.itemSecond + "\nAGP Slots: " + item.itemTMUs;
         }
 
         checkOutName.text = item.itemName;

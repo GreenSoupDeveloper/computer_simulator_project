@@ -18,22 +18,24 @@ public class objectScript : MonoBehaviour
     public float objSpeed = 2.2f;
     public int tdp = 84;
 
-        [Header("RAM Stuff")]
+    [Header("RAM Stuff")]
 
     public int ramSize = 1024;
     public RamType ramType;
-    public enum RamType { SDR, DDR, DDR2, DDR3, None};
+    public enum RamType { SDR, DDR, DDR2, DDR3, None };
 
     [Header("Motherboard Stuff")]
-    
-    
+
+
     public MoboBrand moboBrand;
     public enum MoboBrand { Viostar, Megabyte, ASSRock, AZUZ, MZI, Entel };
     public CPUSocket moboSocket;
     public FormFactor moboFormFactor;
     public RamType moboRamType;
     public RamType moboRamTypeSec;
-    //public enum GPUSocket { AGP, PCI, PCIe };
+    public bool hasiGPU = false;
+    public string moboChipset = "";
+
     public int ramSpaces = 2;
     public int pciSlots;
     public int pcieSlots = 0;
@@ -100,6 +102,8 @@ public class objectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (type == CompType.CPU_Fan)
+            speed = fanSpeed - 1000f;
 
         if (!isOnPC)
         {
@@ -127,7 +131,9 @@ public class objectScript : MonoBehaviour
                     {
                         if (speedtemp < speed)
                         {
-                            speedtemp += 0.25f;
+
+
+                            speedtemp += 0.5f;
                         }
 
                     }

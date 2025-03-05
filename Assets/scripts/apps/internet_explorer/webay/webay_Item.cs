@@ -23,6 +23,7 @@ public class webay_Item : MonoBehaviour
     public string itemROPS;
     public string itemSecond;
     public string itemThird;
+    public string itemFourth;
     public Sprite itemImage;
 
     public GameObject itemPrefab;
@@ -95,6 +96,11 @@ public class webay_Item : MonoBehaviour
                 itemThird = itemPrefab.GetComponent<objectScript>().moboRamType.ToString() + ", " + itemPrefab.GetComponent<objectScript>().moboRamTypeSec.ToString();
             else
                 itemThird = itemPrefab.GetComponent<objectScript>().moboRamType.ToString();
+
+            if (itemPrefab.GetComponent<objectScript>().hasiGPU)
+                itemFourth = itemPrefab.GetComponent<objectScript>().moboChipset;
+            else
+                itemFourth = itemPrefab.GetComponent<objectScript>().moboChipset + " (No iGPU)";
         }
 
 

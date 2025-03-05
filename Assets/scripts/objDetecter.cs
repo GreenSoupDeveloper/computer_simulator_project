@@ -38,12 +38,12 @@ public class objDetecter : MonoBehaviour
                 other.gameObject.GetComponent<objectScript>().isOnPC = true;
                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
                 other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
-              if (pickupController.heldObj == other.gameObject)
-                        {
-                            pickupController.heldObj = null;
-                            pickupController.pickedObject = false;
-                            pickupController.heldObjRB = null;
-                        }
+                if (pickupController.heldObj == other.gameObject)
+                {
+                    pickupController.heldObj = null;
+                    pickupController.pickedObject = false;
+                    pickupController.heldObjRB = null;
+                }
                 curcase.mobo = other.gameObject;
                 audioSrc.PlayOneShot(pop);
             }
@@ -66,12 +66,12 @@ public class objDetecter : MonoBehaviour
                 other.gameObject.GetComponent<objectScript>().isOnPC = true;
                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
                 other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
-            if (pickupController.heldObj == other.gameObject)
-                        {
-                            pickupController.heldObj = null;
-                            pickupController.pickedObject = false;
-                            pickupController.heldObjRB = null;
-                        }
+                if (pickupController.heldObj == other.gameObject)
+                {
+                    pickupController.heldObj = null;
+                    pickupController.pickedObject = false;
+                    pickupController.heldObjRB = null;
+                }
                 curcase.powerSupply = other.gameObject;
                 audioSrc.PlayOneShot(pop);
             }
@@ -96,12 +96,12 @@ public class objDetecter : MonoBehaviour
                     other.gameObject.GetComponent<objectScript>().isOnPC = true;
                     other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
                     other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
-                  if (pickupController.heldObj == other.gameObject)
-                        {
-                            pickupController.heldObj = null;
-                            pickupController.pickedObject = false;
-                            pickupController.heldObjRB = null;
-                        }
+                    if (pickupController.heldObj == other.gameObject)
+                    {
+                        pickupController.heldObj = null;
+                        pickupController.pickedObject = false;
+                        pickupController.heldObjRB = null;
+                    }
                     curcase.hdd1 = other.gameObject;
                     curcase.hddList.Add(other.gameObject);
                     audioSrc.PlayOneShot(pop);
@@ -125,12 +125,12 @@ public class objDetecter : MonoBehaviour
                     other.gameObject.GetComponent<objectScript>().isOnPC = true;
                     other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
                     other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
-                   if (pickupController.heldObj == other.gameObject)
-                        {
-                            pickupController.heldObj = null;
-                            pickupController.pickedObject = false;
-                            pickupController.heldObjRB = null;
-                        }
+                    if (pickupController.heldObj == other.gameObject)
+                    {
+                        pickupController.heldObj = null;
+                        pickupController.pickedObject = false;
+                        pickupController.heldObjRB = null;
+                    }
                     curcase.hdd2 = other.gameObject;
                     curcase.hddList.Add(other.gameObject);
                     audioSrc.PlayOneShot(pop);
@@ -155,11 +155,11 @@ public class objDetecter : MonoBehaviour
                     other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
                     other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
                     if (pickupController.heldObj == other.gameObject)
-                        {
-                            pickupController.heldObj = null;
-                            pickupController.pickedObject = false;
-                            pickupController.heldObjRB = null;
-                        }
+                    {
+                        pickupController.heldObj = null;
+                        pickupController.pickedObject = false;
+                        pickupController.heldObjRB = null;
+                    }
                     curcase.hdd3 = other.gameObject;
                     curcase.hddList.Add(other.gameObject);
                     audioSrc.PlayOneShot(pop);

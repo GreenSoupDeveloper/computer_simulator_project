@@ -120,17 +120,24 @@ public class computerMonitor : MonoBehaviour
             currpcOS.pcOSCanvas.worldCamera = null;
             clear = false;
         }
-        if(currpcOS !=null){
-        if (currpcOS.GetComponentInParent<computerCase>().hadRAM1 || currpcOS.GetComponentInParent<computerCase>().hadRAM2)
+        if (currpcOS != null)
         {
+            if (currpcOS.GetComponentInParent<computerCase>().hadRAM1 || currpcOS.GetComponentInParent<computerCase>().hadRAM2)
+            {
 
+            }
+            else
+            {
+                currpcOS.pcOSCanvas.worldCamera = null;
+                allowEnter = false;
+            }
+            if (!currpcOS.GetComponentInParent<computerCase>().mobo.GetComponent<objectScript>().hasiGPU && currpcOS.GetComponentInParent<computerCase>().hadGPU1 == false && currpcOS.GetComponentInParent<computerCase>().hadGPU2 == false && currpcOS.GetComponentInParent<computerCase>().hadGPU3 == false)
+            {
+                currpcOS.pcOSCanvas.worldCamera = null;
+                allowEnter = false;
+            }
         }
-        else
-        {
-            currpcOS.pcOSCanvas.worldCamera = null;
-            allowEnter = false;
-        }
-        }
+
 
 
 

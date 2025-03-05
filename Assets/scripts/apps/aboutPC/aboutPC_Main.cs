@@ -37,17 +37,22 @@ public class aboutPC_Main : MonoBehaviour
         }
         if (computer.gpu1 != null)
         {
-            gpuname1 = computer.gpu1.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu1.GetComponent<objectScript>().name;
+            gpuname1 = computer.gpu1.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu1.GetComponent<objectScript>().name + " " + computer.gpu1.GetComponent<objectScript>().objSpeed + " MHz";
             vramamount += computer.gpu1.GetComponent<objectScript>().value;
+        }else{
+            if (computer.mobo.GetComponent<objectScript>().hasiGPU)
+                gpuname1 = "Integrated " + computer.mobo.GetComponent<objectScript>().moboChipset.Replace("MVIDIA", "MVIDIA(R)").Replace("Entel", "Entel(R)").Replace("CiS", "CiS(R)");
+            else
+                gpuname1 = "None";
         }
         if (computer.gpu2 != null)
         {
-            gpuname2 = computer.gpu2.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu2.GetComponent<objectScript>().name;
+            gpuname2 = computer.gpu2.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu2.GetComponent<objectScript>().name + " " + computer.gpu2.GetComponent<objectScript>().objSpeed + " MHz";
             vramamount += computer.gpu2.GetComponent<objectScript>().value;
         }
         if (computer.gpu3 != null)
         {
-            gpuname3 = computer.gpu3.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu3.GetComponent<objectScript>().name;
+            gpuname3 = computer.gpu3.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu3.GetComponent<objectScript>().name + " " + computer.gpu3.GetComponent<objectScript>().objSpeed + " MHz";
             vramamount += computer.gpu3.GetComponent<objectScript>().value;
         }
 

@@ -69,7 +69,7 @@ public class pcOS : MonoBehaviour
             {
                 if (computer.isPcON)
                 {
-                    
+
 
 
                     startSequence = false;
@@ -113,6 +113,7 @@ public class pcOS : MonoBehaviour
                 loadingOS.SetActive(false);
                 operativeSystem.SetActive(false);
                 loadingSession.SetActive(false);
+                
 
                 off.SetActive(true);
                 blackBars.SetActive(false);
@@ -219,30 +220,36 @@ public class pcOS : MonoBehaviour
     {
         if (computer.isPcON)
         {
+            if (!onBSOD)
+            {
 
-            if (!noBootDevice)
-            {
-                black.SetActive(false);
-                float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 4;
-                loadingOS.SetActive(true);
-                Debug.Log("Time: " + timeme);
-                Invoke("delayOs", timeme);
-            }
-            else
-            {
-                setOS();
+                if (!noBootDevice)
+                {
+                    black.SetActive(false);
+                    float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 6;
+                    loadingOS.SetActive(true);
+                    Debug.Log("Time: " + timeme);
+                    Invoke("delayOs", timeme);
+                }
+                else
+                {
+                    setOS();
+                }
             }
         }
     }
     void delayOs()
     {
-        if (computer.isPcON)
+        if (!onBSOD)
         {
-            if (!booted)
+            if (computer.isPcON)
             {
-                loadingOS.SetActive(false);
-                black.SetActive(true);
-                StartCoroutine(setOS());
+                if (!booted)
+                {
+                    loadingOS.SetActive(false);
+                    black.SetActive(true);
+                    StartCoroutine(setOS());
+                }
             }
         }
     }
@@ -260,11 +267,12 @@ public class pcOS : MonoBehaviour
                 blackBars.SetActive(false);
             }
         }
+        loadingOS.SetActive(false);
         black.SetActive(false);
         loadingSession.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         PlaySound(pcBootSound);
-        float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 8;
+        float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 10f;
         yield return new WaitForSeconds(timeme);
         loadingSession.SetActive(false);
 

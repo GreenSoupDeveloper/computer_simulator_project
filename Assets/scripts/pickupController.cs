@@ -16,6 +16,7 @@ public class pickupController : MonoBehaviour
     public GameObject uiObj;
     public Image disarmModeImg;
     public Image linkModeImg;
+    public Transform orgFollowPoint;
     public Transform followPoint;
     public Transform parent;
     public static GameObject heldObj;
@@ -47,6 +48,7 @@ public class pickupController : MonoBehaviour
     public static bool linkmode = false;
     public int linkStep = 0;
     public Color clear;
+    public LayerMask playerLayer;
 
     void Start()
     {
@@ -77,6 +79,10 @@ public class pickupController : MonoBehaviour
                             {
                                 objIsOnPC = false;
                                 pickedObject = true;
+                                for (int i = 0; i < hitted.transform.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    hitted.transform.gameObject.GetComponents<Collider>()[i].excludeLayers = playerLayer;
+                                }
 
                             }
                             else
@@ -514,12 +520,13 @@ public class pickupController : MonoBehaviour
 
         if (pickedObject)
         {
-
-            PickupObject(hitted.transform.gameObject);
+            if (hitted.transform.gameObject != null)
+                PickupObject(hitted.transform.gameObject);
 
         }
         else
         {
+            followPoint.position = orgFollowPoint.position;
             DropObject();
         }
 
@@ -547,10 +554,17 @@ public class pickupController : MonoBehaviour
                 else
                 {
                     Vector3 thingerer = new Vector3(0f, -GameControls.cameraAxis.x, -GameControls.cameraAxis.y);
-                    heldObj.GetComponentInParent<computerCase>().gameObject.transform.RotateAround(followPoint.position, thingerer * objRotationForce * Time.deltaTime, 3.75f);
+                    if (heldObj.GetComponentInParent<computerCase>() != null)
+                        heldObj.GetComponentInParent<computerCase>().gameObject.transform.RotateAround(followPoint.position, thingerer * objRotationForce * Time.deltaTime, 3.75f);
+                    else if (heldObj.GetComponentInParent<moboScript>() != null)
+                        heldObj.GetComponentInParent<moboScript>().gameObject.transform.RotateAround(followPoint.position, thingerer * objRotationForce * Time.deltaTime, 3.75f);
+
 
                 }
+
+
             }
+
         }
 
 
@@ -588,7 +602,10 @@ public class pickupController : MonoBehaviour
             {
                 if (pickObj.GetComponentInParent<computerCase>().gameObject.GetComponent<Rigidbody>())
                 {
-                    infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
+                    if (pickObj.GetComponent<objectScript>().isObjDamaged)
+                        infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other + "\n<color=red>Damaged";
+                    else
+                        infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
                     heldObjRB = pickObj.GetComponentInParent<computerCase>().gameObject.GetComponent<Rigidbody>();
 
                     heldObjRB.linearDamping = 10;
@@ -603,6 +620,26 @@ public class pickupController : MonoBehaviour
                     heldObjRB.transform.parent = parent;
                     heldObj = pickObj;
 
+                }
+                else if (pickObj.GetComponentInParent<moboScript>().gameObject.GetComponent<Rigidbody>())
+                {
+                    if (pickObj.GetComponent<objectScript>().isObjDamaged)
+                        infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other + "\n<color=red>Damaged";
+                    else
+                        infotxt.text = pickObj.GetComponent<objectScript>().name + "\n" + pickObj.GetComponent<objectScript>().other;
+                    heldObjRB = pickObj.GetComponentInParent<moboScript>().gameObject.GetComponent<Rigidbody>();
+
+                    heldObjRB.linearDamping = 10;
+                    if (canRotate)
+                    {
+                        heldObjRB.constraints = RigidbodyConstraints.None;
+                    }
+                    else
+                    {
+                        heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+                    }
+                    heldObjRB.transform.parent = parent;
+                    heldObj = pickObj;
                 }
             }
             else

@@ -277,6 +277,40 @@ public class computerCase : MonoBehaviour
       hadHDD3 = hasHDD3;
       hadRAM1 = hasRAM1;
       hadRAM2 = hasRAM2;
+      if(gpu1 == null)
+      {
+        hasGPU1 = false;
+      }
+      if(gpu2 == null)
+      {
+        hasGPU2 = false;
+      }
+      if(gpu3 == null)
+      {
+        hasGPU3 = false;
+      }
+      if(hdd1 == null)
+      {
+        hasHDD1 = false;
+      }
+      if(hdd2 == null)
+      {
+        hasHDD2 = false;
+      }
+      if(hdd3 == null)
+      {
+        hasHDD3 = false;
+      }
+      if(ram1 == null)
+      {
+        hasRAM1 = false;
+      }
+      if(ram2 == null)
+      {
+        hasRAM2 = false;
+      }
+
+      
       if (hddList.Count > 0)
       {
 
