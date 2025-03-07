@@ -55,6 +55,9 @@ public class computerCase : MonoBehaviour
   bool cpuFanChecked = false;
   [Header("pcos thing")]
   public bool isPcON = false;
+  public string sessionID = "";
+
+  bool createID = true;
 
   [Header("audio thing")]
   public AudioSource pcAudio;
@@ -113,6 +116,7 @@ public class computerCase : MonoBehaviour
 
       if (hasMOBO && hasPowerSupply && hasCPU)
       {
+        createID = true;
         if (cpu.GetComponent<objectScript>().isObjDamaged == true)
         {
           //cpu is damaged
@@ -267,6 +271,18 @@ public class computerCase : MonoBehaviour
     }
     else
     {
+      /* ignore this.
+      if (createID)
+      {
+      
+        string thinger = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (int i = 0; i < 4; i++)
+        {
+          sessionID += thinger[UnityEngine.Random.Range(0, thinger.Length)];
+        }
+        createID = false;
+      }*/
+
       onLight.SetActive(false);
 
       hadGPU1 = hasGPU1;
@@ -277,40 +293,40 @@ public class computerCase : MonoBehaviour
       hadHDD3 = hasHDD3;
       hadRAM1 = hasRAM1;
       hadRAM2 = hasRAM2;
-      if(gpu1 == null)
+      if (gpu1 == null)
       {
         hasGPU1 = false;
       }
-      if(gpu2 == null)
+      if (gpu2 == null)
       {
         hasGPU2 = false;
       }
-      if(gpu3 == null)
+      if (gpu3 == null)
       {
         hasGPU3 = false;
       }
-      if(hdd1 == null)
+      if (hdd1 == null)
       {
         hasHDD1 = false;
       }
-      if(hdd2 == null)
+      if (hdd2 == null)
       {
         hasHDD2 = false;
       }
-      if(hdd3 == null)
+      if (hdd3 == null)
       {
         hasHDD3 = false;
       }
-      if(ram1 == null)
+      if (ram1 == null)
       {
         hasRAM1 = false;
       }
-      if(ram2 == null)
+      if (ram2 == null)
       {
         hasRAM2 = false;
       }
 
-      
+
       if (hddList.Count > 0)
       {
 

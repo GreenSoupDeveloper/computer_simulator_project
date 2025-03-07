@@ -102,8 +102,7 @@ public class objectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (type == CompType.CPU_Fan)
-            speed = fanSpeed - 1000f;
+
 
         if (!isOnPC)
         {
@@ -123,6 +122,8 @@ public class objectScript : MonoBehaviour
         }
         else
         {
+            if (type == CompType.CPU_Fan)
+                speed = (fanSpeed - 1000f);
             if (type == CompType.CPU_Fan || type == CompType.GPU || type == CompType.Power_Supply)
             {
                 if (parent.GetComponentInParent<computerCase>() != null)
@@ -133,7 +134,7 @@ public class objectScript : MonoBehaviour
                         {
 
 
-                            speedtemp += 0.5f;
+                            speedtemp += 0.25f;
                         }
 
                     }

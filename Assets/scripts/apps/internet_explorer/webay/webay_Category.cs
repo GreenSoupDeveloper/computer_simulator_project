@@ -29,6 +29,8 @@ public class webay_Category : MonoBehaviour
         scrollRect.content = obj1.GetComponent<RectTransform>();
         if (obj2 != null)
             obj2.SetActive(false);
+            if (obj3 != null)
+            obj3.SetActive(false);
     }
     public void filter2()
     {
@@ -37,5 +39,17 @@ public class webay_Category : MonoBehaviour
         scrollRect.content = obj2.GetComponent<RectTransform>();
         if (obj2 != null)
             obj2.SetActive(true);
+            if (obj3 != null)
+            obj3.SetActive(false);
+    }
+    public void filter3()
+    {
+
+        obj1.SetActive(false);
+        scrollRect.content = obj3.GetComponent<RectTransform>();
+        if (obj2 != null)
+            obj2.SetActive(false);
+            if (obj3 != null)
+            obj3.SetActive(true);
     }
 }

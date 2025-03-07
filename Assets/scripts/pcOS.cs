@@ -226,7 +226,7 @@ public class pcOS : MonoBehaviour
                 if (!noBootDevice)
                 {
                     black.SetActive(false);
-                    float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 6;
+                    float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 8;
                     loadingOS.SetActive(true);
                     Debug.Log("Time: " + timeme);
                     Invoke("delayOs", timeme);
@@ -272,7 +272,7 @@ public class pcOS : MonoBehaviour
         loadingSession.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         PlaySound(pcBootSound);
-        float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 10f;
+        float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 12f;
         yield return new WaitForSeconds(timeme);
         loadingSession.SetActive(false);
 

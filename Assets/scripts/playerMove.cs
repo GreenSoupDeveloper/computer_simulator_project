@@ -40,10 +40,9 @@ public class playerMove : MonoBehaviour
 
     void Update()
     {
-
-
-
-
+        if(Input.GetKeyDown(KeyCode.L)){
+            main.saveProgress();
+        }
 
         if (!pickupController.isOnPCOS)
         {

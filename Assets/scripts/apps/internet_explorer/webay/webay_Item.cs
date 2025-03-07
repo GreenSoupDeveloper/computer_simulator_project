@@ -102,6 +102,8 @@ public class webay_Item : MonoBehaviour
             else
                 itemFourth = itemPrefab.GetComponent<objectScript>().moboChipset + " (No iGPU)";
         }
+       
+
 
 
 

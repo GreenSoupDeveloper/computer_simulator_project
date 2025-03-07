@@ -19,16 +19,6 @@ public class webay_Main : MonoBehaviour
 
     [Header("main")]
 
-    public Button processorPageBtn;
-    public Button gpuPageBtn;
-    public Button motherboardPageBtn;
-    public Button ramPageBtn;
-    public Button psuPageBtn;
-    public Button casePageBtn;
-    public Button hddPageBtn;
-    public Button fansPageBtn;
-    public Button monitorsPageBtn;
-
 
     public GameObject processorPage;
     public GameObject gpuPage;
@@ -39,6 +29,7 @@ public class webay_Main : MonoBehaviour
     public GameObject hddPage;
     public GameObject fansPage;
     public GameObject monitorsPage;
+    public GameObject accessoriesPage;
 
     public GameObject processorPageFilter;
     public GameObject gpuPageFilter;
@@ -49,6 +40,7 @@ public class webay_Main : MonoBehaviour
     public GameObject hddPageFilter;
     public GameObject fansPageFilter;
     public GameObject monitorsPageFilter;
+    public GameObject accessoriesPageFilter;
 
     public string url = "https://www.webay.com";
     void Start()
@@ -99,7 +91,7 @@ public class webay_Main : MonoBehaviour
         }
         else if (item.itemType == "GPU")
         {
-            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nSocket: " + item.itemSocket + "\nTMUs: " + item.itemTMUs + "\nROPs: " + item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
+            checkOutInfo.text = "Memory: " + item.itemSize + "MB " + item.itemVersion + "\nSpeed: " + item.itemSpeed + "MHz\nInterface: " + item.itemSocket + "\nTMUs: " + item.itemTMUs + "\nROPs: " + item.itemROPS + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
         else if (item.itemType == "RAM")
         {
@@ -128,6 +120,10 @@ public class webay_Main : MonoBehaviour
         else if (item.itemType == "Motherboard")
         {
             checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nChipset: " + item.itemFourth + "\nRAM Type: " + item.itemThird + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nPCIe Slots: " + item.itemSecond + "\nAGP Slots: " + item.itemTMUs;
+        }
+         else if (item.itemType == "Speaker")
+        {
+            checkOutInfo.text = "It's a speaker.";
         }
 
         checkOutName.text = item.itemName;
@@ -170,6 +166,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(true);
             gpuPageFilter.SetActive(false);
@@ -180,6 +177,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             processorPage.GetComponent<webay_Category>().filter1();
         }
@@ -194,6 +192,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(true);
@@ -204,6 +203,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             gpuPage.GetComponent<webay_Category>().filter1();
         }
@@ -218,6 +218,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -228,6 +229,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             ramPage.GetComponent<webay_Category>().filter1();
         }
@@ -242,6 +244,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -252,6 +255,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             motherboardPage.GetComponent<webay_Category>().filter1();
         }
@@ -266,6 +270,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -276,6 +281,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             hddPage.GetComponent<webay_Category>().filter1();
         }
@@ -290,6 +296,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -300,6 +307,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             casePage.GetComponent<webay_Category>().filter1();
         }
@@ -314,6 +322,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(true);
             fansPage.SetActive(false);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -324,6 +333,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(true);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             monitorsPage.GetComponent<webay_Category>().filter1();
         }
@@ -338,6 +348,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(true);
             psuPage.SetActive(false);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -348,6 +359,7 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(true);
             psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(false);
 
             fansPage.GetComponent<webay_Category>().filter1();
         }
@@ -362,6 +374,7 @@ public class webay_Main : MonoBehaviour
             monitorsPage.SetActive(false);
             fansPage.SetActive(false);
             psuPage.SetActive(true);
+            accessoriesPage.SetActive(false);
 
             processorPageFilter.SetActive(false);
             gpuPageFilter.SetActive(false);
@@ -372,6 +385,33 @@ public class webay_Main : MonoBehaviour
             monitorsPageFilter.SetActive(false);
             fansPageFilter.SetActive(false);
             psuPageFilter.SetActive(true);
+            accessoriesPageFilter.SetActive(false);
+
+            psuPage.GetComponent<webay_Category>().filter1();
+        }
+        if (id == 9)
+        {
+            processorPage.SetActive(false);
+            gpuPage.SetActive(false);
+            ramPage.SetActive(false);
+            motherboardPage.SetActive(false);
+            hddPage.SetActive(false);
+            casePage.SetActive(false);
+            monitorsPage.SetActive(false);
+            fansPage.SetActive(false);
+            psuPage.SetActive(false);
+            accessoriesPage.SetActive(true);
+
+            processorPageFilter.SetActive(false);
+            gpuPageFilter.SetActive(false);
+            ramPageFilter.SetActive(false);
+            motherboardPageFilter.SetActive(false);
+            hddPageFilter.SetActive(false);
+            casePageFilter.SetActive(false);
+            monitorsPageFilter.SetActive(false);
+            fansPageFilter.SetActive(false);
+            psuPageFilter.SetActive(false);
+            accessoriesPageFilter.SetActive(true);
 
             psuPage.GetComponent<webay_Category>().filter1();
         }

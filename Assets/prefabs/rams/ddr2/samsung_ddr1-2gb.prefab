@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1150338420096874211}
   - component: {fileID: 4375351925478087375}
   m_Layer: 7
-  m_Name: samsung_ddr1-512 2
+  m_Name: samsung_ddr1-2gb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
