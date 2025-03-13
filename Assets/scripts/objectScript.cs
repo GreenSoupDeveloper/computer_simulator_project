@@ -18,13 +18,19 @@ public class objectScript : MonoBehaviour
     public float objSpeed = 2.2f;
     public int tdp = 84;
 
-    [Header("RAM Stuff")]
+    
+    [Header("CPU Stuff")]
+    public CPUBrand cpuBrand;
+    public enum CPUBrand { Entel, AND };
+    public CPUSocket cpuSocket;
+    public int cores = 1;
+    public bool isx64 = false;
+    public int threads = 2;
+    public int cache = 512;
 
-    public int ramSize = 1024;
-    public RamType ramType;
-    public enum RamType { SDR, DDR, DDR2, DDR3, None };
+    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754, Socket_423, Socket_370 };
 
-    [Header("Motherboard Stuff")]
+        [Header("Motherboard Stuff")]
 
 
     public MoboBrand moboBrand;
@@ -40,6 +46,16 @@ public class objectScript : MonoBehaviour
     public int pciSlots;
     public int pcieSlots = 0;
     public int agpSlots;
+    public int ideSlots = 0;
+    public int sataSlots;
+
+    [Header("RAM Stuff")]
+
+    public int ramSize = 1024;
+    public RamType ramType;
+    public enum RamType { SDR, DDR, DDR2, DDR3, None };
+
+
     [Header("GPU Stuff")]
     public GPUBrand gpuBrand;
     public enum GPUSocket { AGP, PCI, PCIe };
@@ -77,14 +93,6 @@ public class objectScript : MonoBehaviour
 
 
 
-    [Header("CPU Stuff")]
-    public CPUBrand cpuBrand;
-    public enum CPUBrand { Entel, AND };
-    public CPUSocket cpuSocket;
-    public int cores = 1;
-    public int threads = 2;
-
-    public enum CPUSocket { Socket_A, Socket_478, Socket_939, LGA775, Socket_754, Socket_423 };
 
 
 

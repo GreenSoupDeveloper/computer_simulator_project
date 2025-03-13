@@ -67,19 +67,22 @@ public class pcOS : MonoBehaviour
         {
             if (startSequence)
             {
-                if (computer.isPcON)
+                if (computer != null)
                 {
+                    if (computer.isPcON)
+                    {
 
 
 
-                    startSequence = false;
-                    blackBars.SetActive(true);
+                        startSequence = false;
+                        blackBars.SetActive(true);
 
-                    Invoke("loadingScreen", 1.5f);
-                }
-                else
-                {
+                        Invoke("loadingScreen", 1.5f);
+                    }
+                    else
+                    {
 
+                    }
                 }
                 exitBtn.SetActive(false);
             }
@@ -113,13 +116,15 @@ public class pcOS : MonoBehaviour
                 loadingOS.SetActive(false);
                 operativeSystem.SetActive(false);
                 loadingSession.SetActive(false);
-                
+
 
                 off.SetActive(true);
                 blackBars.SetActive(false);
                 shuttingDown.SetActive(false);
                 booted = false;
-                computer.pcAudio.Stop();
+                if (computer.pcAudio != null)
+                    computer.pcAudio.Stop();
+
             }
             else
             {
@@ -154,10 +159,13 @@ public class pcOS : MonoBehaviour
         {
             if (computer != null)
             {
-                if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
-                    pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
-                else
-                    pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
+                if (computer.currentMonitor != null)
+                {
+                    if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+                        pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
+                    else
+                        pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
+                }
                 exitBtn.SetActive(false);
             }
         }
@@ -173,7 +181,7 @@ public class pcOS : MonoBehaviour
                 }
                 blackBars.SetActive(true);
 
-                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, -1.500002f);
+                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, 0.4000021f);
                 apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(161f, 0f);
 
 
@@ -188,7 +196,7 @@ public class pcOS : MonoBehaviour
                 }
                 blackBars.SetActive(false);
 
-                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, -1.500002f);
+                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, 0.4000021f);
                 apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
 
             }
@@ -220,13 +228,34 @@ public class pcOS : MonoBehaviour
     {
         if (computer.isPcON)
         {
+
             if (!onBSOD)
             {
+                off.SetActive(false);
 
                 if (!noBootDevice)
                 {
                     black.SetActive(false);
-                    float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 8;
+                    float timeme = (100 / computer.cpu.GetComponent<objectScript>().objSpeed) / 12;
+                    if (computer.ram1 != null && computer.ram2 != null)
+                    {
+                        timeme += (1000 / computer.ram1.GetComponent<objectScript>().objSpeed) / 2;
+                        timeme += (4096 / computer.ram1.GetComponent<objectScript>().ramSize) / 24;
+                        timeme += (1000 / computer.ram2.GetComponent<objectScript>().objSpeed) / 2;
+                        timeme += (4096 / computer.ram2.GetComponent<objectScript>().ramSize) / 24;
+                    }
+                    else if (computer.ram1 != null && computer.ram2 == null)
+                    {
+                        timeme += (1000 / computer.ram1.GetComponent<objectScript>().objSpeed);
+                        timeme += (4096 / computer.ram1.GetComponent<objectScript>().ramSize) / 20;
+                    }
+                    else if (computer.ram1 == null && computer.ram2 != null)
+                    {
+                        timeme += (1000 / computer.ram1.GetComponent<objectScript>().objSpeed);
+                        timeme += (4096 / computer.ram1.GetComponent<objectScript>().ramSize) / 20;
+                    }
+
+
                     loadingOS.SetActive(true);
                     Debug.Log("Time: " + timeme);
                     Invoke("delayOs", timeme);

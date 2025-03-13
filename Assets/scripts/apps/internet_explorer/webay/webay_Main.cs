@@ -87,7 +87,7 @@ public class webay_Main : MonoBehaviour
         nomoney.text = "";
         if (item.itemType == "CPU")
         {
-            checkOutInfo.text = "Socket: " + item.itemSocket + "\nSpeed: " + item.itemSpeed + "GHz\nCores: " + item.itemCores + "\nThreads: " + item.itemThreads + "\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
+            checkOutInfo.text = "Socket: " + item.itemSocket + "\nSpeed: " + item.itemSpeed + "GHz\nCores: " + item.itemCores + "\nThreads: " + item.itemThreads +"\nArchitecture: "+item.itemVersion + "\nCache: "+ item.itemThird + " KB\nTDP: " + item.itemTDP + " Watts\nLaunch Year: " + item.launchYear;
         }
         else if (item.itemType == "GPU")
         {
@@ -119,11 +119,19 @@ public class webay_Main : MonoBehaviour
         }
         else if (item.itemType == "Motherboard")
         {
-            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nChipset: " + item.itemFourth + "\nRAM Type: " + item.itemThird + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nPCIe Slots: " + item.itemSecond + "\nAGP Slots: " + item.itemTMUs;
+            checkOutInfo.text = "Socket: " + item.itemSocket + "\nForm-Factor: " + item.itemROPS + "\nChipset: " + item.itemFourth + "\nRAM Type: " + item.itemThird + "\nRAM Slots: " + item.itemSize + "\nPCI Slots: " + item.itemVersion + "\nPCIe Slots: " + item.itemSecond + "\nAGP Slots: " + item.itemTMUs + "\nIDE Slots: "+item.itemSixth +"\nSATA Slots: " + item.itemFifth;
         }
          else if (item.itemType == "Speaker")
         {
             checkOutInfo.text = "It's a speaker.";
+        }
+
+        if (item.itemType == "Motherboard")
+        {
+            checkOutInfo.fontSize = 37;
+        }
+        else{
+            checkOutInfo.fontSize = 42;
         }
 
         checkOutName.text = item.itemName;

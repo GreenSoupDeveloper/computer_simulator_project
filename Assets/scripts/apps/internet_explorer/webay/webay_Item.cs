@@ -24,6 +24,8 @@ public class webay_Item : MonoBehaviour
     public string itemSecond;
     public string itemThird;
     public string itemFourth;
+    public string itemFifth;
+    public string itemSixth;
     public Sprite itemImage;
 
     public GameObject itemPrefab;
@@ -43,9 +45,12 @@ public class webay_Item : MonoBehaviour
 
             itemCores = itemPrefab.GetComponent<objectScript>().cores;
             itemThreads = itemPrefab.GetComponent<objectScript>().threads;
+            itemTDP = itemPrefab.GetComponent<objectScript>().tdp;
+            itemVersion = itemPrefab.GetComponent<objectScript>().isx64 ? "x64" : "x86";
+            itemThird = itemPrefab.GetComponent<objectScript>().cache.ToString();
 
         }
-        if (itemType == "GPU")
+        else if (itemType == "GPU")
         {
             itemSize = itemPrefab.GetComponent<objectScript>().vram;
             itemVersion = itemPrefab.GetComponent<objectScript>().gpuType;
@@ -54,37 +59,37 @@ public class webay_Item : MonoBehaviour
             itemSocket = itemPrefab.GetComponent<objectScript>().gpuSocket.ToString();
 
         }
-        if (itemType == "RAM")
+        else if (itemType == "RAM")
         {
             itemSize = itemPrefab.GetComponent<objectScript>().ramSize;
 
             itemVersion = itemPrefab.GetComponent<objectScript>().ramType.ToString();
         }
-        if (itemType == "Monitor")
+        else if (itemType == "Monitor")
         {
             itemTMUs = itemPrefab.GetComponent<objectScript>().resolution;
             itemROPS = itemPrefab.GetComponent<objectScript>().ratio;
 
         }
-        if (itemType == "Hard_Drive")
+        else if (itemType == "Hard_Drive")
         {
             itemSize = itemPrefab.GetComponent<objectScript>().storage;
             itemVersion = itemPrefab.GetComponent<objectScript>().hddType;
             itemSocket = itemPrefab.GetComponent<objectScript>().hddInterface;
 
         }
-        if (itemType == "CPU_Fan")
+        else if (itemType == "CPU_Fan")
         {
             itemSocket = itemPrefab.GetComponent<objectScript>().compatibleSockets;
             itemSpeed = itemPrefab.GetComponent<objectScript>().fanSpeed;
 
         }
-        if (itemType == "Case")
+        else if (itemType == "Case")
         {
             itemSocket = itemPrefab.GetComponent<objectScript>().moboFormFactor.ToString().Replace("_", " ");
             itemSize = itemPrefab.GetComponent<objectScript>().hddSpaces;
         }
-        if (itemType == "Motherboard")
+        else if (itemType == "Motherboard")
         {
             itemSocket = itemPrefab.GetComponent<objectScript>().moboSocket.ToString().Replace("_", " ");
             itemROPS = itemPrefab.GetComponent<objectScript>().moboFormFactor.ToString().Replace("_", " ");
@@ -101,6 +106,9 @@ public class webay_Item : MonoBehaviour
                 itemFourth = itemPrefab.GetComponent<objectScript>().moboChipset;
             else
                 itemFourth = itemPrefab.GetComponent<objectScript>().moboChipset + " (No iGPU)";
+
+            itemFifth = itemPrefab.GetComponent<objectScript>().sataSlots.ToString();
+            itemSixth = itemPrefab.GetComponent<objectScript>().ideSlots.ToString();
         }
        
 

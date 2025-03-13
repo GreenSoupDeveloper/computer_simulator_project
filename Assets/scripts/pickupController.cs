@@ -49,11 +49,16 @@ public class pickupController : MonoBehaviour
     public int linkStep = 0;
     public Color clear;
     public LayerMask playerLayer;
+    public static AudioSource plySrc;
+     public AudioClip pop;
+     public static AudioClip popop;
 
     void Start()
     {
         infotxt.text = "";
         currPCOS = null;
+        popop = pop;
+        plySrc = GetComponentInParent<AudioSource>();
     }
 
     void Update()
@@ -447,6 +452,7 @@ public class pickupController : MonoBehaviour
                             }
 
                             currPCOS.GetComponentInParent<computerCase>().pcAudio = hitted.transform.gameObject.GetComponent<AudioSource>();
+                             currPCOS.GetComponentInParent<computerCase>().pcAudio = hitted.transform.gameObject.GetComponent<AudioSource>();
                             StartCoroutine(main.setInfoMessage("Speaker Connected!"));
                             linkStep++;
 

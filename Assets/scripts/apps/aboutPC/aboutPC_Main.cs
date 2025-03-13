@@ -34,12 +34,18 @@ public class aboutPC_Main : MonoBehaviour
         if (computer.cpu != null)
         {
             cpuname = computer.cpu.GetComponent<objectScript>().cpuBrand.ToString() + "(R) " + computer.cpu.GetComponent<objectScript>().name + " " + computer.cpu.GetComponent<objectScript>().other;
+            if (computer.cpu.GetComponent<objectScript>().isx64)
+                cpuname += " x64";
+            else
+                cpuname += " x86";
         }
         if (computer.gpu1 != null)
         {
             gpuname1 = computer.gpu1.GetComponent<objectScript>().gpuBrand.ToString() + "(R) " + computer.gpu1.GetComponent<objectScript>().name + " " + computer.gpu1.GetComponent<objectScript>().objSpeed + " MHz";
             vramamount += computer.gpu1.GetComponent<objectScript>().value;
-        }else{
+        }
+        else
+        {
             if (computer.mobo.GetComponent<objectScript>().hasiGPU)
                 gpuname1 = "Integrated " + computer.mobo.GetComponent<objectScript>().moboChipset.Replace("MVIDIA", "MVIDIA(R)").Replace("Entel", "Entel(R)").Replace("CiS", "CiS(R)");
             else
