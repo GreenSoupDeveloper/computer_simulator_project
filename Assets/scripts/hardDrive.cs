@@ -24,17 +24,19 @@ public class hardDrive : MonoBehaviour
             }
 
         }
-        if (!Directory.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles"))
+        if (!Application.isEditor)
         {
-            Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles");
+            if (!Directory.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles"))
+            {
+                Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles");
+            }
+
+            Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles/" + main.levelName);
+
+            if (!Directory.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles/" + main.levelName + "/" + hdName))
+                Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles/" + main.levelName + "/" + hdName);
+
         }
-
-        Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles/" + main.levelName);
-
-        if (!Directory.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles/" + main.levelName + "/" + hdName))
-            Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "/saveFiles/" + main.levelName + "/" + hdName);
-
-            
 
     }
 

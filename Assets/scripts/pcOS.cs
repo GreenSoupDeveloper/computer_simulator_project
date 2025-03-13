@@ -63,6 +63,7 @@ public class pcOS : MonoBehaviour
     void Update()
     {
 
+
         if (!noBootDevice)
         {
             if (startSequence)
@@ -159,18 +160,18 @@ public class pcOS : MonoBehaviour
         {
             if (computer != null)
             {
-                if (computer.currentMonitor != null)
-                {
-                    if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
-                        pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
-                    else
-                        pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
-                }
+
+                if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
+                    pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(960, 720);
+                else
+                    pcOSCanvas.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1280, 720);
+
                 exitBtn.SetActive(false);
             }
         }
         if (computer != null)
         {
+
             if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
             {
                 GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("OSScalable");
@@ -200,6 +201,7 @@ public class pcOS : MonoBehaviour
                 apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
 
             }
+
         }
 
         if (shuttingDownBool)
@@ -262,7 +264,10 @@ public class pcOS : MonoBehaviour
                 }
                 else
                 {
-                    setOS();
+                    operativeSystem.SetActive(true);
+                    black.SetActive(false);
+                    booted = true;
+                    Debug.Log("reached thinger dingle no hard drive");
                 }
             }
         }
@@ -285,6 +290,8 @@ public class pcOS : MonoBehaviour
     public IEnumerator setOS()
     {
         yield return new WaitForSeconds(1f);
+
+
         if (computer != null)
         {
             if (computer.currentMonitor.monitorRatio == computerMonitor.Ratio.Square)
@@ -315,6 +322,7 @@ public class pcOS : MonoBehaviour
 
 
         Debug.Log("os loaded actived thinger");
+
     }
     public void CloseOS()
     {

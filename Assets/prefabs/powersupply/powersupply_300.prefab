@@ -60,8 +60,12 @@ MonoBehaviour:
   launchYear: 2000
   objSpeed: 2.2
   tdp: 300
-  ramSize: 1024
-  ramType: 0
+  cpuBrand: 0
+  cpuSocket: 0
+  cores: 1
+  isx64: 0
+  threads: 2
+  cache: 512
   moboBrand: 0
   moboSocket: 0
   moboFormFactor: 0
@@ -73,6 +77,10 @@ MonoBehaviour:
   pciSlots: 0
   pcieSlots: 0
   agpSlots: 0
+  ideSlots: 0
+  sataSlots: 0
+  ramSize: 1024
+  ramType: 0
   gpuBrand: 0
   gpuSocket: 0
   vram: 256
@@ -88,10 +96,6 @@ MonoBehaviour:
   hddType: HDD
   storage: 120
   hddInterface: IDE
-  cpuBrand: 0
-  cpuSocket: 0
-  cores: 1
-  threads: 2
   fanObj: {fileID: 3011225861975841275}
   speed: 14
 --- !u!65 &3574311086645487889
@@ -363,7 +367,6 @@ GameObject:
   - component: {fileID: 3238112317676005503}
   - component: {fileID: 3391230229033023931}
   - component: {fileID: 3271807452735977608}
-  - component: {fileID: 1044089806466196464}
   m_Layer: 7
   m_Name: img
   m_TagString: Untagged
@@ -439,25 +442,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1044089806466196464
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7740599707345473379}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}

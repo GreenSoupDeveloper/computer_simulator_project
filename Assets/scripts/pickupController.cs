@@ -50,8 +50,8 @@ public class pickupController : MonoBehaviour
     public Color clear;
     public LayerMask playerLayer;
     public static AudioSource plySrc;
-     public AudioClip pop;
-     public static AudioClip popop;
+    public AudioClip pop;
+    public static AudioClip popop;
 
     void Start()
     {
@@ -136,6 +136,7 @@ public class pickupController : MonoBehaviour
                                         hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<objDetecter>().curcase.hdd3 = null;
                                         hitted.transform.gameObject.GetComponent<objectScript>().parent.transform.gameObject.GetComponent<objDetecter>().curcase.hddList.Remove(hitted.transform.gameObject);
                                     }
+                                    hitted.transform.gameObject.GetComponentInChildren<pcOS>().computer = null;
 
                                 }
                                 else if (hitted.transform.gameObject.GetComponent<objectScript>().type == objectScript.CompType.CPU)
@@ -233,7 +234,10 @@ public class pickupController : MonoBehaviour
                                 {
                                     if (hitted.transform.gameObject.GetComponentInParent<computerCase>().hasPowerSupply)
                                     {
-                                        hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON = true;
+                                        if (!hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON)
+                                        {
+                                            hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON = true;
+                                        }
                                     }
                                     else
                                     {
@@ -452,7 +456,7 @@ public class pickupController : MonoBehaviour
                             }
 
                             currPCOS.GetComponentInParent<computerCase>().pcAudio = hitted.transform.gameObject.GetComponent<AudioSource>();
-                             currPCOS.GetComponentInParent<computerCase>().pcAudio = hitted.transform.gameObject.GetComponent<AudioSource>();
+                            currPCOS.GetComponentInParent<computerCase>().pcAudio = hitted.transform.gameObject.GetComponent<AudioSource>();
                             StartCoroutine(main.setInfoMessage("Speaker Connected!"));
                             linkStep++;
 

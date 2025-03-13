@@ -329,9 +329,14 @@ public class computerCase : MonoBehaviour
 
       if (hddList.Count > 0)
       {
-
+        pcOS.noBootDevice = false;
         pcOS = hddList[0].GetComponentInChildren<pcOS>();
+        pcOS.computer = this;
+        pcOS.pcOSCanvas.worldCamera = currentMonitor.monitorCam;
+        pcOS.noBootDevice = false;
         noOS.pcOSCanvas.worldCamera = null;
+       
+        
       }
       else
       {
@@ -340,6 +345,7 @@ public class computerCase : MonoBehaviour
         {
           pcOS.pcOSCanvas.worldCamera = null;
         }
+        noOS.noBootDevice = true;
 
 
 
@@ -371,14 +377,14 @@ public class computerCase : MonoBehaviour
   }
   public void shutdownPc()
   {
-    if (pcOS.booted && !pcOS.onBSOD)
+    if (pcOS.booted && !pcOS.onBSOD && !pcOS.noBootDevice)
     {
       pcOS.shuttingDownBool = true;
       Invoke("thinger", 5f);
     }
     else
     {
-      Invoke("thinger", 1f);
+      Invoke("thinger", 0.5f);
     }
 
 
