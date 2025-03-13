@@ -24,6 +24,7 @@ public class playerMove : MonoBehaviour
     public Vector3 currentInputVector;
     private Vector2 smoothInputVelocity;
     float smoothInputSpeed = .15f;
+    public static bool isMovingVelocity;
 
     private Vector3 move = Vector3.zero;
 
@@ -40,7 +41,19 @@ public class playerMove : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L)){
+        if (
+                 characterController.velocity.x < -0.3f
+                 || characterController.velocity.x > 0.3f
+                 || characterController.velocity.z < -0.3f
+                 || characterController.velocity.z > 0.3f
+             )
+        {
+            isMovingVelocity = true;
+        }
+        else
+            isMovingVelocity = false;
+        if (Input.GetKeyDown(KeyCode.L))
+        {
             main.saveProgress();
         }
 
@@ -70,14 +83,14 @@ public class playerMove : MonoBehaviour
             }
             else
             {
-              
-                    v_mouse += mouseVertical * GameControls.cameraAxis.y;
-                    v_mouse = Mathf.Clamp(v_mouse, minRotation, maxRotation);
-                    h_mouse = mouseHorizontal * GameControls.cameraAxis.x;
-                    cam.transform.localEulerAngles = new Vector3(-v_mouse, 0, 0);
 
-                    transform.Rotate(0, h_mouse, 0);
-                
+                v_mouse += mouseVertical * GameControls.cameraAxis.y;
+                v_mouse = Mathf.Clamp(v_mouse, minRotation, maxRotation);
+                h_mouse = mouseHorizontal * GameControls.cameraAxis.x;
+                cam.transform.localEulerAngles = new Vector3(-v_mouse, 0, 0);
+
+                transform.Rotate(0, h_mouse, 0);
+
             }
         }
 
@@ -88,9 +101,18 @@ public class playerMove : MonoBehaviour
 
             if (GameControls.inSprint)
             {
-                multi = Mathf.SmoothDamp(multi, runSpeed, ref a, smoothInputSpeed);
-                curFOV = Mathf.SmoothDamp(curFOV, camOrgFOV + 10, ref b, smoothInputSpeed);
-                move = transform.TransformDirection(move) * multi;
+                if (isMovingVelocity)
+                {
+                    multi = Mathf.SmoothDamp(multi, runSpeed, ref a, smoothInputSpeed);
+                    curFOV = Mathf.SmoothDamp(curFOV, camOrgFOV + 10, ref b, smoothInputSpeed);
+                    move = transform.TransformDirection(move) * multi;
+                }
+                else
+                {
+                    multi = Mathf.SmoothDamp(multi, walkSpeed, ref a, smoothInputSpeed);
+                    curFOV = Mathf.SmoothDamp(curFOV, camOrgFOV, ref b, smoothInputSpeed);
+                    move = transform.TransformDirection(move) * multi;
+                }
             }
             else
             {
