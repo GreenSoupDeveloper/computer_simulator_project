@@ -45,7 +45,10 @@ public class objDetecter : MonoBehaviour
                     curcase.hasMOBO = true;
                     other.gameObject.GetComponent<objectScript>().isOnPC = true;
                     other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                    other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                    for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                    {
+                        other.gameObject.GetComponents<Collider>()[i].excludeLayers = curcase.caseLayer;
+                    }
                     if (pickupController.heldObj == other.gameObject)
                     {
                         pickupController.heldObj = null;
@@ -73,7 +76,10 @@ public class objDetecter : MonoBehaviour
                     curcase.hasPowerSupply = true;
                     other.gameObject.GetComponent<objectScript>().isOnPC = true;
                     other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                    other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                    for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                    {
+                        other.gameObject.GetComponents<Collider>()[i].excludeLayers = curcase.caseLayer;
+                    }
                     if (pickupController.heldObj == other.gameObject)
                     {
                         pickupController.heldObj = null;
@@ -103,7 +109,12 @@ public class objDetecter : MonoBehaviour
                         curcase.hasHDD1 = true;
                         other.gameObject.GetComponent<objectScript>().isOnPC = true;
                         other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                        other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                        for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                        {
+                            other.gameObject.GetComponents<Collider>()[i].excludeLayers = curcase.caseLayer;
+                        }
+
+
                         if (pickupController.heldObj == other.gameObject)
                         {
                             pickupController.heldObj = null;
@@ -132,7 +143,10 @@ public class objDetecter : MonoBehaviour
                         curcase.hasHDD2 = true;
                         other.gameObject.GetComponent<objectScript>().isOnPC = true;
                         other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                        other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                        for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                        {
+                            other.gameObject.GetComponents<Collider>()[i].excludeLayers = curcase.caseLayer;
+                        }
                         if (pickupController.heldObj == other.gameObject)
                         {
                             pickupController.heldObj = null;
@@ -161,7 +175,10 @@ public class objDetecter : MonoBehaviour
                         curcase.hasHDD3 = true;
                         other.gameObject.GetComponent<objectScript>().isOnPC = true;
                         other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                        other.gameObject.GetComponent<Collider>().excludeLayers = curcase.caseLayer;
+                        for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                        {
+                            other.gameObject.GetComponents<Collider>()[i].excludeLayers = curcase.caseLayer;
+                        }
                         if (pickupController.heldObj == other.gameObject)
                         {
                             pickupController.heldObj = null;

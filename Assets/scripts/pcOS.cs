@@ -10,16 +10,14 @@ public class pcOS : MonoBehaviour
     public Canvas pcOSCanvas;
     public computerCase computer;
     public GameObject off;
+    public TMP_Text hourText;
 
     public GameObject black;
     public GameObject wallpaperimg;
-
-    public GameObject taskBarStart;
     public GameObject exitBtn;
     public GameObject BSOD;
     public GameObject blackBars;
     public GameObject operativeSystem;
-    public GameObject apps;
 
     public GameObject loadingOS;
     public GameObject loadingSession;
@@ -37,6 +35,10 @@ public class pcOS : MonoBehaviour
     public TextMeshProUGUI texter;
     public AudioClip pcBootSound;
     public AudioClip pcShutdownSound;
+
+    public string sessionID = "";
+
+    bool createID = true;
 
 
 
@@ -62,6 +64,10 @@ public class pcOS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (booted && !noBootDevice)
+        {
+            hourText.text = System.DateTime.Now.ToString("HH:mm tt").ToUpper().Replace(". ", "").Replace(".", "");
+        }
 
 
         if (!noBootDevice)
@@ -126,10 +132,22 @@ public class pcOS : MonoBehaviour
                 if (computer.pcAudio != null)
                     computer.pcAudio.Stop();
 
+
+
+                string thinger = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                sessionID="";
+                for (int i = 0; i < 4; i++)
+                {
+                    sessionID += thinger[UnityEngine.Random.Range(0, thinger.Length)];
+                }
+
+
+
             }
             else
             {
                 off.SetActive(false);
+
             }
         }
         else
@@ -182,8 +200,8 @@ public class pcOS : MonoBehaviour
                 }
                 blackBars.SetActive(true);
 
-                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-3f, 0.4000021f);
-                apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(161f, 0f);
+
+
 
 
             }
@@ -197,8 +215,8 @@ public class pcOS : MonoBehaviour
                 }
                 blackBars.SetActive(false);
 
-                taskBarStart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-55f, 0.4000021f);
-                apps.GetComponent<RectTransform>().anchoredPosition = new Vector2(8f, 0f);
+
+
 
             }
 
@@ -253,14 +271,14 @@ public class pcOS : MonoBehaviour
                     }
                     else if (computer.ram1 == null && computer.ram2 != null)
                     {
-                        timeme += (1000 / computer.ram1.GetComponent<objectScript>().objSpeed);
-                        timeme += (4096 / computer.ram1.GetComponent<objectScript>().ramSize) / 20;
+                        timeme += (1000 / computer.ram2.GetComponent<objectScript>().objSpeed);
+                        timeme += (4096 / computer.ram2.GetComponent<objectScript>().ramSize) / 20;
                     }
 
 
                     loadingOS.SetActive(true);
                     Debug.Log("Time: " + timeme);
-                    Invoke("delayOs", timeme);
+                    StartCoroutine(delaying(sessionID, timeme));
                 }
                 else
                 {
@@ -270,6 +288,18 @@ public class pcOS : MonoBehaviour
                     Debug.Log("reached thinger dingle no hard drive");
                 }
             }
+        }
+    }
+    public IEnumerator delaying(string curID, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if (sessionID == curID)
+        {
+            delayOs();
+        }
+        else
+        {
+            Debug.Log("not current session");
         }
     }
     void delayOs()

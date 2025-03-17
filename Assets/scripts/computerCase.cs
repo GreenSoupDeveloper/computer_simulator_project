@@ -55,9 +55,6 @@ public class computerCase : MonoBehaviour
   bool cpuFanChecked = false;
   [Header("pcos thing")]
   public bool isPcON = false;
-  public string sessionID = "";
-
-  bool createID = true;
 
   [Header("audio thing")]
   public AudioSource pcAudio;
@@ -116,7 +113,7 @@ public class computerCase : MonoBehaviour
 
       if (hasMOBO && hasPowerSupply && hasCPU)
       {
-        createID = true;
+       
         if (cpu.GetComponent<objectScript>().isObjDamaged == true)
         {
           //cpu is damaged

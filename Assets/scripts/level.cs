@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using System.IO;
-using Newtonsoft.Json;
-public class level : MonoBehaviour
+public class level
 {
-    public GameObject[] levelObjs;
+    public levelObject[] levelObjs;
+    
+}
+public class levelObject{
+    
+    public string prefabLocation;
+    public float objPosX, objPosY, objPosZ;
+    public float objRotX, objRotY, objRotZ;
 }

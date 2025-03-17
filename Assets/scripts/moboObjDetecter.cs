@@ -7,7 +7,7 @@ public class moboObjDetecter : MonoBehaviour
     public MoboObjDetecterType thisObjType;
     public enum MoboObjDetecterType { CPU, GPU, RAM, CPU_Fan };
 
-   
+
     [Header("RAM stuff")]
     //if false: ram2, if true: ram1
     public int ramSlot = 1;
@@ -33,9 +33,10 @@ public class moboObjDetecter : MonoBehaviour
     }
     void PlaySound(int type)
     {
-        if(type == 0){
-        if (pickupController.plySrc != null)
-            pickupController.plySrc.PlayOneShot(pickupController.popop);
+        if (type == 0)
+        {
+            if (pickupController.plySrc != null)
+                pickupController.plySrc.PlayOneShot(pickupController.popop);
         }
     }
     void OnTriggerEnter(Collider other)
@@ -46,39 +47,38 @@ public class moboObjDetecter : MonoBehaviour
             {
                 if (!curMobo.hasCPU)
                 {
-                    if (!curMobo.hasCPUFan)
-                    {
-                        if (other.gameObject.GetComponent<objectScript>().cpuSocket == cpuSocket)
-                        {
-                            other.gameObject.transform.parent = this.gameObject.transform;
-                            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                            other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
-                            other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                            other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
-                            curMobo.hasCPU = true;
-                            other.gameObject.GetComponent<objectScript>().isOnPC = true;
-                            other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                            other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
-                            if (pickupController.heldObj == other.gameObject)
-                            {
-                                pickupController.heldObj = null;
-                                pickupController.pickedObject = false;
-                                pickupController.heldObjRB = null;
-                            }
 
-                            curMobo.cpu = other.gameObject;
-                            PlaySound(0);
-                        }
-                        else
+                    if (other.gameObject.GetComponent<objectScript>().cpuSocket == cpuSocket)
+                    {
+                        other.gameObject.transform.parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                        other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                        other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                        curMobo.hasCPU = true;
+                        other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                        other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                        for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
                         {
-                            Debug.Log("cpu socket mismatch!");
+                            other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
                         }
+
+                        if (pickupController.heldObj == other.gameObject)
+                        {
+                            pickupController.heldObj = null;
+                            pickupController.pickedObject = false;
+                            pickupController.heldObjRB = null;
+                        }
+
+                        curMobo.cpu = other.gameObject;
+                        PlaySound(0);
                     }
                     else
                     {
-                        Debug.Log("mobo has a cpu fan, remove it!!");
+                        Debug.Log("cpu socket mismatch!");
                     }
+
 
                 }
                 else
@@ -107,7 +107,10 @@ public class moboObjDetecter : MonoBehaviour
                                 curMobo.hasRAM1 = true;
 
                                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                                for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
+                                }
                                 if (pickupController.heldObj == other.gameObject)
                                 {
                                     pickupController.heldObj = null;
@@ -150,7 +153,10 @@ public class moboObjDetecter : MonoBehaviour
                                 curMobo.hasRAM2 = true;
                                 other.gameObject.GetComponent<objectScript>().isOnPC = true;
                                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                                for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
+                                }
 
                                 if (pickupController.heldObj == other.gameObject)
                                 {
@@ -185,24 +191,30 @@ public class moboObjDetecter : MonoBehaviour
             {
                 if (!curMobo.hasCPUFan)
                 {
-                    other.gameObject.transform.parent = this.gameObject.transform;
-                    other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                    other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                    other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
-                    other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                    other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
-                    curMobo.hasCPUFan = true;
-                    other.gameObject.GetComponent<objectScript>().isOnPC = true;
-                    other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                    other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
-                    if (pickupController.heldObj == other.gameObject)
+                    if (curMobo.hasCPU)
                     {
-                        pickupController.heldObj = null;
-                        pickupController.pickedObject = false;
-                        pickupController.heldObjRB = null;
+                        other.gameObject.transform.parent = this.gameObject.transform;
+                        other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                        other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                        other.gameObject.transform.localEulerAngles = new Vector3(90f, 0f, 0f);
+                        other.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                        other.gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.015f, gameObject.transform.position.z);
+                        curMobo.hasCPUFan = true;
+                        other.gameObject.GetComponent<objectScript>().isOnPC = true;
+                        other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
+                        for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                        {
+                            other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
+                        }
+                        if (pickupController.heldObj == other.gameObject)
+                        {
+                            pickupController.heldObj = null;
+                            pickupController.pickedObject = false;
+                            pickupController.heldObjRB = null;
+                        }
+                        curMobo.cpuFan = other.gameObject;
+                        PlaySound(0);
                     }
-                    curMobo.cpuFan = other.gameObject;
-                    PlaySound(0);
                 }
                 else
                 {
@@ -228,7 +240,10 @@ public class moboObjDetecter : MonoBehaviour
                                 curMobo.hasGPU1 = true;
                                 other.gameObject.GetComponent<objectScript>().isOnPC = true;
                                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                                for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
+                                }
                                 if (pickupController.heldObj == other.gameObject)
                                 {
                                     pickupController.heldObj = null;
@@ -272,7 +287,10 @@ public class moboObjDetecter : MonoBehaviour
                                 curMobo.hasGPU2 = true;
                                 other.gameObject.GetComponent<objectScript>().isOnPC = true;
                                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                                for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
+                                }
                                 if (pickupController.heldObj == other.gameObject)
                                 {
                                     pickupController.heldObj = null;
@@ -315,7 +333,10 @@ public class moboObjDetecter : MonoBehaviour
                                 curMobo.hasGPU3 = true;
                                 other.gameObject.GetComponent<objectScript>().isOnPC = true;
                                 other.gameObject.GetComponent<objectScript>().parent = this.gameObject.transform;
-                                other.gameObject.GetComponent<Collider>().excludeLayers = curMobo.moboLayer;
+                                for (int i = 0; i < other.gameObject.GetComponents<Collider>().Length; i++)
+                                {
+                                    other.gameObject.GetComponents<Collider>()[i].excludeLayers = curMobo.moboLayer;
+                                }
                                 if (pickupController.heldObj == other.gameObject)
                                 {
                                     pickupController.heldObj = null;

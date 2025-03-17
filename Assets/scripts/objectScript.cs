@@ -130,8 +130,7 @@ public class objectScript : MonoBehaviour
         }
         else
         {
-            if (type == CompType.CPU_Fan)
-                speed = (fanSpeed - 1000f);
+          
             if (type == CompType.CPU_Fan || type == CompType.GPU || type == CompType.Power_Supply)
             {
                 if (parent.GetComponentInParent<computerCase>() != null)
