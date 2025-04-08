@@ -18,11 +18,11 @@ public class computerCase : MonoBehaviour
   public bool hasCPU = false;
   public bool hasRAM1 = false;
   public bool hasRAM2 = false;
-
   public bool hasGPU1 = false;
   public bool hasGPU2 = false;
   public bool hasGPU3 = false;
   public bool hasCPUFan = false;
+  public bool hasDVDDrive = false;
 
   [Header("past pc parts")]
 
@@ -35,6 +35,8 @@ public class computerCase : MonoBehaviour
   public bool hadGPU1 = false;
   public bool hadGPU2 = false;
   public bool hadGPU3 = false;
+  public bool hadCPUFan = false;
+  public bool hadDVDDrive = false;
   public GameObject hdd1;
   public GameObject hdd2;
   public GameObject hdd3;
@@ -47,6 +49,7 @@ public class computerCase : MonoBehaviour
   public GameObject gpu2;
   public GameObject gpu3;
   public GameObject cpuFan;
+    public GameObject dvdDrive;
   public GameObject onLight;
   public List<GameObject> hddList;
 
@@ -89,6 +92,7 @@ public class computerCase : MonoBehaviour
       hasRAM1 = mobo.GetComponent<moboScript>().hasRAM1;
       hasRAM2 = mobo.GetComponent<moboScript>().hasRAM2;
       hasCPUFan = mobo.GetComponent<moboScript>().hasCPUFan;
+    
     }
     else
     {
@@ -108,12 +112,13 @@ public class computerCase : MonoBehaviour
       hasRAM2 = false;
       hasCPUFan = false;
     }
+      
     if (isPcON)
     {
 
       if (hasMOBO && hasPowerSupply && hasCPU)
       {
-       
+
         if (cpu.GetComponent<objectScript>().isObjDamaged == true)
         {
           //cpu is damaged
@@ -290,6 +295,14 @@ public class computerCase : MonoBehaviour
       hadHDD3 = hasHDD3;
       hadRAM1 = hasRAM1;
       hadRAM2 = hasRAM2;
+      if (mobo == null)
+      {
+        hasMOBO = false;
+      }
+      if (powerSupply == null)
+      {
+        hasPowerSupply = false;
+      }
       if (gpu1 == null)
       {
         hasGPU1 = false;
@@ -326,14 +339,14 @@ public class computerCase : MonoBehaviour
 
       if (hddList.Count > 0)
       {
-        pcOS.noBootDevice = false;
+
         pcOS = hddList[0].GetComponentInChildren<pcOS>();
         pcOS.computer = this;
         pcOS.pcOSCanvas.worldCamera = currentMonitor.monitorCam;
-        pcOS.noBootDevice = false;
+
         noOS.pcOSCanvas.worldCamera = null;
-       
-        
+
+
       }
       else
       {
@@ -342,7 +355,7 @@ public class computerCase : MonoBehaviour
         {
           pcOS.pcOSCanvas.worldCamera = null;
         }
-        noOS.noBootDevice = true;
+
 
 
 
@@ -374,7 +387,7 @@ public class computerCase : MonoBehaviour
   }
   public void shutdownPc()
   {
-    if (pcOS.booted && !pcOS.onBSOD && !pcOS.noBootDevice)
+    if (pcOS.booted && !pcOS.onBSOD && pcOS.operativeSystemType != pcOS.OperativeSystem.No_Boot_Device)
     {
       pcOS.shuttingDownBool = true;
       Invoke("thinger", 5f);

@@ -490,7 +490,7 @@ TextureImporter:
         x: 28
         y: 400
         width: 24
-        height: 23
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -725,6 +725,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: windowsBtns_28
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 400
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6d642f202efc5489fa124c2e26b23c
+      internalID: 2056492911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windowsBtns_29
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 400
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d52f088d8e904448ace75edb9aebea
+      internalID: 1789666473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -760,6 +804,8 @@ TextureImporter:
       windowsBtns_25: -1851643226
       windowsBtns_26: 684577560
       windowsBtns_27: 839773699
+      windowsBtns_28: 2056492911
+      windowsBtns_29: 1789666473
       windowsBtns_3: 56310912
       windowsBtns_4: -1731034795
       windowsBtns_5: -2045617170

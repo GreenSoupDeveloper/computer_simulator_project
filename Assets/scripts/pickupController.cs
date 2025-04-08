@@ -236,6 +236,7 @@ public class pickupController : MonoBehaviour
                                     {
                                         if (!hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON)
                                         {
+                                            
                                             hitted.transform.gameObject.GetComponentInParent<computerCase>().isPcON = true;
                                         }
                                     }

@@ -6,7 +6,7 @@ public class objectScript : MonoBehaviour
     public bool isOnPC = false;
     public bool isObjDamaged = false;
     public CompType type;
-    public enum CompType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan, Nothing, Monitor, Speaker };
+    public enum CompType { Case, CPU, GPU, Motherboard, Power_Supply, Hard_Drive, RAM, CPU_Fan, Nothing, Monitor, Speaker, DVD_Drive };
     public string name = "Thinger";
     public string other = "";
     public int value = 100;

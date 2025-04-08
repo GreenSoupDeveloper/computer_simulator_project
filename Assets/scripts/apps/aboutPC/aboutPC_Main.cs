@@ -5,33 +5,42 @@ using UnityEngine.UI;
 
 public class aboutPC_Main : MonoBehaviour
 {
-    public GameObject aboutPcObj;
+    public GameObject mainObj;
     public TMP_Text infoText;
 
     public bool windowOpened = false;
-
+    public GameObject focusedParent;
+    public GameObject unfocusedParent;
+    public GameObject minimizedParent;
+    public pcOS pcOs;
 
 
 
     void Start()
     {
-        aboutPcObj.SetActive(false);
+        mainObj.SetActive(false);
     }
     void Update()
     {
         //infoText.text = "This is a PC. It is a computer. It has a motherboard, a CPU, a GPU, RAM, and a CPU fan. It also has a power supply, a hard drive, and a case. It has a monitor, a keyboard, and a mouse. It runs an operating system. It can run apps. It can browse the internet. It can play games. It can do many things. It is a PC.";
 
-        string cpuname = "None";
-        string gpuname1 = "None";
-        string gpuname2 = "None";
-        string gpuname3 = "None";
+        string cpuname = "None. (Are you a wizard?)";
+        string gpuname1 = "None.";
+        string gpuname2 = "None.";
+        string gpuname3 = "None.";
+        string osInfo = "No OS Installed. (How are you reading this?)";
         int ramamount = 0;
         int vramamount = 0;
 
         int storage = 0;
-        computerCase computer = gameObject.GetComponentInParent<pcOS>().computer;
+        computerCase computer = pcOs.computer;
         if (computer != null)
         {
+            osInfo = "Greensoft ® Tinglows\n";
+            osInfo += pcOs.operativeSystemType.ToString().Replace("_", " ") + " " + pcOs.operativeSystemEdition.ToString().Replace("_", " ")+ "\n";
+            osInfo += "Confidential Beta Build. DO NOT REDISTRIBUTE!\n";
+            osInfo += "Copyright © 2001 Greensoft Corporation\n\nSpecs:\n\n";
+            
 
 
             if (computer.cpu != null)
@@ -88,17 +97,17 @@ public class aboutPC_Main : MonoBehaviour
             }
 
 
-            infoText.text = "CPU: " + cpuname + "\nGPU(s): \n" + gpuname1 + "\n" + gpuname2 + "\n" + gpuname3 + "\nRAM: " + ramamount + "MB\nVRAM: " + vramamount + "MB\nStorage: " + storage + "GB";
+            infoText.text = osInfo + "CPU: " + cpuname + "\nGPU(s): \n" + gpuname1 + "\n" + gpuname2 + "\n" + gpuname3 + "\nRAM: " + ramamount + "MB\nVRAM: " + vramamount + "MB\nStorage: " + storage + "GB";
 
             if (windowOpened)
             {
 
-                aboutPcObj.SetActive(true);
+                mainObj.SetActive(true);
 
             }
             else
             {
-                aboutPcObj.SetActive(false);
+                mainObj.SetActive(false);
             }
 
 
@@ -119,9 +128,28 @@ public class aboutPC_Main : MonoBehaviour
     public void CloseApp()
     {
         windowOpened = false;
+        this.gameObject.transform.parent = unfocusedParent.transform;
+        mainObj.transform.parent = unfocusedParent.transform;
+    } public void MinimizeApp()
+    {
+
+        this.gameObject.transform.parent = minimizedParent.transform;
+        mainObj.transform.parent = minimizedParent.transform;
     }
     public void OpenApp()
     {
+
+        if (windowOpened == false)
+        {
+            appMain[] focusedWindows = focusedParent.GetComponentsInChildren<appMain>();
+            for (int i = 0; i < focusedWindows.Length; i++)
+            {
+                focusedWindows[i].gameObject.transform.parent = unfocusedParent.transform;
+            }
+
+            this.gameObject.transform.parent = focusedParent.transform;
+            mainObj.transform.parent = focusedParent.transform;
+        }
         windowOpened = true;
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class internet_explorer_Main : MonoBehaviour
 {
-    public GameObject browserObj;
+    public GameObject mainObj;
     public GameObject homePageObj;
     public bool browserOpened = false;
 
@@ -13,11 +13,15 @@ public class internet_explorer_Main : MonoBehaviour
     public List<GameObject> historyBack = new List<GameObject>();
     public List<GameObject> historyForward = new List<GameObject>();
     public string currentURL = "https://www.coogle.com";
-    
+
     public TMP_InputField urlInput;
+    public GameObject focusedParent;
+    public GameObject unfocusedParent;
+    public GameObject minimizedParent;
+
     void Start()
     {
-        browserObj.SetActive(false);
+        mainObj.SetActive(false);
         openHome();
     }
     void Update()
@@ -27,12 +31,12 @@ public class internet_explorer_Main : MonoBehaviour
         if (browserOpened)
         {
 
-            browserObj.SetActive(true);
+            mainObj.SetActive(true);
 
         }
         else
         {
-            browserObj.SetActive(false);
+            mainObj.SetActive(false);
         }
         if (homePageOpened)
         {
@@ -58,9 +62,12 @@ public class internet_explorer_Main : MonoBehaviour
             browserOpened = false;
         }
     }
-    public void close()
+    public void CloseApp()
     {
         browserOpened = false;
+        homePageOpened = true;
+        this.gameObject.transform.parent = unfocusedParent.transform;
+        mainObj.transform.parent = unfocusedParent.transform;
     }
     public void openHome()
     {
@@ -70,9 +77,28 @@ public class internet_explorer_Main : MonoBehaviour
     {
         homePageOpened = false;
     }
-    public void openinternet_explorer_Main()
+    public void MinimizeApp()
     {
-        browserOpened = true;
+        this.gameObject.transform.parent = minimizedParent.transform;
+        mainObj.transform.parent = minimizedParent.transform;
     }
-    
+    public void OpenApp()
+    {
+
+
+        if (browserOpened == false)
+        {
+            appMain[] focusedWindows = focusedParent.GetComponentsInChildren<appMain>();
+            for (int i = 0; i < focusedWindows.Length; i++)
+            {
+                focusedWindows[i].gameObject.transform.parent = unfocusedParent.transform;
+            }
+
+            this.gameObject.transform.parent = focusedParent.transform;
+            mainObj.transform.parent = focusedParent.transform;
+        }
+        browserOpened = true;
+        homePageOpened = true;
+    }
+
 }
